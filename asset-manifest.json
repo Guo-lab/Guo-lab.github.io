@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Guo-lab.github.io.git/static/css/main.2f118c52.css",
-    "main.js": "/Guo-lab.github.io.git/static/js/main.e7cb04f5.js",
-    "static/js/57.77113740.chunk.js": "/Guo-lab.github.io.git/static/js/57.77113740.chunk.js",
-    "static/js/355.765acfd0.chunk.js": "/Guo-lab.github.io.git/static/js/355.765acfd0.chunk.js",
-    "static/js/621.9839157a.chunk.js": "/Guo-lab.github.io.git/static/js/621.9839157a.chunk.js",
-    "static/js/813.de4d97c6.chunk.js": "/Guo-lab.github.io.git/static/js/813.de4d97c6.chunk.js",
-    "static/js/453.87e45203.chunk.js": "/Guo-lab.github.io.git/static/js/453.87e45203.chunk.js",
-    "index.html": "/Guo-lab.github.io.git/index.html",
-    "main.2f118c52.css.map": "/Guo-lab.github.io.git/static/css/main.2f118c52.css.map",
-    "main.e7cb04f5.js.map": "/Guo-lab.github.io.git/static/js/main.e7cb04f5.js.map",
-    "57.77113740.chunk.js.map": "/Guo-lab.github.io.git/static/js/57.77113740.chunk.js.map",
-    "355.765acfd0.chunk.js.map": "/Guo-lab.github.io.git/static/js/355.765acfd0.chunk.js.map",
-    "621.9839157a.chunk.js.map": "/Guo-lab.github.io.git/static/js/621.9839157a.chunk.js.map",
-    "453.87e45203.chunk.js.map": "/Guo-lab.github.io.git/static/js/453.87e45203.chunk.js.map"
+    "main.css": "/Guo-lab.github.io/static/css/main.2f118c52.css",
+    "main.js": "/Guo-lab.github.io/static/js/main.69d74372.js",
+    "static/js/57.77113740.chunk.js": "/Guo-lab.github.io/static/js/57.77113740.chunk.js",
+    "static/js/355.765acfd0.chunk.js": "/Guo-lab.github.io/static/js/355.765acfd0.chunk.js",
+    "static/js/621.9839157a.chunk.js": "/Guo-lab.github.io/static/js/621.9839157a.chunk.js",
+    "static/js/813.de4d97c6.chunk.js": "/Guo-lab.github.io/static/js/813.de4d97c6.chunk.js",
+    "static/js/453.87e45203.chunk.js": "/Guo-lab.github.io/static/js/453.87e45203.chunk.js",
+    "index.html": "/Guo-lab.github.io/index.html",
+    "main.2f118c52.css.map": "/Guo-lab.github.io/static/css/main.2f118c52.css.map",
+    "main.69d74372.js.map": "/Guo-lab.github.io/static/js/main.69d74372.js.map",
+    "57.77113740.chunk.js.map": "/Guo-lab.github.io/static/js/57.77113740.chunk.js.map",
+    "355.765acfd0.chunk.js.map": "/Guo-lab.github.io/static/js/355.765acfd0.chunk.js.map",
+    "621.9839157a.chunk.js.map": "/Guo-lab.github.io/static/js/621.9839157a.chunk.js.map",
+    "453.87e45203.chunk.js.map": "/Guo-lab.github.io/static/js/453.87e45203.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2f118c52.css",
-    "static/js/main.e7cb04f5.js"
+    "static/js/main.69d74372.js"
   ]
 }
