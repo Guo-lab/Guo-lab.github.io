@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio_app=self.webpackChunkportfolio_app||[]).push([[813],{7813:(e,p,a)=>{a.r(p),a.d(p,{FallbackSpinner:()=>l.default,ThemeToggler:()=>o.default});var l=a(6905),o=a(6654)}}]);

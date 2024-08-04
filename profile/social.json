@@ -1,0 +1,16 @@
+{
+    "social": [
+        {
+            "network" : "linkedin",
+            "href": "https://www.linkedin.com/in/siqiguo047/"
+        },
+        {
+            "network" : "github",
+            "href": "https://github.com/Guo-lab"
+        },
+        {
+            "network" : "email",
+            "href": "siqiguo@andrew.cmu.edu"
+        }
+    ]
+}

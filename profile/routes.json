@@ -1,0 +1,14 @@
+{
+    "sections": [
+        {
+            "component": "Publications",
+            "path": "/publications",
+            "headerTitle": "Publications"
+        },
+        {
+            "component": "Projects",
+            "path": "/projects",
+            "headerTitle": "Projects"
+        }
+    ]
+}
