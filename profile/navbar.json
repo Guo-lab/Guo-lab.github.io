@@ -15,7 +15,8 @@
         },
         {
             "title": "Projects",
-            "href": "/projects"
+            "href": "/projects",
+            "type": "link"
         },
         {
             "title": "Resume",
