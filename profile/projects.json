@@ -11,6 +11,7 @@
         },
         {
             "image" : "videos/projects/lab9.mp4",
+            "image2" : "../videos/projects/lab9.mp4",
             "mediaType": "video",
             "title": "AV-F1TENTH-Labs",
             "bodyText": "- Implemented AEB, Wall Following (based on PID controller), and Pure Pursuit control methods.\n - Implemented Gap Following and RRT Planning algorithm.\n - Implemented Model Predictive Control based on a kinematic bicycle model.",
