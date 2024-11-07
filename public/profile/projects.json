@@ -2,6 +2,7 @@
     "projects" : [
         {
             "image" : "images/projects/process_with_gray_bg.jpg",
+            "mediaType": "image",
             "title": "CMU 18-797 Course Project, Blind Source Separation",
             "bodyText": "Based on biological principles, we recognized that different Motor Units (MUs) possess unique peak characteristics.\nTherefore, the key to identifying different MUs lies in the detection and analysis of these peaks.\n\nThis project includes signal filtering, peak detection, principal component analysis (PCA), K-means clustering, and dynamic time warping (DTW) analysis.",
             "startDate": "2023-10-15",
@@ -10,6 +11,8 @@
         },
         {
             "image" : "videos/projects/lab9.mp4",
+            "image2" : "../videos/projects/lab9.mp4",
+            "mediaType": "video",
             "title": "AV-F1TENTH-Labs",
             "bodyText": "- Implemented AEB, Wall Following (based on PID controller), and Pure Pursuit control methods.\n - Implemented Gap Following and RRT Planning algorithm.\n - Implemented Model Predictive Control based on a kinematic bicycle model.",
             "startDate": "2024-07-12",
@@ -18,6 +21,7 @@
         },
         {
             "image" : "images/projects/3tier.jpg",
+            "mediaType": "image",
             "title": "CMU 15-640 Course Project",
             "bodyText": "- Implemented RPC.\n - Implemented a File-Caching Proxy with LRU replacement policy, open-close session semantics, and version control.\n - Implemented a simple 3-tier scalable web service.\n - Finally, implemented a 2PC protocol distributed transaction system.",
             "startDate": "2024-02-01",
@@ -26,6 +30,7 @@
         },
         {
             "image" : "videos/projects/6_legs_emergent.mp4",
+            "mediaType": "video",
             "title": "Modular Robot: EigenBot under Distributed Control",
             "bodyText": "- Implemented the curve walking algorithm in CoppeliaSim, inspired by six-leg insects' behavior, based on a biologically inspired distributed control framework.\n - Developed Eigenbot EEPROM parameters auto-setting tools, accelerating Hexapod gaits tuning process.\n - Tested the firmware, debugged the modules' communication protocol & redesigned topology structure to ensure the robot's stability and reliability.\n - Built the terrain, setup motion capture system, & recorded motion data.",
             "startDate": "2023-12-27",
@@ -34,6 +39,7 @@
         },
         {
             "image" : "images/projects/mmpug_groupshot-scaled.jpg",
+            "mediaType": "image",
             "title": "MMPUG, Multi-Model Perception Uber Good",
             "bodyText": "- Implemented A* & Theta* global planner with 2.5D orientation optimization for MMPUG architecture.\n - Integrated features to make the planner adaptive to dynamic obstacles and ensure a safety distance for the robots.\nTested the global planner both in simulation and in the real environment.",
             "startDate": "2024-05-01",
@@ -42,7 +48,8 @@
         },
         {
             "image" : "videos/projects/bustub.mp4",
-            "title": "CMU 15-645 Personal Project BusTub - a relational DBMS",
+            "mediaType": "video",
+            "title": "CMU 15-645 Personal Project BusTub - A Relational DBMS",
             "bodyText": "- Implemented LRU-K policy, a disk scheduler and a buffer pool in the storage manager.\nImplemented disk-backed hash index in the DB system, using a variant of extendible hashing as the hashing scheme.\n - Created the operator executors that execute SQL queries and implemented optimizer rules to transform query plans.\n - Added transaction support by implementing optimistic multi-version concurrency control.",
             "startDate": "2024-05-13",
             "endDate": "2024-07-08",

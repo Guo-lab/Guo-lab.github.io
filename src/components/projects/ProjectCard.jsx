@@ -3,22 +3,23 @@ import {
   Button, Card, Badge, Col,
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 
-import { Link } from 'react-router-dom'; // Import Link for routing
+// import { Link } from 'react-router-dom'; // Import Link for routing
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
+
 const styles = {
-  badgeStyle: {
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 5,
-    paddingBottom: 5,
-    margin: 5,
-  },
+  // badgeStyle: {
+  //   paddingLeft: 10,
+  //   paddingRight: 10,
+  //   paddingTop: 5,
+  //   paddingBottom: 5,
+  //   margin: 5,
+  // },
 
   cardStyle: {
     // borderRadius: 10,
@@ -82,6 +83,15 @@ const componentsRenders = {
   li: ({ children }) => <li style={{ paddingBottom: '0.3rem' }}>{children}</li>,
 };
 
+const ExternalNavLink = styled.a`
+  &:hover {
+    color: ${(props) => props.theme.navbarTheme.linkHoverColor};
+  }
+  &::after {
+    background-color: ${(props) => props.theme.accentColor};
+  }
+`;
+
 const ProjectCard = (props) => {
   const theme = useContext(ThemeContext);
   const parseBodyText = (text) => (
@@ -103,15 +113,32 @@ const ProjectCard = (props) => {
         }}
         text={theme.bsSecondaryVariant}
       >
-        
-        <Card.Img variant="top" src={project?.image} style={styles.cardImageStyle} />
-        
+
+        {project?.mediaType === 'video' ? (
+          <Card.Img variant="top" as="video" controls style={styles.cardImageStyle}>
+            <source src={project?.image} type="video/mp4" />
+            Your browser does not support the video tag.
+          </Card.Img>
+        ) : (
+          <Card.Img variant="top" src={project?.image} style={styles.cardImageStyle} />
+        )}
+
         <Card.Body>
           <Card.Title style={styles.cardTitleStyle}>
             
-            <Link to={`/project/${project.title}`} style={styles.linkStyle}>
+            <ExternalNavLink
+              key={project.title}
+              href={`/project/${encodeURIComponent(project.title)}`}
+              theme={theme}
+              style={styles.linkStyle}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {project.title}
-            </Link>
+            </ExternalNavLink>
+            {/* <Link to={`/project/${encodeURIComponent(project.title)}`} style={styles.linkStyle}>
+              {project.title}
+            </Link> */}
             
             {project.githubUrl && (
               <a
@@ -125,6 +152,7 @@ const ProjectCard = (props) => {
               </a>
             )}
           </Card.Title>
+          
           <Card.Text style={styles.dateStyle}>
             <FontAwesomeIcon icon={faCalendarAlt} style={styles.yearIcon} /> 
             &nbsp;&nbsp;
@@ -182,6 +210,7 @@ ProjectCard.propTypes = {
     bodyText: PropTypes.string.isRequired,
     
     image: PropTypes.string,
+    mediaType: PropTypes.string,
     
     links: PropTypes.arrayOf(PropTypes.shape({
       text: PropTypes.string.isRequired,

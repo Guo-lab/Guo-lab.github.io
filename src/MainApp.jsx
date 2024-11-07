@@ -5,7 +5,7 @@ import NavBarWithRouter from './components/NavBar';
 import Home from './components/Home';
 import endpoints from './constants/endpoints';
 
-import ProjectPage from './components/ProjectPage';
+import ProjectPage from './components/projects/ProjectPage';
 
 
 function MainApp() {
@@ -29,11 +29,13 @@ function MainApp() {
           <Suspense fallback={<FallbackSpinner />}>
             
             <Route exact path="/" component={Home} />
+            
+            <Route path="/project/:projectTitle" component={ProjectPage} />
+
             {data
               && data.sections.map((route) => {
                 const SectionComponent = React.lazy(() => import('./components/' + route.component));
                 return (
-                  
                   <Route
                     key={route.headerTitle}
                     path={route.path}
@@ -41,10 +43,8 @@ function MainApp() {
                       <SectionComponent header={route.headerTitle} />
                     )}
                   />
-
                 );
               })}
-            <Route path="/project/:projectTitle" element={<ProjectPage />} />
 
           </Suspense>
         </Switch>

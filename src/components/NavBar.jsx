@@ -74,6 +74,7 @@ const NavBar = () => {
             />
           </Navbar.Brand>
         )}
+
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           onClick={() => setExpanded(!expanded)}
@@ -108,11 +109,14 @@ const NavBar = () => {
                 </InternalNavLink>
               )))}
           </Nav>
+
           <ThemeToggler
             onClick={() => setExpanded(false)}
           />
+
         </Navbar.Collapse>
       </Container>
+      
     </Navbar>
   );
 };

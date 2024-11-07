@@ -26,7 +26,10 @@ const Projects = (props) => {
     fetch(endpoints.projects, {
       method: 'GET',
     })
-      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        return res.json();
+      })
       .then((res) => {
         console.log('Fetched projects data:', res);
         setData(res);
