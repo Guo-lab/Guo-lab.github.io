@@ -1,7 +1,7 @@
 {
     "projects" : [
         {
-            "image" : "images/projects/process_with_gray_bg.jpg",
+            "image" : "images/projects/cmu_course_project/process_with_gray_bg.jpg",
             "mediaType": "image",
             "title": "CMU 18-797 Course Project, Blind Source Separation",
             "bodyText": "Based on biological principles, we recognized that different Motor Units (MUs) possess unique peak characteristics.\nTherefore, the key to identifying different MUs lies in the detection and analysis of these peaks.\n\nThis project includes signal filtering, peak detection, principal component analysis (PCA), K-means clustering, and dynamic time warping (DTW) analysis.",
@@ -10,8 +10,8 @@
             "githubUrl": "https://github.com/Guo-lab/MLSP-G2"
         },
         {
-            "image" : "videos/projects/lab9.mp4",
-            "image2" : "../videos/projects/lab9.mp4",
+            "image" : "videos/projects/cmu_course/lab9.mp4",
+            "image2" : "../videos/projects/cmu_course/lab9.mp4",
             "mediaType": "video",
             "title": "AV-F1TENTH-Labs",
             "bodyText": "- Implemented AEB, Wall Following (based on PID controller), and Pure Pursuit control methods.\n - Implemented Gap Following and RRT Planning algorithm.\n - Implemented Model Predictive Control based on a kinematic bicycle model.",
@@ -20,7 +20,7 @@
             "githubUrl": "https://github.com/Guo-lab/AV-F1TENTH-Labs"
         },
         {
-            "image" : "images/projects/3tier.jpg",
+            "image" : "images/projects/cmu_course_project/3tier.jpg",
             "mediaType": "image",
             "title": "CMU 15-640 Course Project",
             "bodyText": "- Implemented RPC.\n - Implemented a File-Caching Proxy with LRU replacement policy, open-close session semantics, and version control.\n - Implemented a simple 3-tier scalable web service.\n - Finally, implemented a 2PC protocol distributed transaction system.",
@@ -29,7 +29,7 @@
             "githubUrl": "https://github.com/Guo-lab/15640-Distributed-Systems/tree/main"
         },
         {
-            "image" : "videos/projects/6_legs_emergent.mp4",
+            "image" : "videos/projects/eigenbot/6_legs_emergent.mp4",
             "mediaType": "video",
             "title": "Modular Robot: EigenBot under Distributed Control",
             "bodyText": "- Implemented the curve walking algorithm in CoppeliaSim, inspired by six-leg insects' behavior, based on a biologically inspired distributed control framework.\n - Developed Eigenbot EEPROM parameters auto-setting tools, accelerating Hexapod gaits tuning process.\n - Tested the firmware, debugged the modules' communication protocol & redesigned topology structure to ensure the robot's stability and reliability.\n - Built the terrain, setup motion capture system, & recorded motion data.",
@@ -38,8 +38,8 @@
             "githubUrl": ""
         },
         {
-            "image" : "images/projects/mmpug_groupshot-scaled.jpg",
-            "mediaType": "image",
+            "image" : "videos/projects/mmpug/Aug_13_PASS_02.mp4",
+            "mediaType": "video",
             "title": "MMPUG, Multi-Model Perception Uber Good",
             "bodyText": "- Implemented A* & Theta* global planner with 2.5D orientation optimization for MMPUG architecture.\n - Integrated features to make the planner adaptive to dynamic obstacles and ensure a safety distance for the robots.\nTested the global planner both in simulation and in the real environment.",
             "startDate": "2024-05-01",
@@ -47,13 +47,42 @@
             "githubUrl": "https://github.com/guo-lab/Far-Planner"
         },
         {
-            "image" : "videos/projects/bustub.mp4",
+            "image" : "videos/projects/cmu_course/bustub.mp4",
             "mediaType": "video",
             "title": "CMU 15-645 Personal Project BusTub - A Relational DBMS",
             "bodyText": "- Implemented LRU-K policy, a disk scheduler and a buffer pool in the storage manager.\nImplemented disk-backed hash index in the DB system, using a variant of extendible hashing as the hashing scheme.\n - Created the operator executors that execute SQL queries and implemented optimizer rules to transform query plans.\n - Added transaction support by implementing optimistic multi-version concurrency control.",
             "startDate": "2024-05-13",
             "endDate": "2024-07-08",
             "githubUrl": "https://github.com/Guo-lab/15645-Database"
+        },
+        {
+            "image" : "images/projects/undergraduate_backdoor_attack/flowchart.png",
+            "mediaType": "image",
+            "title": "Undergraduate Research, Unsupervised Backdoor Attack on GNNs",
+            "bodyText": "- Proposed a novel unsupervised backdoor attack method on Graph Neural Networks (GNNs) without any target label information, inspired by MoCo.\n - Implemented the proposed method on the Cora dataset and achieved a high attack success rate on Downstream Graph Classification Task.\n - Conducted extensive experiments to evaluate the effectiveness of the proposed method.",
+            "startDate": "2023-02-10",
+            "endDate": "2023-06-10",
+            "githubUrl": "https://github.com/Guo-lab/GraphBackdoor-Supervised-Unsupervised"
+        },
+        {
+            "image" : "videos/projects/cmu_course/LLM-ur5e.mp4",
+            "mediaType": "video",
+            "title": "CMU 18-675 Course Project, LLM-based Robot Arm Control",
+            "bodyText": "- Developed a robotic manipulation system for the UR5e robot arm, incorporating Large Language Model processing for real-time, natural language user commands\n - The final demo included RRT as the planner and LQR as the controller to control the robot arm to pick and place objects after interpreting the user command with the awareness of the simulation environment.\n - The future work contains integrating additional control techniques to enhance manipulation accuracy and adaptability and refining LLM-based interaction capabilities to ensure efficient command interpretation across a wide range of operational contexts.\n",
+            "startDate": "2024-04-10",
+            "endDate": "2024-05-25",
+            "githubUrl": "https://github.com/CMU-18475-18675/team3"
+        },
+
+        {
+            "image" : "images/projects/cmu_course_project/optimal_rendezvous_docking_mpc_convex_cropped.gif",
+            "mediaType": "image",
+            "title": "CMU 16-745-Optimal-Control Course Labs",
+            "bodyText": "- Applied Karush-Kuhn-Tucker (KKT) conditions and Newton’s method for constrained optimization, including Lagrangian methods for Quadratic Programming (QP)\n - Developed a LQR controller for nonlinear systems and developed a Model Predictive Control (MPC) approach for rendezvous and docking problems.\n - Implemented iLQR for quadrotor trajectory following and used IPOPT for safety distance constrained optimization.\n - Implemented Iterative Learning Control (ILC) for a bicycle model.\n - Designed and optimized hybrid systems for a biped walker.\n",
+            "startDate": "2024-07-23",
+            "endDate": "2024-08-16",
+            "githubUrl": "https://github.com/Guo-lab/16745-Optimal-Control-and-RL"
         }
+
     ]
 }

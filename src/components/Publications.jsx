@@ -35,14 +35,26 @@ const styles = {
     padding: '50px', // Add padding to compact the layout
   },  
 
+  // introImageContainer: {
+  //   display: 'flex',
+  //   margin: '50px 0',
+  //   justifyContent: 'center',
+  //   width: '100%',
+  //   flexDirection: 'column', // Stack image and text vertically
+  //   alignItems: 'center', // Center content horizontally
+  //   flex: 1.4,
+  // },
+
   introImageContainer: {
-    margin: '50px 0',
+    // position: 'fixed',
+    // top: '160px',
+    // left: 0,
+    margin: '20px 50px',
     justifyContent: 'center',
-    display: 'flex',
     width: '100%',
-    flexDirection: 'column', // Stack image and text vertically
-    alignItems: 'center', // Center content horizontally
-    flex: 1.4,
+    flexDirection: 'column',
+    alignItems: 'center',
+    flex: 1.3,
   },
 
   image: {
@@ -55,13 +67,13 @@ const styles = {
   },
 
   publicationContainer: {
-    margin: '0px 50px 0 10px',
+    margin: '0px 20px 0 10px',
     flexDirection: 'column',
     whiteSpace: 'pre-wrap',
     textAlign: 'left',
     fontSize: '1.0em',
     fontWeight: 500,
-    padding: '10px', // Add padding to the text column
+    padding: '3px', // Add padding to the text column
     flex: 3.5,
   },
   

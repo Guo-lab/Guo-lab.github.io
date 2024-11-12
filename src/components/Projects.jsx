@@ -47,13 +47,14 @@ const Projects = (props) => {
             
             <Row xs={1} sm={1} md={2} lg={3} className="g-4">
               
-              {data.projects?.slice(0, data.length).map((project) => (
-                <Fade key={project.title}>
+              {data.projects?.slice(0, data.length)
+                .sort((a, b) => new Date(b.endDate) - new Date(a.endDate)).map((project) => (
+                  <Fade key={project.title}>
                   
-                  <ProjectCard project={project} />
+                    <ProjectCard project={project} />
                 
-                </Fade>
-              ))}
+                  </Fade>
+                ))}
               
             </Row>
 
