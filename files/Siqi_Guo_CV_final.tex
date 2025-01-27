@@ -1,0 +1,694 @@
+%---------------------------------------------------------------------
+% ------------------------ Resume Template ---------------------------
+% Template Author : Anubhav Singh
+% Github Raw link : https://github.com/xprilion
+% License : MIT
+%
+% Resume Author : Siqi Guo
+% Also Ref: https://zhuanlan.zhihu.com/p/521256466
+%---------------------------------------------------------------------
+
+
+
+% ================ Document Configuration ==============
+%
+\documentclass[a4paper,20pt]{article}
+
+% Configure page margins with geometry
+\usepackage{geometry}
+\geometry{left=1.27cm, top=1.27cm, right=1.27cm, bottom=1.27cm}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\usepackage{subfig, graphicx}
+\usepackage{fontawesome5}
+\usepackage{setspace}
+
+\usepackage{amsmath} % for \textsuperscript command
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.530in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.45in}
+\addtolength{\textheight}{1in}
+
+\urlstyle{rm}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+
+
+
+
+
+%================ Customized commands =================
+% 
+% for the bullets
+\renewcommand{\labelitemii}{$\circ$}
+
+% Sections formatting
+% `\vspace{-10pt}`: This command adds a negative vertical space of 10 points (pt) before the section title. This effectively moves the title up by 10 points.
+% `\scshape`: This command changes the font style to small caps for the section title.
+% `\raggedright`: This command sets the text alignment of the section title to be ragged right, which means the text is aligned to the left but not justified.
+% `{}`: This empty pair of braces represents the title label.
+% `{0em}`: This is the horizontal spacing between the title label and the section title itself. 0em means there is no extra space.
+% `{}`: This second empty pair of braces represents the title before code.
+% `\vspace` at the end is for control the space between the line and the following text.
+\titleformat{\section}
+    {\vspace{-10pt} \scshape \raggedright \large}
+    {}
+    {0em}
+    {}
+    [\color{black} \titlerule \vspace{-6pt}]
+
+
+
+\newcommand{\Summary}{} % Summary
+% region------------ Education SubHeading ----------
+\newcommand{\resumeEducationSubHeadingListStart}{
+  \begin{description}
+}
+\newcommand{\resumeEducationSubHeadingListEnd}{
+  \end{description}
+}
+\newcommand{\resumeEducationSubheading}[4]{%
+  \vspace{-1pt}\item
+    \begin{tabular*} {0.98\textwidth} {@{\hspace{-0.5em}}p{0.8\textwidth}@{\extracolsep{\fill}}r@{}}
+        \textbf{#1} & {#2} \\
+               {#3} & {#4} \\
+    \end{tabular*}%
+  \vspace{-5pt}%
+}
+\newcommand{\courseList}[1]{%
+  \vspace{0pt} % Adjust this value for spacing
+  \begin{description}[leftmargin=-25pt, style=unboxed]
+    Relevant Courses: #1
+  \end{description}
+  \vspace{-5pt}
+}
+\newcommand{\ongoingCourseList}[1]{%
+  \vspace{0pt} % Adjust this value for spacing
+  \begin{description}[leftmargin=-25pt, style=unboxed]
+    (Ongoing): #1
+  \end{description}
+  \vspace{-5pt}
+} 
+% endregion
+
+% region----------- Publications SubHeading ----------
+\newcommand{\resumePublicationsSubHeadingListStart}{
+  \begin{itemize} [label={}, leftmargin=*]
+}
+\newcommand{\resumePublicationsSubHeadingListEnd}{
+  \end{itemize}
+}
+\newcommand{\resumePublicationSubItem}[2]{%
+  \resumePublicationItem{#1}{#2}
+  \vspace{0pt}
+}
+\newcommand{\resumePublicationItem}[2]{
+  \item\hspace{-0.8em}{
+    {#1}{\quad {#2} \vspace{-2pt}}
+  }
+}
+% endregion
+
+
+
+% -------------- Skills SubHeading ------------
+\newcommand{\resumeSkillsSubHeadingListStart}{
+  \begin{description}
+}
+\newcommand{\resumeSkillsSubHeadingListEnd}{
+  \end{description}
+}
+\newcommand{\resumeSkillsSubItem}[2]{%
+  \resumeSkillsItem{#1}{#2}
+  \vspace{-3pt}%
+}
+\newcommand{\resumeSkillsItem}[2]{
+  \item\hspace{-0.8em}{
+    \textbf{#1}{: \small{#2} \vspace{-2pt}}
+  }
+}
+
+
+% ------------ Intern SubHeading ------------
+\newcommand{\resumeResearchSubHeadingListStart}{
+  \begin{itemize} [label={}, leftmargin=*]
+}
+\newcommand{\resumeResearchSubHeadingListEnd}{
+  \end{itemize}
+}
+\newcommand{\resumeResearchSubheading}[7]{
+  \vspace{5pt}\item
+    \begin{tabular*} {0.98\textwidth} {@{\hspace{-0.5em}}l@{\extracolsep{\fill}}r@{}}
+      \textbf{#1} & {#2}\null \\
+      % \hspace{0.5em} {#3} & {#4}%
+      {#3} & {#4} \\
+      {#5} & {#6} \vspace*{4pt}
+      {#7}
+    \end{tabular*}
+  \vspace{-6pt}
+}
+\newcommand{\resumeResearchItemListStart}{
+  \begin{itemize} [leftmargin=*]
+}
+\newcommand{\resumeResearchItemListEnd}{
+  \end{itemize}
+  \vspace{-5pt}
+}
+\newcommand{\resumeResearchItem}[1]{
+  \item{
+    % \textbf{#1}{: #2 \vspace{-2pt}}
+    {#1 \vspace{-1pt}}
+  }
+}
+\newcommand{\resumeResearchMidItemListStart}{
+  \begin{itemize} [leftmargin=*]
+}
+\newcommand{\resumeResearchMidItemListEnd}{
+  \end{itemize}
+  \vspace{-5pt}
+}
+\newcommand{\resumeResearchMidItem}[2]{
+  \item{
+    \textbf{#1}
+    {#2 \vspace{-2pt}}
+  }
+}
+
+
+
+% ------------ Intern SubHeading ------------
+\newcommand{\resumeInternSubHeadingListStart}{
+  \begin{itemize} [label={}, leftmargin=*]
+}
+\newcommand{\resumeInternSubHeadingListEnd}{
+  \end{itemize}
+}
+\newcommand{\resumeInternSubheading}[4]{
+  \vspace{0pt}\item
+    \begin{tabular*} {0.98\textwidth} {@{\hspace{-0.5em}}l@{\extracolsep{\fill}}r@{}}
+      \textbf{#1} & {#2}\null \\
+      % \hspace{0.5em} {#3} & {#4}%
+      {#3} & {#4}%
+    \end{tabular*}
+  \vspace{-7pt}
+}
+\newcommand{\resumeInternItemListStart}{
+  \begin{itemize} [leftmargin=*]
+}
+\newcommand{\resumeInternItemListEnd}{
+  \end{itemize}
+  \vspace{-5pt}
+}
+\newcommand{\resumeInternItem}[1]{
+  \item{
+    % \textbf{#1}{: #2 \vspace{-2pt}}
+    {#1 \vspace{-2pt}}
+  }
+}
+
+
+
+
+
+\setlist[itemize, 2]{label=$\bullet$}
+% ------------ Projects SubHeading List -------------
+\newcommand{\resumeProjectsSubHeadingListStart}{
+  \begin{itemize} [leftmargin=*, label={}]
+}
+\newcommand{\resumeProjectsSubHeadingListEnd}{
+  \end{itemize}
+}
+\newcommand{\resumeProjectsSubHeading}[2]{
+  \resumeProjectsSubHeadingItem{#1}{#2}
+  \vspace{-10pt}
+}
+
+\newcommand{\resumeProjectsSubHeadingItem}[2]{
+  \vspace{-1pt}
+  \item{
+    \begin{tabular*} {0.98\textwidth} {@{\hspace{-0.5em}}l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {#2} \\
+    \end{tabular*}
+  \vspace{-8pt}
+  }
+}
+\newcommand{\resumeProjectsItemListStart}{
+  \begin{itemize} [leftmargin=*]
+}
+\newcommand{\resumeProjectsItemListEnd}{
+  \end{itemize}
+  \vspace{0pt}
+}
+\newcommand{\resumeProjectsItem}[1]{
+  \item{
+    {#1} \vspace{-2pt}
+  }
+}
+
+
+%region
+% % .................. Original SubHeading List Template ..................
+% \newcommand{\resumeSubHeadingListStart}{
+%   \begin{itemize} [leftmargin=*]
+% }
+% \newcommand{\resumeSubHeadingListEnd}{
+%   \end{itemize}
+% }
+% % .................. Original SubHeading Template ..................
+% \newcommand{\resumeSubheading}[4]{
+%   \vspace{-1pt}\item
+%     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+%       \textbf{#1} & \textbf{#2} \\
+%       \textit{#3} & \textit{#4} \\
+%     \end{tabular*}\vspace{-5pt}
+% }
+% \newcommand{\resumeSubheadingWithoutLocation}[2]{
+%   \vspace{-1pt}\item
+%     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+%       \textbf{#1} & \textit{#2} \\
+%     \end{tabular*}\vspace{-5pt}
+% }
+% % .................. Original Item List Template ..................
+% \newcommand{\resumeItemListStart}{
+%   \begin{itemize}
+% }
+% \newcommand{\resumeItemListEnd}{
+%   \end{itemize}
+%   \vspace{-5pt}
+% }
+% % .................. Original Item Template ..................
+% \newcommand{\resumeItem}[2]{
+%   \item\small{
+%     \textbf{#1}{: #2 \vspace{-2pt}}
+%   }
+% }
+% \newcommand{\resumeItemWithoutSemicolon}[2]{
+%   \vspace{-1pt}\item\small{
+%   \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+%     \textbf{#1} & \textit{#2} \\
+%   \end{tabular*}\vspace{-13pt}
+%   }
+% }
+
+% \newcommand{\resumeSubItem}[2]{
+%   \resumeItem{#1}{#2}
+%   \vspace{-3pt}
+% }
+% \newcommand{\resumeSubItemTopLevel}[2]{
+%   \resumeItemWithoutSemicolon{#1}{#2}
+%   \vspace{-5pt}
+% }
+%endregion
+
+%=================================================
+%-------------------------------------------------
+%%%%%%%%%%%  CV (Resume) STARTS HERE  %%%%%%%%%%%%
+\begin{document}
+
+%-----------------HEADING-----------------
+\begin{tabular*} {\textwidth} {l@{\extracolsep{\fill}}r}
+  \textbf{ \centerline {\LARGE Siqi  Guo} \vspace {5pt} } \\
+  \centerline {\faEnvelope ~: \href{mailto:}{siqiguo@andrew.cmu.edu} | \faIcon{linkedin} \href{https://www.linkedin.com/in/siqiguo047/?locale=en_US}{: linkedin.com/in/siqiguo047} | \faPhone ~: (+1) 412-612-0495 \quad | \faGlobe \href{https://guo-lab.github.io}{: https://guo-lab.github.io} } \\
+\end{tabular*}
+
+\vspace{0.2em}
+% Professional Summary
+% \noindent \rule{\textwidth}{0.4pt} % Horizontal line
+% \vspace{-0.5em}
+\begin{center}
+  \parbox{0.95\textwidth}{
+    \textbf{Summary:}
+    Master's student in ECE at Carnegie Mellon University with expertise in robotics, bio-inspired control systems, and autonomous planning. Experienced in developing adaptive locomotion algorithms and distributed robot system integration through projects like \textbf{EigenBot} and \textbf{MMPUG}. Skilled in planning, control, and real-time system integration, with a strong academic and research foundation.
+  }
+\end{center}
+\vspace{-1.5em}
+% \noindent \rule{\textwidth}{0.4pt} % Horizontal line
+
+\vspace{1em}
+
+%----------------EDUCATION-----------------
+\section{Education}
+\resumeEducationSubHeadingListStart
+\resumeEducationSubheading
+{Carnegie Mellon University} {Pittsburgh, PA}
+{Master of Science in Electrical and Computer Engineering; \quad GPA: 3.89/4.0} {Expected May 2025}
+\newline{}
+% \ongoingCourseList {Foundations of Computer Systems, Embedded System Software Engineering, Machine Learning Signal Processing}
+\courseList{Foundations of Computer Systems, Embedded System Software Engineering, Machine Learning Signal Processing, Distributed Systems, Autonomous Control System, Storage Systems, Modern Computer Architecture and Design, Large-scale Distributed Machine Learning and Optimization}
+% \courseList{}
+
+\resumeEducationSubheading
+{Tianjin University} {Tianjin, China}
+{Bachelor of Science in Computer Science and Technology; \quad GPA: 3.84/4.0} {June 2023}
+\newline{}
+% \courseList {Introduction to Computer Systems, Operating System Principle, Data Structure, Algorithms Design and Analysis, Computer Networks, Software Engineering, Principles of Database}
+% \courseList {Operating System Principle, Data Structure, Computer Networks, Principles of Database}
+\courseList {Data Structure, Operating System, Computer Networks, Principles of Database, Parallel Computing, Natural Language Processing, Pattern Recognition and Deep Learning}
+
+\resumeEducationSubHeadingListEnd
+
+
+\vspace{-9pt}
+
+
+\section*{Publications}
+\resumePublicationsSubHeadingListStart
+\resumePublicationSubItem{Zhikai, Z., \textbf{Siqi, G.}, et al.}{Bio-inspired Distributed Neural Locomotion Controller (D-NLC) for Robust Locomotion and Emergent Behaviors} (Sep '24). Submitted to 2025-ICRA.
+\resumePublicationSubItem{Bingdao, F., Di, J., et al.}{``Backdoor attacks on unsupervised graph representation learning'' (August '24). \textit{Journal of Neural Networks} (Vol. 180, p.106668.)}
+\resumePublicationSubItem{Ding, Y., \& \textbf{Guo, S.}}{``Conditional generative adversarial networks: Introduction and application'' (November '22). In the 2nd \textit{International Conference on Artificial Intelligence, Automation, and High-Performance Computing} (AIAHPC 2022) (Vol. 12348, pp. 258-266). SPIE.}
+\resumePublicationSubItem{Jin, D., Feng, B., \textbf{Guo, S.}, et al.}{``Local-Global Defense Against Unsupervised Adversarial Attacks on Graphs'' (June '23). In the \textit{Thirty-Seventh AAAI Conference on Artificial Intelligence} (Vol. 37, No. 7).}
+% Add more publications as needed
+\resumePublicationsSubHeadingListEnd
+
+
+% \resumePublicationsSubHeading{Conference Paper - }{Jin, D., Feng, B., \textbf{Guo, S.}, et al. . In press.}
+
+
+
+
+\vspace{-6pt}
+
+%---------- INTERN EXPERIENCE -----------
+\section{Research Experience}
+\resumeResearchSubHeadingListStart
+
+\resumeResearchSubheading
+{Eigenbot - Bio-inspired Distributed Control for Modular Robot} {Pittsburgh, PA}
+{Biorobotics Lab Research Assistant (Part-time)} {Dec 2023 - Oct 2024}
+{Advisor: Professor Howie Choset, Research Scientist Lu Li} {Carnegie Mellon University}
+\resumeResearchMidItemListStart
+\resumeResearchMidItem{}
+{Modular Robot Bio-inspired Curve Walking Implementation}
+{
+  \resumeResearchItemListStart
+  \resumeResearchItem{}
+  {Implemented the curve walking algorithm on the Eigenbot (a hexapod robot) in CoppeliaSim, inspired by six-leg insects' behavior. }
+  \resumeResearchItem{}
+  {Fine-tuned the weights of my algorithm to achieve a smooth curve walking gait, and integrated curve walking / steering into Eigenbot's behavior tree.}
+  \resumeResearchItemListEnd
+}
+\resumeResearchMidItem{}
+{Eigenbot Firmware Development and Testing}
+{
+  \resumeResearchItemListStart
+  \resumeResearchItem{}
+  {Developed Eigenbot EEPROM parameters auto-setting tools, which accelerated Hexapod gaits tuning process.}
+  \resumeResearchItem{}
+  {Tested the firmware. Redesigned and debugged the module communication protocol to ensure the robot's stability and reliability. Conducted the experiments with Logan, analyzed the gaits and fine-tuned firmware parameters.}
+  \resumeResearchItem{}
+  {Integrated Foot Sensor Feedback into the robot's message protocol.}
+  \resumeResearchItem{}
+  {Collected EigenBot's data from the real-world using OptiTrack, developing a pipeline to assess metrics like Gait Phase Difference and Leg Stance Duration, benchmarking its performance with centralized predefined gait.}
+  \resumeResearchItemListEnd
+}
+\resumeResearchMidItemListEnd
+
+\resumeResearchSubheading
+{MMPUG - Multi-Model Perception Uber Good} {Pittsburgh, PA}
+{Biorobotics Lab Research Assistant (Part-time)} {May 2024 - Seq 2024}
+{Advisor: Dr. Matthew J. Travers} {Carnegie Mellon University}
+\resumeResearchMidItemListStart
+\resumeResearchMidItem{}
+{FAR-Planner Implementation in a Heterogeneous Agent System with RC cars and legged robots}
+{
+  \resumeResearchItemListStart
+  \resumeResearchItem{}
+  {Implemented A* \& Theta* global planner with 2.5D orientation optimization for MMPUG architecture.}
+  \resumeResearchItem{}
+  {Integrated features to make the planner adaptive to dynamic obstacles and ensure a safety distance for the robots.}
+  \resumeResearchItem{}
+  {Deployed this Global Planner on the RC cars, and tested the planner both in simulation and in the real environment.}
+  \resumeResearchItemListEnd
+}
+\resumeResearchMidItemListEnd
+
+
+\resumeResearchSubheading
+{Theory and Applications of Graph Convolutional Network} {Tianjin, China}
+{Research Assistant (Part-time)} {Nov 2021 - May 2023}
+{Advisor: Associate Professor Jin, Di} {Tianjin University}
+\resumeResearchMidItemListStart
+\resumeResearchMidItem{}
+{Graph Neural Network in Strategic Deployment}
+{
+  \resumeResearchItemListStart
+  \resumeResearchItem{}
+  {Uncovered the relationship between Graph Attention Transformer (GAT) and Graph Convolutional Network (GCN) applied in Deep Graph Infomax (DGI).}
+  \resumeResearchItem{}
+  {Learned about the theories proposed in Unsupervised Adversarially Robust Representation Learning on Graphs, combined DGI with GAT and introduced mutual information and unsupervised learning to DGI.}
+  \resumeResearchItemListEnd
+}
+\resumeResearchMidItem{}
+{Robustness Analysis of Graph Neural Networks}
+{
+  \resumeResearchItemListStart
+  \resumeResearchItem{}
+  {Used Metattack and Nettack to manipulate data to obtain multiple datasets of malicious attack matrices.}
+  \resumeResearchItem{}
+  {Reproduced and compared RoSA, Pro-GNN, PA-GNN, and other algorithms, and practically applied GraphCL and GraphSS to do defense analysis.}
+  \resumeResearchItemListEnd
+}
+\resumeResearchMidItem{}
+{Backdoor Attacks in Unsupervised Learning Graph Neural Networks}
+{
+  \resumeResearchItemListStart
+  \resumeResearchItem{}
+  {Designed a novel unsupervised backdoor attack on Graph Neural Networks based on GIN and Momentum Contrast. Built an unsupervised backdoor threat model, defined backdoor-oriented attack targets, and derived the loss function for our attack. Verified our specific backdoor triggers and implemented the trigger injection.}
+  \resumeResearchItem{}
+  {Experimented our graph-level attack on different agency models such as GIN and GAT. Gained higher Attack Success Rate and lower Clean Accuracy Drop than previous unsupervised graph attacks.}
+  \resumeResearchItemListEnd
+}
+\resumeResearchMidItemListEnd
+
+\resumeResearchSubheading
+{Zero-shot Object Detection (Hitachi)} {Remote}
+{Research Assistant (Part-time)} {May 2022 - Sep 2022}
+{Advisor: Associate Professor Tang, Lingjia} {University of Michigan}
+\resumeResearchItemListStart
+\resumeResearchItem{}
+{Built a developed zero-shot object detection UI application from scratch using PyQt.}
+\resumeResearchItem{}
+{Managed various tasks prior to training the model, such as embedding the results of labels, modifying matrix dimensions using the CLIP model, and writing Shell scripts to automate processes.}
+\resumeResearchItem{}
+{Employed PDB to debug and reduced overheads in debugging time.}
+\resumeResearchItem{}
+{Analyzed the COCO dataset and KITTI dataset proficiently using pycoco for statistical analysis.}
+\resumeResearchItem{}
+{Utilized Netron and Tensorboard to visualize graphs and models in order to benchmark object detection models, such as YOLO and FasterRCNN.}
+\resumeResearchItem{}
+{Implemented Tensorflow's Resnet50 object detection model as the baseline, and performed transfer learning on AlexNet, YOLOv5, and FasterRCNN.}
+\resumeResearchItemListEnd
+
+
+% \resumeResearchSubheading
+%     {Machine Learning and Data Science II - Development and Frameworks} {Remote}
+%     {Online Project-Based Seminars and Research} {July 2021 - Oct 2021}
+%     {Advisor: Professor Mark Vogelsberger} {MIT} 
+%   \resumeResearchItemListStart
+%     \resumeResearchItem{}
+%       {Gained a comprehensive understanding of common development frameworks and how they can be used to implement data science and machine learning techniques.}
+%     \resumeResearchItem{}
+%       {Studied algorithms and architectures related to Machine Learning and Data Science, and completed a thesis on the Conditional Generative Adversarial Networks.}
+%   \resumeResearchItemListEnd
+
+% \resumeResearchSubheading
+% {Research on Campus Uncivilized Behavior Recognition Based on Deep Learning} {Tianjin, China}
+% {Research Assistant (Part-time)} {June 2020 - June 2021}
+% {Advisor: Associate Professor Yang, Liu} {Tianjin University}
+% \resumeResearchItemListStart
+% \resumeResearchItem{}
+% {Explored the mechanics of human skeletal information, and explored human behavior recognition algorithms.}
+% \resumeResearchItem{}
+% {Attempted to improve the architecture of human skeleton recognition with federated learning.}
+% \resumeResearchItem{}
+% {Recorded and generated datasets from various locations on campus, performed supervised classification learning on a series of images and videos.}
+% \resumeResearchItemListEnd
+
+\resumeResearchSubHeadingListEnd
+
+
+
+\vspace{-6pt}
+
+%---------------- PROJECTS -----------------
+\section{Projects}
+
+\resumeProjectsSubHeadingListStart
+\resumeProjectsSubHeading{{CloudFS, a Deduplicated Cloud File System} {| \href{https://github.com/Guo-lab/CloudFS_Design}{CMU 18-746 Course Project \faIcon{github}}}}{Oct 2024 - Dec 2024}
+\resumeProjectsItemListStart
+\resumeProjectsItem{Implemented CloudFS, leveraging the properties of local SSD and cloud storage to make data-placement decisions.}
+% \vspace{-1pt}
+\resumeProjectsItem{Identified and eliminated duplicate data with Rabin fingerprinting. Minimized storage usage and optimized data transfer in the form of segments. Designed buffer file to manully handle the file data transfer.}
+% \vspace{-1pt}
+\resumeProjectsItem{Implemented the IOCTL functions to support snapshot operations, such as create, restore, install, and uninstall.}
+% \vspace{-12pt}
+\resumeProjectsItem{Added in-memory LRU caching to further improve performance and reduce cloud operation costs, reaching \textbf{NO.1} on the scoreboard among all students.}
+\resumeProjectsItemListEnd
+
+\resumeProjectsSubHeading{{BusTub, a Relational DBMS} {| \href{https://github.com/Guo-lab/15645-Database}{Personal Project based on CMU 15-645 \faIcon{github}}}}{May 2024 - July 2024}
+\resumeProjectsItemListStart
+\resumeProjectsItem{Implemented LRU-K policy, a disk scheduler and a buffer pool in the storage manager.}
+% \vspace{-1pt}
+\resumeProjectsItem{Implemented disk-backed hash index in the DB system, using a variant of extendible hashing as the hashing scheme.}
+% \vspace{-1pt}
+\resumeProjectsItem{Created the operator executors that execute SQL queries and implemented optimizer rules to transform query plans.}
+\vspace{-12pt}
+\resumeProjectsItem{Added transaction support by implementing optimistic multi-version concurrency control.}
+\resumeProjectsItemListEnd
+
+\resumeProjectsSubHeading{{Distributed File System Design} {| \href{https://github.com/Guo-lab/15640-Distributed-Systems}{CMU 15-640 Course Project \faIcon{github}}}}{Feb 2024 - Apr 2024}
+\resumeProjectsItemListStart
+\resumeProjectsItem{Implemented the serialization protocol for the low-level RPC stub, supporting several RPCs in project's NFS.}
+\vspace{-1pt}
+\resumeProjectsItem{Designed a File-Caching Proxy based on RMI. Implement open-close session semantics for proxy operations, and the LRU replacement policy for cache management. Used version control, check-on-use and last-close-win to make sure the proxy's cache and server freshness.}
+\vspace{-1pt}
+\resumeProjectsItem{Implemented and Tuned a 3-Tier Architecture Scalable Web Service to satisfy dynamic or unexpected workloads by auto-scaling. Then, evaluated the performance of the system by benchmarking and figuring out the bottleneck.}
+\vspace{-1pt}
+\resumeProjectsItem{Designed a Two-phase Commit Protocol to ensure the consistency of the distributed file system. Customized a mechanism to recovering from nodes failures and handling lost messages.}
+\resumeProjectsItemListEnd
+
+\resumeProjectsSubHeading{Blind Source Signal Decomposition \& Analysis | \href{https://github.com/Guo-lab/MLSP-G2}{CMU 18797 Research Project \faIcon{github}}}{Oct 2023 - Dec 2023}
+\resumeProjectsItemListStart
+\resumeProjectsItem{Filtered the mixed HDEMG signals and detected peaks to slice the peak-wave windows. Used the PCA algorithm to reduce the dimensions of the data and K-Means to cluster the potentially same Motor Units' signals.}
+\vspace{-1pt}
+\resumeProjectsItem{Based on the clustered results, applied DTW, Covariance, Cosine in a multi-threshold way to compare the wave similarity. Verified the firing instances for each Motor Unit based on the comparison results.}
+\resumeProjectsItemListEnd
+
+% \resumeProjectsSubHeading{Cache Simulator with L1 and L2 level | \href{https://github.com/Guo-lab/cache-simulator}{Tianjin University Course Project \faIcon{github}}}{Oct 2022 - Dec 2022}
+% \resumeProjectsItemListStart
+% \resumeProjectsItem{Implemented a simple Cache Simulator with L1 level Cache, applied various cache eviction strategies such as LRU, LFU, WBWA, and WTNA, and visualized the outcomes.}
+% \vspace{-1pt}
+% \resumeProjectsItem{Developed an advanced L2 Cache with an algorithm to effectively choose a victim cache entry. }
+% \resumeProjectsItemListEnd
+
+% \resumeProjectsSubHeading{Cache Simulator with L1 and L2 level | \href{https://github.com/Guo-lab/cache-simulator}{Tianjin University Course Project \faIcon{github}}}{Oct 2022 - Dec 2022}
+% \resumeProjectsItemListStart
+%     \resumeProjectsItem{Implemented a simple Cache Simulator with L1 level Cache, applied various cache eviction strategies such as LRU, LFU, WBWA, and WTNA, and visualized the outcomes.}
+%     \vspace{-1pt}
+%     \resumeProjectsItem{Developed an advanced L2 Cache with an algorithm to effectively choose a victim cache entry.}
+% \resumeProjectsItemListEnd
+
+% \resumeProjectsSubHeading{{CPU Implementation and Genesys II FPGA Testing Based on MIPS Architecture}}{Sep 2022 - Nov 2022}
+% \resumeProjectsItemListStart
+%     \resumeProjectsItem{Completed the temu simulation, and utilized Qt to carry out the visualized UI. Implemented specific sections of the five-stage pipeline of CPU ISA based on Verilog.}
+%     \vspace{-1pt}
+%     \resumeProjectsItem{Designed some parts of the testing of MIPS instructions on the FPGA demo board.}
+% \resumeProjectsItemListEnd
+
+% \resumeProjectsSubHeading{{Full-Stack Portfolio - Personal Websites} | \href{https://github.com/Guo-lab/Full-Stack-Portfolio}{Personal Project \faIcon{github}} }{Mar 2022 - May 2022}
+% \resumeProjectsItemListStart
+%     \resumeProjectsItem{Customized the schemas in the backend. Leveraged Sanity, a React-based CMS to define content models and transform contents to the front end through API integrations.}
+%     \vspace{-1pt}
+%     \resumeProjectsItem{Developed the Web architecture with React components and Animations with Framer Motion. Styled and refined adaptive UI with SCSS. Used GraphQL and GROQ to fetch dynamic data from the CMS. Finally, deployed this website on Netlify for optimal accessibility.}
+% \resumeProjectsItemListEnd
+
+% \resumeProjectsSubHeading{{Implementation of SQL Language Compiler} {| \href{https://github.com/Guo-lab/SQL-Compiler}{Tianjin University Course Project \faIcon{github}}}}{Mar 2022 - May 2022}
+% \resumeProjectsItemListStart
+%     \resumeProjectsItem{Implemented the lexer and converted given SQL texts to the output of token sequences.}
+%     \vspace{-1pt}
+%     \resumeProjectsItem{Built a parser with a team that can establish FIRST set, FOLLOW set, and parsing tables for token sequences.}
+% \resumeProjectsItemListEnd
+
+% \resumeProjectsSubHeading{{Bilibili Database Analyst Web App} {| \href{https://github.com/Guo-lab/BilibiliDatabase}{Tianjin University Course Project \faIcon{github}}}}{Sep 2021 - Nov 2021}
+% \resumeProjectsItemListStart
+%     \resumeProjectsItem{Executed web crawling on the data of the Bilibili website using Beautifulsoup and managed advanced data persistence utilizing a self-designed relational MySQL database.}
+%     \vspace{-1pt}
+%     \resumeProjectsItem{Built a web-based database application using Flask, employing a client-server architecture. In addition to rendering the retrieved data, integrated CRUD functionality as well to ensure seamless data management.}
+% \resumeProjectsItemListEnd
+
+
+
+
+% \resumeProjectsSubHeading{{Simulation of TCP Protocol} {| Tianjin University Course Project}}{Aug 2021 - Oct 2021}
+% \resumeProjectsItemListStart
+%     \resumeProjectsItem{Analyzed and simulated the three-way handshake protocol used by TCP with C++, conducted program refactoring and achieved a 60\% reduction in code while optimizing structure, and
+%     synthesized simulation results into a report.}
+%     \vspace{-1pt}
+%     \resumeProjectsItem{Verified the results of my TCP implementation by testing the packet loss rate, simulation transmission, etc.}
+% \resumeProjectsItemListEnd
+
+
+\resumeProjectsSubHeadingListEnd
+
+
+
+\vspace{-6pt}
+% \section{Intern Experience}
+%   \resumeInternSubHeadingListStart
+%       \resumeInternSubheading
+%         {E2Biz SoftTech (Tianjin) Co. Ltd} {Tianjin, China}
+%         {Web Developer Intern (Full-time)} {March 2023 - June 2023}
+
+%       \resumeInternItemListStart
+%       \resumeInternItem{}
+%         {Utilized ASP.NET \textbf{MVC} to build the Warehousing Order Processing Unit and the Work Order Management module, designed front-end pages with Razor and \textbf{KendoUI}, and implemented controllers to do database filtering and searching.}
+%       \resumeInternItem{}
+%         {Designed an image compressor with an overall \textbf{85\%} compression rate and reduced image upload time by \textbf{70\%} in the project, Product Line Supermarket System.}
+%       \resumeInternItem{}
+%         {Cooperated with QA testers in eight function unit tests, providing test cases which increased test coverage by 21\%.}
+%       \resumeInternItem{}
+%         {Launched this new project, ESC5Scaffold, and implemented Department Planning and User and Role Management.}
+%       \resumeInternItem{}
+%         {Customized the logic of privilege setting and department transferring with the controller.}
+%       \resumeInternItem{}
+%         {Upgraded OurCabin System by enhancing the Bug Tracking module and the FAQ section, and especially adding the Excel exporting function for all forms with \textbf{Aspose}.} 
+%       \resumeInternItem{}
+%         {Proposed and built an Improving Item Management and Item Stage Planning subsystem with SQLServer and ASP.NET in OurCabin.}
+%       \resumeInternItem{}
+%         {Added the Auto-completion of historical records with \textbf{HTTP cookies and sessions} in the searching system which decreased the searching cache memory burden by \textbf{approximately 90\%}.}
+%     \resumeInternItemListEnd
+%   \resumeInternSubHeadingListEnd
+\vspace{-6pt}
+
+%---------------- SKILLS -----------------
+\section{Skills}
+\resumeSkillsSubHeadingListStart
+% \resumeSkillsSubItem{Languages}{~~~~~~C/C++, Python, C\#, JavaScript, Markdown, Dart, Golang, SQL, Bash, JAVA({\footnotesize Beginner}), Rust({\footnotesize Beginner})}
+\resumeSkillsSubItem{Programming Languages}{~C/C++, Python, C\#, JavaScript, LaTex, SQL, Verilog, Bash}
+\resumeSkillsSubItem{Frameworks}{~~~~~~~~~~~~~~~~~~~~~~TensorFlow, PyTorch, ROS, NodeJS, Flask, .NET, React, Flutter}
+\resumeSkillsSubItem{Software and Tools}{~~~~~~~~~~~~GIT, Docker, MySQL, SQLServer, Qt Creator, Visual Studio Code, Gem5, PSoC} % Blender({\footnotesize Beginner})
+\resumeSkillsSubItem{Platforms}{~~~~~~~~~~~~~~~~~~~~~~~~~~MacOS, Linux, Arduino, GCP}
+% \resumeSkillsSubItem{Soft Skills}{~~~~~~~Leadership, Event Management, Writing, Public Speaking, Time Management}
+\resumeSkillsSubHeadingListEnd
+
+
+\vspace{-6pt}
+
+
+
+
+
+%-----------Awards-----------------
+% \section{Honors and Awards}
+% \begin{description}[font=$\bullet$]
+% \item {\small Second Prize in Asia and Pacific Mathematical Contest in Modeling (acted as a programmer)} \hfill {\small{November 2021}}
+% \vspace{-5pt}
+% \item {\small Bronze Award in National College Algorithm Design and Programming Winter Competition} \hfill {\small{March 2021}}
+% \vspace{-5pt}
+% % \item {Third Prize in National College Mathematics Competition, National Level - November, 2020}
+% \end{description}
+
+
+\end{document}
