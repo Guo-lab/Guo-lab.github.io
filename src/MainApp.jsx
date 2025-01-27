@@ -5,52 +5,47 @@ import NavBarWithRouter from './components/NavBar';
 import Home from './components/Home';
 import endpoints from './constants/endpoints';
 
-import ProjectPage from './components/projects/ProjectPage';
-
+import ProjectDetails from './components/projects/ProjectDetails';
 
 function MainApp() {
-  const [data, setData] = useState(null);
+    const [data, setData] = useState(null);
 
-  useEffect(() => {
-    fetch(endpoints.routes, {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => setData(res))
-      .catch((err) => err);
-  }, []);
+    useEffect(() => {
+        fetch(endpoints.routes, {
+            method: 'GET',
+        })
+            .then((res) => res.json())
+            .then((res) => setData(res))
+            .catch((err) => err);
+    }, []);
 
-  return (
-    <div className="MainApp">
-      <NavBarWithRouter />
-      
-      <main className="main">
-        <Switch>
-          <Suspense fallback={<FallbackSpinner />}>
-            
-            <Route exact path="/" component={Home} />
-            
-            <Route path="/project/:projectTitle" component={ProjectPage} />
+    return (
+        <div className="MainApp">
+            <NavBarWithRouter />
 
-            {data
-              && data.sections.map((route) => {
-                const SectionComponent = React.lazy(() => import('./components/' + route.component));
-                return (
-                  <Route
-                    key={route.headerTitle}
-                    path={route.path}
-                    component={() => (
-                      <SectionComponent header={route.headerTitle} />
-                    )}
-                  />
-                );
-              })}
+            <main className="main">
+                <Switch>
+                    <Suspense fallback={<FallbackSpinner />}>
+                        <Route exact path="/" component={Home} />
 
-          </Suspense>
-        </Switch>
-      </main>
-    </div>
-  );
+                        <Route path="/:projectTitle" component={ProjectDetails} />
+
+                        {data &&
+                            data.sections.map((route) => {
+                                const SectionComponent = React.lazy(() => import('./components/' + route.component));
+                                return (
+                                    <Route
+                                        key={route.headerTitle}
+                                        path={route.path}
+                                        component={() => <SectionComponent header={route.headerTitle} />}
+                                    />
+                                );
+                            })}
+                    </Suspense>
+                </Switch>
+            </main>
+        </div>
+    );
 }
 
 export default MainApp;

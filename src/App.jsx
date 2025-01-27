@@ -10,28 +10,22 @@ import GlobalStyles from './theme/GlobalStyles';
 import { lightTheme, darkTheme } from './theme/themes';
 
 function App() {
-  window.matchMedia = null;
-  const darkMode = useDarkMode(true);
+    window.matchMedia = null;
+    const darkMode = useDarkMode(true);
 
-  return (
-    <AppContext.Provider value={{ darkMode }}>
-      
-      <ThemeProvider theme={darkMode.value ? darkTheme : lightTheme}>
-        
-        <GlobalStyles />
-        
-        <div className="App">
-          <BrowserRouter>
+    return (
+        <AppContext.Provider value={{ darkMode }}>
+            <ThemeProvider theme={darkMode.value ? darkTheme : lightTheme}>
+                <GlobalStyles />
 
-            <MainApp />
-            
-          </BrowserRouter>
-        </div>
-      
-      </ThemeProvider>
-    
-    </AppContext.Provider>
-  );
+                <div className="App">
+                    <BrowserRouter>
+                        <MainApp />
+                    </BrowserRouter>
+                </div>
+            </ThemeProvider>
+        </AppContext.Provider>
+    );
 }
 
 export default App;
