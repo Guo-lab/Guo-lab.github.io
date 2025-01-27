@@ -19,7 +19,7 @@
             "startDate": "2024-07-12",
             "endDate": "2024-07-28",
             "githubUrl": "https://github.com/Guo-lab/AV-F1TENTH-Labs",
-            "type": "course"
+            "type": "others"
         },
         {
             "image": "images/projects/cmu_course_project/3tier.jpg",
@@ -48,7 +48,8 @@
             "bodyText": "- Implemented A* & Theta* global planner with 2.5D orientation optimization for MMPUG architecture.\n - Integrated features to make the planner adaptive to dynamic obstacles and ensure a safety distance for the robots.\nTested the global planner both in simulation and in the real environment.",
             "startDate": "2024-05-01",
             "endDate": "2024-09-01",
-            "githubUrl": "https://github.com/guo-lab/Far-Planner"
+            "githubUrl": "https://github.com/guo-lab/Far-Planner",
+            "type": "research"
         },
         {
             "image": "videos/projects/cmu_course/bustub.mp4",
@@ -67,7 +68,8 @@
             "bodyText": "- Proposed a novel unsupervised backdoor attack method on Graph Neural Networks (GNNs) without any target label information, inspired by MoCo.\n - Implemented the proposed method on the Cora dataset and achieved a high attack success rate on Downstream Graph Classification Task.\n - Conducted extensive experiments to evaluate the effectiveness of the proposed method.",
             "startDate": "2023-02-10",
             "endDate": "2023-06-10",
-            "githubUrl": "https://github.com/Guo-lab/GraphBackdoor-Supervised-Unsupervised"
+            "githubUrl": "https://github.com/Guo-lab/GraphBackdoor-Supervised-Unsupervised",
+            "type": "research"
         },
         {
             "image": "videos/projects/cmu_course/LLM-ur5e.mp4",
@@ -76,7 +78,8 @@
             "bodyText": "- Developed a robotic manipulation system for the UR5e robot arm, incorporating Large Language Model processing for real-time, natural language user commands\n - The final demo included RRT as the planner and LQR as the controller to control the robot arm to pick and place objects after interpreting the user command with the awareness of the simulation environment.\n - The future work contains integrating additional control techniques to enhance manipulation accuracy and adaptability and refining LLM-based interaction capabilities to ensure efficient command interpretation across a wide range of operational contexts.\n",
             "startDate": "2024-04-10",
             "endDate": "2024-05-25",
-            "githubUrl": "https://github.com/CMU-18475-18675/team3"
+            "githubUrl": "https://github.com/CMU-18475-18675/team3",
+            "type": "course"
         },
 
         {
@@ -86,7 +89,8 @@
             "bodyText": "- Applied Karush-Kuhn-Tucker (KKT) conditions and Newton's method for constrained optimization, including Lagrangian methods for Quadratic Programming (QP)\n - Developed a LQR controller for nonlinear systems and developed a Model Predictive Control (MPC) approach for rendezvous and docking problems.\n - Implemented iLQR for quadrotor trajectory following and used IPOPT for safety distance constrained optimization.\n - Implemented Iterative Learning Control (ILC) for a bicycle model.\n - Designed and optimized hybrid systems for a biped walker.\n",
             "startDate": "2024-07-23",
             "endDate": "2024-08-16",
-            "githubUrl": "https://github.com/Guo-lab/16745-Optimal-Control-and-RL"
+            "githubUrl": "https://github.com/Guo-lab/16745-Optimal-Control-and-RL",
+            "type": "others"
         },
 
         {
@@ -96,7 +100,52 @@
             "bodyText": "- The FTL is designed to manage logical-to-physical address mappings, handle block metadata, and perform garbage collection and wear-leveling to ensure efficient, reliable, and endurable flash memory usage. Optimized the FTL with the page-level mapping scheme, compressed metadata storage, and a greedy wear leveling policy to reach minimized write amplification, lower memory cost, and better endurance.\n - In previous checkpoints of this project, designed and implemented a Hybrid Log-Block mapping FTL for the simulated SSD. Additionally, benchmarked various Garbage Collection Policies such as Round Robin, LRU, LFS Cost-Benefit.\n",
             "startDate": "2024-09-03",
             "endDate": "2024-10-26",
-            "githubUrl": "None"
+            "githubUrl": "",
+            "type": "course"
+        },
+
+        {
+            "image": "images/projects/cmu_course_project/cloudfs.jpg",
+            "mediaType": "image",
+            "title": "CMU 18-746: Cloud File System",
+            "bodyText": "- Implemented CloudFS, leveraging the properties of local SSD and cloud storage to make data-placement decisions.\n - Identified and eliminated duplicate data with Rabin fingerprinting. Minimized storage usage and optimized data transfer in the form of segments. Designed buffer file to manully handle the file data transfer.\n - Implemented the IOCTL functions to support snapshot operations, such as create, restore, install, and uninstall.\n - Added in-memory LRU caching to further improve performance and reduce cloud operation costs, reaching NO.1 on the scoreboard among all students.",
+            "startDate": "2024-10-26",
+            "endDate": "2024-12-08",
+            "githubUrl": "https://github.com/Guo-lab/CloudFS_Design",
+            "type": "course"
+        },
+
+        {
+            "image": "images/projects/cmu_course_project/predictor.jpg",
+            "mediaType": "image",
+            "title": "CMU 18-740 Modern Computer Architecture and Design Labs",
+            "bodyText": "- Implemented and evaluated branch predictors such as Hybrid Predictor, TAGE predictor, Perception Predictor, and etc.\n - Implemented register renaming, ROB and IQ for superscalar out-of-order cores.\n - Implemented memory coherence protocol for inter-core communication such as MI, MSI, and MESI.\n - Profiled CPU/ GPU performance, energy efficiency, and power consumption on Snapdragon 8 Gen 2. Conducted stress out tests.",
+            "startDate": "2024-09-20",
+            "endDate": "2024-12-06",
+            "githubUrl": "",
+            "type": "course"
+        },
+
+        {
+            "image": "images/projects/cmu_course_project/PCB_v0.jpg",
+            "mediaType": "image",
+            "title": "CMU 18-349: Embedded System Design",
+            "bodyText": "- Designed and Created semantics and PCB boards.\n",
+            "startDate": "2025-01-15",
+            "endDate": "",
+            "githubUrl": "",
+            "type": "wip"
+        },
+
+        {
+            "image": "images/projects/cmu_course_project/VLSI_routing.jpg",
+            "mediaType": "image",
+            "title": "CMU 15-618 Parallel Computer Architecture and Programming Labs",
+            "bodyText": "- ",
+            "startDate": "2024-12-22",
+            "endDate": "2025-01-23",
+            "githubUrl": "https://github.com/Guo-lab/15-618-Parallel-Computing-Reports/",
+            "type": "others"
         }
     ]
 }
