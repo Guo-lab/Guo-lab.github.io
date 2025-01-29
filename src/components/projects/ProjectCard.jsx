@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled, { ThemeContext } from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 
-// import { Link } from 'react-router-dom'; // Import Link for routing
+import { NavLink } from 'react-router-dom'; // Import Link for routing
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
@@ -139,6 +139,7 @@ const ProjectCard = (props) => {
                         <ExternalNavLink
                             key={project.title}
                             href={`/${project.title.replace(/\s+/g, '-')}`}
+                            // to={`/${project.title.replace(/\s+/g, '-')}`}
                             theme={theme}
                             style={styles.linkStyle}
                             target="_blank"

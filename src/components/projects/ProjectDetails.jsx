@@ -46,7 +46,8 @@ const ProjectDetails = () => {
                 setDetails(res);
             })
             .catch((err) => err);
-    }, []);
+    }, [projectTitle]);
+
     if (!details) {
         return (
             <>
