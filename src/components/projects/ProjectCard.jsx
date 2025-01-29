@@ -108,6 +108,14 @@ const ExternalNavLink = styled.a`
         background-color: ${(props) => props.theme.accentColor};
     }
 `;
+const StyledNavLink = styled(NavLink)`
+    &:hover {
+        color: ${(props) => props.theme.navbarTheme.linkHoverColor};
+    }
+    &::after {
+        background-color: ${(props) => props.theme.accentColor};
+    }
+`;
 
 const ProjectCard = (props) => {
     const theme = useContext(ThemeContext);
@@ -136,19 +144,19 @@ const ProjectCard = (props) => {
                 <Card.Body>
                     <hr style={{ border: '1px solid #ccc', margin: '3px 0' }} />
                     <Card.Title style={styles.cardTitleStyle}>
-                        <ExternalNavLink
+                        <StyledNavLink
                             key={project.title}
-                            href={`/${project.title.replace(/\s+/g, '-')}`}
-                            // to={`/${project.title.replace(/\s+/g, '-')}`}
+                            to={`/${project.title.replace(/\s+/g, '-')}`}
                             theme={theme}
                             style={styles.linkStyle}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            // target="_blank"
+                            // rel="noopener noreferrer"
                             onMouseEnter={(e) => (e.currentTarget.style.color = styles.linkHoverStyle.color)}
                             onMouseLeave={(e) => (e.currentTarget.style.color = styles.linkStyle.color)}
+                            onClick={() => window.scrollTo(0, 0)}
                         >
                             {project.title}
-                        </ExternalNavLink>
+                        </StyledNavLink>
 
                         {project.githubUrl && (
                             <a
