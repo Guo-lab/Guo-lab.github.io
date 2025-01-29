@@ -59,15 +59,17 @@ const ProjectDetails = () => {
     console.log('project:', project?.body);
 
     const projectBodyItems = project?.body.map((item, index) => {
-        const isEven = (index / 2) % 2 === 0;
+        const isEven = index % 2 === 0;
         if (!item.text && item.image) {
             return item.ifVideo ? (
                 <video
                     controls
                     loop
+                    autoPlay
+                    muted
                     style={{
                         display: 'block', // Set display to block
-                        maxWidth: '70%',
+                        maxWidth: '80%',
                         margin: '10px auto', // Center the image
                         marginBottom: '50px',
                     }}
@@ -81,7 +83,7 @@ const ProjectDetails = () => {
                     alt={`Project Body Item ${index}`}
                     style={{
                         display: 'block', // Set display to block
-                        maxWidth: '70%',
+                        maxWidth: '80%',
                         margin: '10px auto', // Center the image
                         marginBottom: '50px',
                     }}
@@ -97,11 +99,11 @@ const ProjectDetails = () => {
                         display: 'flex',
                         textAlign: 'left',
                         alignItems: 'center',
-                        justifyContent: 'flex-start',
+                        justifyContent: 'center',
                         marginBottom: '40px',
                     }}
                 >
-                    <div style={{ flex: 1, width: '300px' }}>{parseMarkdownText(item.text)}</div>
+                    <div style={{ flex: 1, width: '300px', maxWidth: '80%' }}>{parseMarkdownText(item.text)}</div>
                 </div>
             );
         }
@@ -124,11 +126,14 @@ const ProjectDetails = () => {
                                     <video
                                         controls
                                         loop
+                                        autoPlay
+                                        muted
                                         style={{
                                             marginRight: '10px',
                                             float: 'right',
                                             marginLeft: '30px',
-                                            maxHeight: '300px',
+                                            maxHeight: '350px',
+                                            maxWidth: '650px',
                                         }}
                                     >
                                         <source src={item.image} type="video/mp4" />
@@ -138,7 +143,13 @@ const ProjectDetails = () => {
                                     <img
                                         src={item.image}
                                         alt={`Project Body Item ${index}`}
-                                        style={{ marginRight: '10px', float: 'right', marginLeft: '30px' }} // Float img
+                                        style={{
+                                            marginRight: '10px',
+                                            float: 'right',
+                                            marginLeft: '30px',
+                                            maxHeight: '400px',
+                                            maxWidth: '650px',
+                                        }} // Float img
                                     />
                                 )}
                                 <div style={{ marginRight: '10%', overflow: 'hidden' }}>
@@ -155,11 +166,14 @@ const ProjectDetails = () => {
                                     <video
                                         controls
                                         loop
+                                        autoPlay
+                                        muted
                                         style={{
                                             marginLeft: '10px',
                                             float: 'left',
                                             marginRight: '30px',
-                                            maxHeight: '300px',
+                                            maxHeight: '350px',
+                                            maxWidth: '650px',
                                         }}
                                     >
                                         <source src={item.image} type="video/mp4" />
@@ -169,7 +183,13 @@ const ProjectDetails = () => {
                                     <img
                                         src={item.image}
                                         alt={`Project Body Item ${index}`}
-                                        style={{ marginLeft: '10px', float: 'left', marginRight: '30px' }} // Float img
+                                        style={{
+                                            marginLeft: '10px',
+                                            float: 'left',
+                                            marginRight: '30px',
+                                            maxHeight: '400px',
+                                            maxWidth: '650px',
+                                        }} // Float img
                                     />
                                 )}
                                 <div style={{ marginLeft: '10px', overflow: 'hidden' }}>

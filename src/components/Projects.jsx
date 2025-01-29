@@ -39,10 +39,10 @@ const Projects = (props) => {
 
     const groupProjectsByType = (projects) => {
         return {
-            'Work in Progress': projects.filter((project) => project.type === 'wip'),
+            'Work in Progress (Last updated: Jan 29, 2025)': projects.filter((project) => project.type === 'wip'),
             'Research Projects': projects.filter((project) => project.type === 'research'),
-            'Course Projects': projects.filter((project) => project.type === 'course'),
-            'Others Projects': projects.filter((project) => project.type === 'others'),
+            'Course Projects & Labs': projects.filter((project) => project.type === 'course'),
+            'Other Projects & Labs': projects.filter((project) => project.type === 'others'),
         };
     };
 
@@ -77,7 +77,7 @@ const Projects = (props) => {
                                                 margin: '25px 0',
                                                 fontSize: '2em', // Increase font size
                                                 fontWeight: 'bold',
-                                                color: '#333',
+                                                color: '#888',
                                                 fontFamily: 'Times New Roman, serif',
                                                 textTransform: 'uppercase',
                                             }}

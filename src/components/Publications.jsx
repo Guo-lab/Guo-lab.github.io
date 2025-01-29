@@ -45,7 +45,7 @@ const styles = {
         // position: 'fixed',
         // top: '160px',
         // left: 0,
-        margin: '20px 50px',
+        margin: '80px 50px',
         justifyContent: 'center',
         width: '100%',
         flexDirection: 'column',
@@ -63,13 +63,13 @@ const styles = {
     },
 
     publicationContainer: {
-        margin: '0px 20px 0 10px',
+        margin: '0px 0px 0 0px',
         flexDirection: 'column',
         whiteSpace: 'pre-wrap',
         textAlign: 'left',
         fontSize: '1.0em',
         fontWeight: 500,
-        padding: '3px', // Add padding to the text column
+        padding: '10px', // Add padding to the text column
         flex: 3.5,
     },
 
@@ -108,7 +108,7 @@ const styles = {
     },
 
     abstract: {
-        fontSize: '0.7em',
+        fontSize: '0.9em',
         color: '#333',
         fontFamily: 'Arial, sans-serif',
     },
@@ -121,6 +121,13 @@ function Publications(props) {
 
     const [showModal, setShowModal] = useState(false);
     const [bibtexContent, setBibtexContent] = useState('');
+
+    const handleShowBibtex = (bibtex) => {
+        setBibtexContent(bibtex);
+        setShowModal(true);
+    };
+    const handleCloseModal = () => setShowModal(false);
+    const [showAbstract, setShowAbstract] = useState(Array(publicationData?.publications.length).fill(false));
 
     useEffect(() => {
         fetch(endpoints.home, {
@@ -143,13 +150,11 @@ function Publications(props) {
             })
             .catch((err) => err);
         console.log(publicationData);
-    }, []);
 
-    const handleShowBibtex = (bibtex) => {
-        setBibtexContent(bibtex);
-        setShowModal(true);
-    };
-    const handleCloseModal = () => setShowModal(false);
+        if (publicationData) {
+            setShowAbstract(Array(publicationData.publications.length).fill(false));
+        }
+    }, []);
 
     return (
         <>
@@ -185,21 +190,51 @@ function Publications(props) {
                                     {publicationData.publications
                                         .slice()
                                         .reverse()
-                                        .map((publication) => (
+                                        .map((publication, index) => (
                                             <Card key={publication.id} style={styles.publicationItem}>
                                                 <Card.Body>
                                                     <Card.Title style={styles.title}>{publication.title}</Card.Title>
                                                     <Card.Subtitle style={styles.authors}>
                                                         {publication.authors}
                                                     </Card.Subtitle>
+
                                                     <Card.Text style={styles.venue}>{publication.venue}</Card.Text>
+
                                                     <Card.Text style={styles.year}>
                                                         <FontAwesomeIcon icon={faCalendarAlt} style={styles.yearIcon} />
                                                         &nbsp;&nbsp;
                                                         {publication.date}
                                                     </Card.Text>
+
+                                                    {/*
+                                                        <Card.Text style={styles.abstract}>
+                                                            <ReactMarkdown>{publication.abstract}</ReactMarkdown>
+                                                        </Card.Text>
+                                                    */}
                                                     <Card.Text style={styles.abstract}>
-                                                        <ReactMarkdown>{publication.abstract}</ReactMarkdown>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => {
+                                                                setShowAbstract((prev) => {
+                                                                    const newShowAbstract = [...prev];
+                                                                    newShowAbstract[index] = !newShowAbstract[index];
+                                                                    return newShowAbstract;
+                                                                });
+                                                            }}
+                                                        >
+                                                            {showAbstract[index] ? 'Hide Abstract' : 'Show Abstract'}
+                                                        </button>
+                                                        {showAbstract[index] && (
+                                                            <div
+                                                                style={{
+                                                                    // maxHeight: '200px',
+                                                                    // overflowY: 'scroll',
+                                                                    marginTop: '15px',
+                                                                }}
+                                                            >
+                                                                <ReactMarkdown>{publication.abstract}</ReactMarkdown>
+                                                            </div>
+                                                        )}
                                                     </Card.Text>
 
                                                     <Card.Link href={publication.paperurl} target="_blank">
