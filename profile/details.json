@@ -402,6 +402,17 @@
           "text": "At the BioRobotics Lab, my primary contributions focused on designing and enhancing the EigenBot's capabilities.\n\nI developed a robust curve-walking gait in simulation, implemented the EigenBot's firmware, and established a comprehensive performance assessment pipeline. Tackling the challenges of debugging firmware, I created tools for auto-setting EEPROM parameters, enhancing work efficiency. Additionally, I optimized and redesigned the serial communication protocol among robot modules to address real-time coordination issues, resolving several Cortex-M3 firmware implementation defects. These efforts rein- forced my passion for designing control frameworks that balance computational efficiency with dynamic adaptability, both of which are critical for achieving reliable distributed control in modular robots. \n\nTo validate these developments, I conducted extensive hardware experiments using OptiTrack systems, benchmarking metrics such as gait phase difference and leg stance duration. This led me to be the 2nd author of our work on the decentralized neural locomotion controller (D-NLC) enabling robust locomotion across uneven terrains and in amputation scenarios.\n\n"
         }
       ]
+    },
+    {
+      "title": "CMU 18-349: Embedded System Design",
+      "startDate": "2025-01-15",
+      "endDate": "",
+      "body": [
+        {
+          "image": "images/projects/cmu_course_project/embedded/PCB_v0.jpg"
+        },
+        {}
+      ]
     }
   ]
 }
