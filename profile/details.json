@@ -1,43 +1,407 @@
 {
-    "details": [
+  "details": [
+    {
+      "title": "CMU 18-746: SSD Customized Flash Translation Layer",
+      "startDate": "2024-09-03",
+      "endDate": "2024-10-26",
+      "usage_1": "video should contain ifVideo and image at the same time",
+      "usage_2": "image just have image key",
+      "usage_3": "image or video would be wrapped by the text if there is text key; they would alternate image/video left and right(odd and even)",
+      "usage_4": "only text of only image will lead to full width",
+      "body": [
         {
-            "title": "CMU 18-746: SSD Customized Flash Translation Layer",
-            "startDate": "2024-09-03",
-            "endDate": "2024-10-26",
-            "body": [
-                {
-                    "ifVideo": true,
-
-                    "image": "/videos/projects/eigenbot/6_legs_emergent.mp4"
-                },
-                {
-                    "ifVideo": true,
-                    "text": "- Optimized the FTL with the page-level mapping scheme, compressed metadata storage, and a greedy wear leveling policy to reach minimized write amplification, lower memory cost, and better endurance",
-                    "image": "/images/projects/cmu_course_project/optimal_rendezvous_docking_mpc_convex.gif"
-                },
-                {
-                    "ifVideo": true,
-                    "text": "- Optimized the FTL with the page-level mapping scheme, compressed metadata storage, and a greedy wear leveling policy to reach minimized write amplification, lower memory cost, and better endurance",
-                    "image": "/videos/projects/eigenbot/6_legs_emergent.mp4"
-                },
-                {
-                    "ifVideo": true,
-                    "image": "/images/projects/cmu_course_project/optimal_rendezvous_docking_mpc_convex.gif",
-                    "text": "- The FTL is designed to manage logical-to-physical address mappings, handle block metadata, and perform garbage collection and wear-leveling to ensure efficient, reliable, and endurable flash memory usage."
-                },
-                {
-                    "image": "/images/projects/cmu_course_project/optimal_rendezvous_docking_mpc_convex.gif",
-                    "text": "- In previous checkpoints of this project, designed and implemented a Hybrid Log-Block mapping FTL for the simulated SSD. Additionally, benchmarked various Garbage Collection Policies such as Round Robin, LRU, LFS Cost-Benefit."
-                },
-                {
-                    "text": "- In previous checkpoints of this project, designed and implemented a Hybrid Log-Block mapping FTL for the simulated SSD. Additionally, benchmarked various Garbage Collection Policies such as Round Robin, LRU, LFS Cost-Benefit.",
-                    "image": "/images/projects/cmu_course_project/optimal_rendezvous_docking_mpc_convex.gif"
-                },
-                {
-                    "image": "/images/projects/cmu_course_project/optimal_rendezvous_docking_mpc_convex.gif",
-                    "text": "OKK"
-                }
-            ]
+          "ifVideo": true,
+          "image": "/videos/projects/cmu_course_project/ssd/ssd_after_debugging.mp4"
+        },
+        {
+          "text": "My Flash Translation Layer in this project consists of two mode, one is the hybrid mapping scheme with the log-block feature, another one is optimized specifically for a fixed configuration of the SSD.\n\n\nFinal simulation demos for the second optimized FTL design are shown above.",
+          "image": "/images/projects/cmu_course_project/ssd/myFTL.jpg"
+        },
+        {
+          "text": "The first hybrid mapping design separates the SSD into the overprovisioned log-reservation region (for the purpose of durability or wear leveling.), cleaning-reservation blocks, and the normal mapping address space. This hybrid mapping SSD FTL also supports trim cleaning and garbage collection. I also benchmarked the performance of different GC policies, including Round Robin, LRU, Greedy by minimum effort, and LFS Cost-Benefit.\n\n\n"
+        },
+        {
+          "text": "The second optimized FTL is specifically designed for a fixed configuration of the SSD, to minimize write amplification, lower memory cost, and better endurance. In this design, I encapsulate block manager and address translator to coordinate the blocks and mapping separately. In this way, the read and write also be processed independently and safely. What is worthy to note is during optimization , I chose Page-Level Mapping Scheme to reduce the write-amplification and improve the endurance of the SSD, and before implementation, I also optimized data structures and the data fields used for more efficient memory usage. Besides, to make sure the garbage collection and wear leveling eﬀicient, I decide to use a simple greedy block selection policy.\n\n\n\n"
         }
-    ]
+      ]
+    },
+    {
+      "title": "CMU 18-746: Cloud File System",
+      "startDate": "2024-10-26",
+      "endDate": "2024-12-08",
+      "usage_1": "video should contain ifVideo and image at the same time",
+      "usage_2": "image just have image key",
+      "usage_3": "image or video would be wrapped by the text if there is text key; they would alternate image/video left and right(odd and even)",
+      "usage_4": "only text of only image will lead to full width",
+      "body": [
+        {
+          "image": "/images/projects/cmu_course_project/cloudfs/cloudfs.jpg"
+        },
+        {
+          "text": "#### CloudFS, a cloud-backed local file system, bridges the gap between high-performance local storage and the virtually infinite capacity of cloud services.\n #### By taking advantages of local solid-state disks (SSD) and cloud storage, CloudFS aims to deliver a seamless, efficient, and robust storage solution.\nIn this project, I developed single-threaded CloudFS, using the FUSE framework, and incorporating S3 service API, archive-lib, libfuse, and several other useful libraries.\n\n - #### Hybrid file system spanning SSD and cloud storage\n <i> The necessary metadata of a file will be stored on the local SSD and the file content will first be placed on local device. The file will be transferred to the cloud storage when this file grows large enough.\n\n <ii> CloudFS is a FUSE-based file system, most of the code will be written to implement functions called through the VFS interface. I built a working prototype using a subset of VFS calls.\n - #### Block Level Deduplication\nIn this checkpoint, I implemented a block-level deduplication scheme. The file content is divided into similar-size segments (blocks), and the deduplication manager identifies these duplicate blocks and stores them only once.\n - #### Snapshots & Cache\n <i> I implemented the Snapshot Manager to support the IOCTL functions in CloudFS. The Snapshot Manager maintains a list of snapshots for each file and provides functionalities to create, delete, restore, install, and uninstall snapshots.\n\n <ii> To further optimize the CloudFS performance and reduce the cloud costs, I implemented the Least Recently Used (LRU) write-back cache in the CloudFS. Cache will store the frequently accessed chunks locally to reduce the cloud access frequency and costs. In this case, uploading will only happen when there is an eviction and downloading will only happen when the chunk is not found in the cache.\n\nThe UML design of CloudFS is as follows."
+        },
+        {
+          "image": "/images/projects/cmu_course_project/cloudfs/CloudFS_UML.png"
+        },
+        {
+          "text": "Performance Improvement. After implementing the cache, the CloudFS performance is significantly improved. We could observe a reduced cost from 28.7$ to 15.4$ in the provided test cases on the AutoLab."
+        },
+        {
+          "image": "/images/projects/cmu_course_project/cloudfs/scoreboard.jpg"
+        }
+      ]
+    },
+    {
+      "title": "CMU 18-740 Modern Computer Architecture and Design Labs",
+      "startDate": "2024-09-20",
+      "endDate": "2024-12-06",
+      "usage_1": "video should contain ifVideo and image at the same time",
+      "usage_2": "image just have image key",
+      "usage_3": "image or video would be wrapped by the text if there is text key; they would alternate image/video left and right(odd and even)",
+      "usage_4": "only text of only image will lead to full width",
+      "body": [
+        {},
+        {
+          "image": "/images/projects/cmu_course_project/740/predictor.jpg",
+          "text": "In Lab 1, I implemented several branch predictors, including Local Predictor, Global Predictor, Hybrid Predictor, TAGE predictor, and Perception Predictor. My teammate designed a customized Branch Predictor, combining the idea of local branch history and TAGE's core idea (multi-layer branch history and tagged prediction entries).\n\n Beyond these implementations, me and my teammate evaluated them and benchmarked their performance with some baselines on the traces such as deepsjeng, imagick, xz, and nab."
+        },
+        {},
+        {
+          "ref": "https://media.licdn.com/dms/document/media/v2/D562DAQER62ChPwVFsw/profile-treasury-document-pdf-analyzed/profile-treasury-document-pdf-analyzed/0/1730988387350?e=1738800000&v=beta&t=eaXQPACl4xo_XyH2Mb-J9LMt3LuEKhP8tJNgIzi-RMo",
+          "text": "In Lab 2, we implemented Register Renaming module, Reorder Buffer (ROB), and Issue Queue (IQ) in the processor pipeline for superscalar out-of-order cores. (In SystemVerilog)\n\nThen, we benchmarked the performance of our O3 processor with inorder one and the default O3 one on main metrics-Speedup, Energy, and Energy Efficiency. Prior to this, we grid-searched the parameters of the O3 processor (ROB size, IQ size, etc.) to find the best configuration for our O3 processor.",
+          "image": "/images/projects/cmu_course_project/740/lab2.jpg"
+        },
+        {
+          "text": "\n\nIn Lab 3, there are two sections. \n\nIn first part, I implemented several classical cache memory coherence protocol for inter-core communication, such as MI, MSI, and MESI.\n\nIn the second part, I and my teammate we explored the **CPU cores of Snapdragon 8 Gen 2**, like their core utilization, power consumption, and scheduling policies. We did stressed out tests to see CPU cores' cache performance, parallelism, power consumption, and the performance of branch predictors, ROB & IQ.\n\n"
+        },
+        {
+          "text": "\n\nIn Lab 4, we explore **CPUs and GPUs of the board**. Beyond the benchmarking work with **Snapdragon Profiler**, we also programmed to solve some simple tasks, such as Shader Processing, GPU-GPU bandwidth testing, Divergence Elimination, \n\n\n\nFinally in Lab 5, we explored the **specific Heterogeneous Cores of the Snapdragon 8 Gen 2 - NPU**, by benchmarking AI tasks and AI inference. We also performed some optimization under Hexagon's VLIW architecture with Hexagon intrinsics.\n\n"
+        }
+      ]
+    },
+    {
+      "title": "CMU 18-797 Course Project, Blind Source Separation",
+      "startDate": "2023-10-15",
+      "endDate": "2023-12-15",
+      "usage_1": "video should contain ifVideo and image at the same time",
+      "usage_2": "image just have image key",
+      "usage_3": "image or video would be wrapped by the text if there is text key; they would alternate image/video left and right(odd and even)",
+      "usage_4": "only text of only image will lead to full width",
+      "body": [
+        {
+          "image": "/images/projects/cmu_course_project/mlsp/797-pipeline.jpg"
+        },
+        {},
+        {
+          "text": "Based on biological principles, we recognized that different Motor Units (MUs) possess unique peak characteristics. Therefore, the key to identifying different MUs lies in the detection and analysis of these peaks.\n\nThis project includes signal filtering, peak detection, principal component analysis (PCA), K-means clustering, and dynamic time warping (DTW) analysis. The workflow is shown above.\n"
+        },
+        {
+          "text": "\n\nWe could observe that the PCA and K-means clustering algorithm could reduce the dimension of multi-axis signals and thus separate the MUs effectively. The DTW algorithm could also align the peaks of different MUs and calculate the similarity between them. The final (MU) signal separation results are shown below."
+        },
+        {
+          "text": "Steady Force Data Signal Separation"
+        },
+        {
+          "image": "/images/projects/cmu_course_project/mlsp/steady_output.png"
+        },
+        {
+          "text": "Increasing Force Data <i> Signal Separation"
+        },
+        {
+          "image": "/images/projects/cmu_course_project/mlsp/increasing_1_output.png"
+        },
+        {
+          "text": "Increasing Force Data <ii> Signal Separation"
+        },
+        {
+          "image": "/images/projects/cmu_course_project/mlsp/incr_2_output.png"
+        }
+      ]
+    },
+    {
+      "title": "CMU 15-640 Distributed Systems Course Project",
+      "startDate": "2024-02-01",
+      "endDate": "2024-05-01",
+      "usage_1": "video should contain ifVideo and image at the same time",
+      "usage_2": "image just have image key",
+      "usage_3": "image or video would be wrapped by the text if there is text key; they would alternate image/video left and right(odd and even)",
+      "usage_4": "only text of only image will lead to full width",
+      "body": [
+        {
+          "image": "/images/projects/cmu_course_project/640ds/image.png",
+          "text": "#### In Project 1\n\nI implemented **Remote Procedure Call (RPC)** which lies in the Stub layer, which does serialization and de-serialization, and supports concurrency by forking a child process for each client.\n\nThere is an offset added to the file descriptors in the server, so the client could distinguish between local calls and RPCs.\n\n"
+        },
+        {
+          "text": "#### In Project 2\n\nI implemented a **File-Caching Proxy** which has open-close session semantics for proxy operations, and the LRU replacement policy for cache management.\n\nThe communication between the proxy and the server is based on JAVA RMI Interface. The server implemented those functions which would work as stubs in the proxy. Each time, the proxy would make RPC calls to the server, just like what the clients did in the project one.\n\n&nbsp;&nbsp; 1. The protocol between the proxy and the server includes check-on-use and last-close-win strategies.\n\n &nbsp;&nbsp; 2. Regarding the Consistency Model, I used the open-close session semantics.\n\n&nbsp;&nbsp; 3. Most concurrency in this project is maintained by the `ConcurrentHashMap`. I made a trade-off to get the eﬀiciency but lose some flexibilities by using my own lock. However, only using `ConcurrentHashMap` could not solve all concurrency issue. I also use `synchronized` for cache insertion, eviction, and deletion;  and `ReentrantReadWriteLock` for the file-level lock in the server.\n\n"
+        },
+        {
+          "text": "#### In Project 3\n\nI implemented a Three-Tier Scalable Web Service and fine-tuned it to satisfy dynamic or unexpected workloads by auto-scaling. \n\nDuring the fine-tuning, I also evaluated the performance of the system by benchmarking and figuring out the bottleneck. My final distributed system is simple but have complex and decent behaviors.\n\n",
+          "image": "/images/projects/cmu_course_project/640ds/3tier.jpg"
+        },
+        {
+          "text": "#### In Project 4\n\nIn the end, I implemented a two-phase commit protocol for a single server and several User Nodes, to make sure a safe and consistent process of generating and publishing group collages assembled from multiple images contributed by different individuals.\n\n",
+          "image": "/images/projects/cmu_course_project/640ds/2PC.jpg"
+        },
+        {
+          "text": "The server, as a coordinator, would collect User Nodes' votes and decide whether to commit or abort the transaction. The User Nodes, as participants, would vote and follow the server's decision. I also design a failure recovery mechanism with persistent logging to handle the crashes and restarts of the server and User Nodes.\n\n",
+          "image": ""
+        }
+      ]
+    },
+    {
+      "title": "CMU 18-675 Course Project, LLM-based Robot Arm Control",
+      "startDate": "2024-01-15",
+      "endDate": "2024-04-15",
+      "usage_1": "video should contain ifVideo and image at the same time",
+      "usage_2": "image just have image key",
+      "usage_3": "image or video would be wrapped by the text if there is text key; they would alternate image/video left and right(odd and even)",
+      "usage_4": "only text of only image will lead to full width",
+      "body": [
+        {
+          "ifVideo": true,
+          "image": "/videos/projects/cmu_course_project/675/LLM-ur5e.mp4"
+        },
+        {
+          "text": "- Developed a robotic manipulation system for the UR5e robot arm, incorporating Large Language Model processing for real-time, natural language user commands.\n\n - The final demo included RRT as the planner and customized LQR/Pseudo-Inverse Controller as the controller to control the robot arm to pick and place objects after interpreting the user command with the awareness of the simulation environment.\n\n - The future work (W.i.P) contains integrating additional control techniques to enhance manipulation accuracy, smoothness, and adaptability and refining LLM-based interaction capabilities to ensure efficient command interpretation across a wide range of operational contexts."
+        }
+      ]
+    },
+    {
+      "title": "CMU 15-645 Personal Project BusTub - A Relational DBMS",
+      "startDate": "2024-05-13",
+      "endDate": "2024-07-08",
+      "usage_1": "video should contain ifVideo and image at the same time",
+      "usage_2": "image just have image key",
+      "usage_3": "image or video would be wrapped by the text if there is text key; they would alternate image/video left and right(odd and even)",
+      "usage_4": "only text of only image will lead to full width",
+      "body": [
+        {
+          "ifVideo": true,
+          "image": "/videos/projects/cmu_course_project/15645db/bustub.mp4"
+        },
+        {
+          "text": "- Implemented LRU-K policy, a disk scheduler and a buffer pool in the storage manager. Implemented disk-backed hash index in the DB management system, using a variant of extendible hashing as the hashing scheme.\n - Created the operator executors that execute SQL queries and implemented optimizer rules to transform query plans.\n - Added transaction support by implementing optimistic multi-version concurrency control."
+        },
+        {
+          "image": "/images/projects/cmu_course_project/15645db/proj0-result.jpg",
+          "text": " - ### Project 0 \n\nP0 is to implement a Trie with read-write lock. Getting familiar with C++, debugging with LLDB, function factory in this BusTub.\n\n`git diff --stat master 23fall-p0`\n\n`93 files changed, 471 insertions(+), 2078 deletions(-)`\n\n"
+        },
+        {
+          "image": "/images/projects/cmu_course_project/15645db/proj1-result.jpg",
+          "text": " - ### Project 1:\n\nP1 is to implement a buffer pool in the storage manager.\n\n - Implement the LRU-K Replacement Policy to track page usage in the buffer pool.\n - Implement a Disk Scheduler, which will utilize a shared queue to schedule and process the Disk Requests.\n\n - Based on the LRU-K and the Disk Scheduler implementation, implement the buffer pool manager to fetch database pages from disk with the Disk Scheduler and storing them in memory. This Buffer Pool Manager could also schedule writes of dirty pages out to disk when it is either explicitly instructed to do so or when it needs to evict a page to make space for a new page.\n\n`git diff --stat 23fall-p0 23fall-p1`\n\n`10 files changed, 660 insertions(+), 137 deletions(-)`\n\n"
+        },
+        {
+          "image": "/images/projects/cmu_course_project/15645db/proj2-result.jpg",
+          "text": "- ### Project 2:\n\nP2 is to implement disk-backed hash index in the database system, using a variant of extendible hashing as the hashing scheme.\n\n- First, implement the Page Guard layer for the access method, and add some related functions in Buffer Pool Manager.  [Speed Scope](https://www.speedscope.app) This makes the page allocation and collection easier and safer.\n\n- Then, implement an extensible hash table, which supports insertions, point search and deletions. The hash table has three layers. `Header Page`, `Directory Page`, and the `Bucket Page`.\n\n- What's more, this extensible hash table also supports bucket splitting and directory growing during `insert()`, and merging and directory shrinking during `remove()`. The most-significant bits for indexing into the header page's directory page ID array and the least-significant bits for indexing into the directory page's bucket page ID array.\n\n  - `FetchPageWrite` and `FetchPageRead` buffer pool API are used to ensure concurrency control.\n\n`git diff --stat 23fall-p1 23fall-p2`\n\n`27 files changed, 879 insertions(+), 118 deletions(-)`"
+        },
+        {
+          "image": "/images/projects/cmu_course_project/15645db/proj3-result.jpg",
+          "text": "- ### Project 3:\n\nP3 is to implement the components that allow DBMS to execute queries. Create the operator executors that execute SQL queries and implement optimizer rules to transform query plans. (Add new operator executors and query optimizations) Construct my own SQL queries to test the executor implementation.\n\n- First, implement the storage related executors that read from and write to tables in the storage system, including `SeqScan`, `Insert`, `Update`, `Delete`, `IndexScan`, and optimizer to optimize `SeqScan` to `IndexScan`.\n\n- Then, complete my implementation of aggregation & join executors.\n\n  - The aggregation executor uses a hash table to map the group-by-column and the aggregation results.\n\n  - In this project, the database only supports left join and inner join by the `NestedLoopJoin`. For the left side of a join, it will find all matching right tuples (if none, the left join will auto-populate a null tuple) and concatenate both sides.\n\n  - The hash-join executor also depends on the hash table to store the mapping from the hash join key and hash join value. In this project, the database also only supports left join and inner join. As the value from the hash table, the table's columns corresponding to the join key will be concatenated. Note that the hash table is built on the right relation.\n\n  - Implement the optimizer for optimizing the NLJ into Hash Join when a join predicate is a conjunction of several equi-conditions between two columns. The multiple equi-conditions could be converted into a set of the hash join keys recursively.\n\n- Finally, implement the `Sort` executor, `Limit` executor, `Top-N Optimizer` (with a priority queue as a heap), and especially the Window Functions executor.\n\n  - Here, the window function does not support sorting for each partition and partitioning as window frames. Without `ORDER BY` (sorting), the query results (aggregation towards that partition) within the partition would be the same. Order by clauses not omitted should lead to a window function calculated from the first row to the current row for each partition.\n\n`git diff --stat 23fall-p2 23fall-p3 `\n\n`43 files changed, 2153 insertions(+), 54 deletions(-)`"
+        },
+        {
+          "image": "/images/projects/cmu_course_project/15645db/proj4-result.jpg",
+          "text": "- ### Project 4 - CONCURRENCY CONTROL:\n\nP4 is to add transaction support by implementing optimistic multi-version concurrency control (MV OCC). Including adding a watermark for timestamp allocation, designing a tuple reconstruction function, garbage collection, and debugging features, and supporting MVCC scan, insert, delete, and update. Besides, there is MVCC support for the primary key index. (insert, delete, and update)\n\nFor the primary key, inserting one to the deleted position would just update the deleted tuple instead of creating a new entry, because an index entry always points to the same RID once created.\n\n`git diff --stat 23fall-p3 23fall-p4`\n\n`34 files changed, 1838 insertions(+), 154 deletions(-)`\n\n- ### Not implemented yet:\n\n 1.Abort. Before this is implemented, transactions that go into the tainted state will cause other transactions to abort on the write-conflicting tuples, and we cannot continue modifying the tuples when any of the transactions aborts.\n\n 2.Serializable Verification.\n\n 3.Other optimization."
+        },
+        {
+          "text": "Finally, \n\n`git diff --stat master 23fall-p4`\n\n` 173 files changed, 5921 insertions(+), 2447 deletions(-)`\n\nTime spent:  `total 161 hrs 32 mins`\n\n"
+        }
+      ]
+    },
+    {
+      "title": "CMU 16-745-Optimal-Control Course Labs",
+      "startDate": "2024-07-23",
+      "endDate": "2024-08-16",
+      "usage_1": "video should contain ifVideo and image at the same time",
+      "usage_2": "image just have image key",
+      "usage_3": "image or video would be wrapped by the text if there is text key; they would alternate image/video left and right(odd and even)",
+      "usage_4": "only text of only image will lead to full width",
+      "body": [
+        {
+          "image": "/images/projects/cmu_course_project/745ocrl/optimal_rendezvous_docking_mpc_convex_cropped.gif"
+        },
+        {
+          "text": "**In Lab 1**, implemented Q1-Integration, Q2-Newton Method and Gauss Newton on KKT conditions (LagrangeQP obj and constraint), and Q3-Augmented Lagrangian Quadratic Problem Solver. The simulation of a falling brick with QPs is shown aside.\n\n\n",
+          "image": "/images/projects/cmu_course_project/745ocrl/falling_brick.gif"
+        },
+        {
+          "text": "**In Lab 2**, I implemented Q1- Finite/Infinite Horizon LQR Convex Optimization & Finite Horizon LAQ via Riccati, (which leads to a ihlqr tuning process shown aside),\n\n Q2-LQR for nonlinear systems with Linerazation, and Q3-The LQR solver, the Convex Trajectory Optimization, and a Convex MPC (Model Predictive Control) Solver for Rendezvous Docking.\n\nThe simulation of the Rendezvous Docking with MPC is shown aside.\n\n\n",
+          "image": "/images/projects/cmu_course_project/745ocrl/ihlqr_tuning.gif"
+        },
+        { "text": "", "image": "" },
+        {
+          "text": ".",
+          "image": "/images/projects/cmu_course_project/745ocrl/optimal_rendezvous_docking_mpc_convex.gif"
+        },
+        {
+          "text": "**In Lab 3**, I implemented Q1: IPOPT to solve NLP with DIRCOL. I used IPOPT to solve nonlinear programming (NLP) problems, particularly using direct collocation (DIRCOL) methods for trajectory optimization.\n\n",
+          "image": "/images/projects/cmu_course_project/745ocrl/swingup_ipopt.gif"
+        },
+        {},
+        {
+          "text": " Then I solved Q2: iLQR on Quadrotors Trajectory Following\n\n by implementing iterative Linear Quadratic Regulator (iLQR) for trajectory following of quadrotors, ensuring efficient control and smooth path tracking.\n\n ",
+          "image": "/images/projects/cmu_course_project/745ocrl/quadrotor_ilqr.gif"
+        },
+        {},
+        {
+          "text": "Finally I solved Q3: NLP with IPOPT for Quadrotors with Safety Distance Constraints\n\n  by applying nonlinear programming (NLP) for quadrotors using IPOPT, incorporating safety distance constraints to maintain collision avoidance.\n\n",
+          "image": "/images/projects/cmu_course_project/745ocrl/quadrotor_reorient_ipopt.gif"
+        },
+        {},
+        { "text": "", "image": "" },
+        {
+          "text": "**In Lab 4**, I solved Q1: ILC, implementing the Iterative Learning Control (ILC) for a bicycle model to improve trajectory tracking performance over repeated trials.\n\n",
+          "image": "/images/projects/cmu_course_project/745ocrl/nonlinear_bicycle_model_iterative_learning_control.gif"
+        },
+        {},
+        {
+          "text": "Then I solved Q2: Hybrid Trajectory Optimization for Biped Walker with IPOPT. Solved trajectory optimization problems for a hybrid biped walker system using IPOPT. The hybrid system switches between different modes of operation, each governed by its own set of dynamics.\n\n",
+          "image": "/images/projects/cmu_course_project/745ocrl/hybrid_biped_walker_ipopt.gif"
+        }
+      ]
+    },
+    {
+      "title": "AV-F1TENTH-Labs",
+      "startDate": "2024-07-12",
+      "endDate": "2024-07-28",
+      "usage_1": "video should contain ifVideo and image at the same time",
+      "usage_2": "image just have image key",
+      "usage_3": "image or video would be wrapped by the text if there is text key; they would alternate image/video left and right(odd and even)",
+      "usage_4": "only text of only image will lead to full width",
+      "body": [
+        {
+          "ifVideo": true,
+          "image": "/videos/projects/cmu_course_project/f1tenth/lab9.mp4"
+        },
+        {
+          "text": "#### In the labs, I implemented my own **AEB, Wall Following, Pure Pursuit control, Gap Following, RRT Planning algorithm, and MPC** for the autonomous race car on the platform, F1TENTH. \n\nAfter simulation in Rviz and ROS, I deployed these contorl methods on the real car. (the demo is shown at the bottom of this page)"
+        },
+        {
+          "ifVideo": "true",
+          "text": "First, I implemented the AEB (Automatic Emergency Braking).\nI used Instantaneous Time to Collision (iTTC) to build a safety critical system. Based on this, the safety node could halt the car before it collides with obstacles.\n\n",
+          "image": "/videos/projects/cmu_course_project/f1tenth/lab2.mp4"
+        },
+        {
+          "ifVideo": "true",
+          "text": "Regarding the Wall Following I used PID Controllers to drive the vehicle automatically via wall following.\n\n  > A PID controller is a way to maintain certain parameters of a system around a specified set point.\n\n  The control output `u(t)` is the steering angle we want the car to drive at. The error term `e(t)` is the difference between the set point and the parameter we want to maintain around that set point, which is the difference between the desired and actual distance to the wall.",
+          "image": "/videos/projects/cmu_course_project/f1tenth/lab3.mp4"
+        },
+        {},
+        {
+          "ifVideo": "true",
+          "text": "Then I implemented the Gap Following by applying a reactive method (a gap follow algorithm) for obstacle avoidance.",
+          "image": "/videos/projects/cmu_course_project/f1tenth/lab4.mp4"
+        },
+        {},
+        {
+          "ifVideo": "true",
+          "text": "I also used the Pure Pursuit control to track and go through the series of waypoints.\n\n",
+          "image": "/videos/projects/cmu_course_project/f1tenth/lab6.mp4"
+        },
+        {
+          "ifVideo": "true",
+          "text": "Apart from all above simple control, I implemented the Motion Planning, RRT. Used sampling-based algorithms-RRT to do the local planning.\n  - Converting workspace to configuration space.\n  - Use occupancy grids for RRT to do obstacle avoidance.\n  - After the RRT provided a path, use pure pursuit to follow that trajectory.",
+          "image": "/videos/projects/cmu_course_project/f1tenth/lab7.mp4"
+        },
+        {
+          "ifVideo": "true",
+          "text": "And finally, I implemented the MPC (Model Predictive Control) to optimize the trajectory and control the car to follow the path.\n\n",
+          "image": "/videos/projects/cmu_course_project/f1tenth/lab9.mp4"
+        },
+        {
+          "ifVideo": "true",
+          "image": "/videos/projects/cmu_course_project/f1tenth/IMG_4732.mp4"
+        }
+      ]
+    },
+    {
+      "title": "CMU 15-618 Parallel Computer Architecture and Programming Labs",
+      "startDate": "2024-12-22",
+      "endDate": "2025-01-23",
+      "usage_1": "video should contain ifVideo and image at the same time",
+      "usage_2": "image just have image key",
+      "usage_3": "image or video would be wrapped by the text if there is text key; they would alternate image/video left and right(odd and even)",
+      "usage_4": "only text of only image will lead to full width",
+      "body": [
+        {
+          "image": "/images/projects/cmu_course_project/618pc/VLSI_routing.jpg"
+        },
+        {
+          "text": "**In Lab 1**, I did some programming tasks. I Implemented the parallel fractal generation with Pthreads and ISPC, and conducted several experiments to explore SIMD and ISPC performance.\n\n The pthread speedup performance for the pralallel fractal generation tasks is shown aside.",
+          "image": "/images/projects/cmu_course_project/618pc/speedup_performance.png"
+        },
+        {},
+        {
+          "text": "Around the problem **SAXPY (single- precision a x plus y)**, we explored the SIMD speedup and ISPC speedup performance. The speedup due to SIMD parallelization is 1x. The speedup from ISPC with tasks is 1.03x.",
+          "image": "/images/projects/cmu_course_project/618pc/saxpy1.jpg"
+        },
+        {},
+        {
+          "text": "I also implemented the streaming and showcased how it would influence the speedup, bandwidth and GFLOPS.\n\n",
+          "image": "/images/projects/cmu_course_project/618pc/saxpy2.jpg"
+        },
+        {
+          "text": "**In Lab 2**, I implemented the scan function and the peak detection function of the CUDA version and further implemented a simple CUDA circle renderer in the second lab.\n\n The rendering effect is shown aside. And the rendering effect of the snow is shown below.",
+          "image": "/images/projects/cmu_course_project/618pc/render_rgb.jpg"
+        },
+        {},
+        {
+          "ifVideo": true,
+
+          "image": "/videos/projects/cmu_course_project/618pc/snow.mp4"
+        },
+        {
+          "text": "Finally, **in the last two labs**, I solved the parallel VLSI wire routing problem with **OpenMP and MPI**, using two parallelized approaches: the **within-wire** routing and the **across-wire** routing.\n\n",
+          "image": "/images/projects/cmu_course_project/618pc/VLSI_routing.jpg"
+        },
+        { "text": "", "image": "" }
+      ]
+    },
+    {
+      "title": "Undergraduate Research, Unsupervised Backdoor Attack on GNNs",
+      "startDate": "2023-02-10",
+      "endDate": "2023-06-10",
+      "usage_1": "video should contain ifVideo and image at the same time",
+      "usage_2": "image just have image key",
+      "usage_3": "image or video would be wrapped by the text if there is text key; they would alternate image/video left and right(odd and even)",
+      "usage_4": "only text of only image will lead to full width",
+      "body": [
+        {
+          "image": "images/projects/undergraduate_backdoor_attack/flowchart.png"
+        },
+        {
+          "text": "My undergraduate thesis focuses on a novel topic: unsupervised backdoor attacks on Graph Neural Networks (GNNs). \n\nA backdoor attack is a type of adversarial attack that manipulates a model's predictions by embedding specific patterns into the input data. While traditional backdoor attacks on GNNs have been explored for years, the unsupervised variant, which lowers the attack requirements and makes the threat more severe, has yet to receive significant attention from researchers. \n\n My research bridges this gap by leveraging novel unsupervised learning methods, such as MoCo (Momentum Contrast), to design more adaptive and efficient backdoor attacks, shedding light on previously overlooked vulnerabilities in GNNs.\n\n"
+        }
+      ]
+    },
+    {
+      "title": "MMPUG, Multi-Modal Perception Uber Good",
+      "startDate": "2024-05-01",
+      "endDate": "2024-09-01",
+      "body": [
+        {
+          "image": "/images/projects/mmpug/mmpug_groupshot-scaled.jpg"
+        },
+        {
+          "text": "MMPUG, is a heterogeneous agent system consists of three RC cars (UGVs) and two Spots (legged robots). The current design combines a viewpoint-based exploration planner, trajectory libraries for rapid elimination of paths intersecting with obstacles, and a low-level planner capable of following paths at a high speed.\n\n  I contributed to the design of the global planner with using **A*** and **Theta*** algorithms, and developed a systematic planning interface, ensuring seamless integration with the lower-level iLQR controller through well-structured waypoint connections, and designed efficient replanning strategies.\n\n"
+        },
+        {
+          "text": "During the project's simulation-to-reality transfer, I encountered several challenges, including real-time delays in convoy, safety violations at high speeds, and computation inefficiencies due to physical constraints.To tackle these issues, I optimized **2.5D orientation calculations** for more precise motion planning and implemented **dynamic obstacle filter** to enhance real-time responsiveness. \n\nMy contributions significantly improved the adaptability, safety, and efficiency of MMPUG convoys, expanding their capabilities in complex, heterogeneous environments.\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Modular Robot: EigenBot under Distributed Control",
+      "startDate": "2023-12-27",
+      "endDate": "2024-09-01",
+      "body": [
+        {
+          "ifVideo": true,
+          "image": "/videos/projects/eigenbot/Eigenbot.mp4"
+        },
+        {
+          "text": "At the BioRobotics Lab, my primary contributions focused on designing and enhancing the EigenBot's capabilities.\n\nI developed a robust curve-walking gait in simulation, implemented the EigenBot's firmware, and established a comprehensive performance assessment pipeline. Tackling the challenges of debugging firmware, I created tools for auto-setting EEPROM parameters, enhancing work efficiency. Additionally, I optimized and redesigned the serial communication protocol among robot modules to address real-time coordination issues, resolving several Cortex-M3 firmware implementation defects. These efforts rein- forced my passion for designing control frameworks that balance computational efficiency with dynamic adaptability, both of which are critical for achieving reliable distributed control in modular robots. \n\nTo validate these developments, I conducted extensive hardware experiments using OptiTrack systems, benchmarking metrics such as gait phase difference and leg stance duration. This led me to be the 2nd author of our work on the decentralized neural locomotion controller (D-NLC) enabling robust locomotion across uneven terrains and in amputation scenarios.\n\n"
+        }
+      ]
+    }
+  ]
 }
