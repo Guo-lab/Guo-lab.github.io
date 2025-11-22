@@ -1,0 +1,14 @@
+{
+    "VsCodeTaskButtons.showCounter": true,
+    "VsCodeTaskButtons.tasks": [
+      {
+        "label": "$(gear) Build",
+        "task": "Build",
+      },
+      {
+        "label": "$(play) Start",
+        "task": "Start",
+      }
+    ]
+  }
+  
