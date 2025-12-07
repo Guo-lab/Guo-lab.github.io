@@ -23,11 +23,14 @@ const Projects = (props) => {
     const [data, setData] = useState(null);
 
     useEffect(() => {
+        console.log('🔍 DEBUG: Fetching JSON from path:', endpoints.projects);
+        console.log('🔍 DEBUG: Full URL will be:', `${window.location.origin}/${endpoints.projects}`);
+        
         fetch(endpoints.projects, {
             method: 'GET',
         })
             .then((res) => {
-                console.log(res);
+                console.log('✅ JSON fetch response:', res);
                 return res.json();
             })
             .then((res) => {

@@ -11,7 +11,8 @@
         "label": "Start",
         "type": "shell",
         "command": "yarn start",
-        "group": "none"
+        "group": "none",
+        "dependsOn": ["Build"]
       }
     ]
   }
