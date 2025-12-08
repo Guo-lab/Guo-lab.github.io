@@ -19,7 +19,8 @@
       "startDate": "2024-07-12",
       "endDate": "2024-07-28",
       "githubUrl": "https://github.com/Guo-lab/AV-F1TENTH-Labs",
-      "type": "others"
+      "type": "others",
+      "tags": ["control", "planning", "autonomous-vehicles", "MPC", "RRT"]
     },
     {
       "image": "/images/projects/cmu_course_project/640ds/3tier.jpg",
@@ -39,7 +40,8 @@
       "startDate": "2023-12-27",
       "endDate": "2024-09-01",
       "githubUrl": "https://eigenbot-dnlc.github.io/",
-      "type": "research"
+      "type": "research",
+      "tags": ["robotics", "distributed-control", "firmware", "gait-planning", "bio-inspired"]
     },
     {
       "image": "videos/projects/mmpug/Aug_13_PASS_02.mp4",
@@ -49,7 +51,8 @@
       "startDate": "2024-05-01",
       "endDate": "2024-09-01",
       "githubUrl": "https://github.com/guo-lab/Far-Planner",
-      "type": "research"
+      "type": "research",
+      "tags": ["planning", "multi-agent", "A*", "Theta*", "robotics"]
     },
     {
       "image": "/videos/projects/cmu_course_project/15645db/bustub.mp4",
