@@ -4,7 +4,7 @@ import { Container, Col, Row, Card, Modal, Button } from 'react-bootstrap';
 
 import PropTypes from 'prop-types';
 import Typewriter from 'typewriter-effect';
-import { Fade } from 'react-reveal';
+// import { Fade } from 'react-reveal'; // Removed to fix legacy context warning
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
@@ -159,15 +159,14 @@ function Publications(props) {
     return (
         <>
             {/* <Header title={header} /> */}
-            <Fade>
-                <div className="section-content-container">
-                    <Container>
-                        {homeData && publicationData ? (
-                            <Row>
-                                <Col style={styles.introImageContainer}>
-                                    <div style={{ flexDirection: 'row' }}>
-                                        <img src={homeData?.imageSource} alt="profile" style={styles.image} />
-                                        <div style={styles.mainContainer}>
+            <div className="section-content-container">
+                <Container>
+                    {homeData && publicationData ? (
+                        <Row>
+                            <Col style={styles.introImageContainer}>
+                                <div style={{ flexDirection: 'row' }}>
+                                    <img src={homeData?.imageSource} alt="profile" style={styles.image} />
+                                    <div style={styles.mainContainer}>
                                             <h5 style={styles.nameStyle}>{homeData?.name}</h5>
                                             <div style={styles.typewriterContainer}>
                                                 <Typewriter
@@ -182,9 +181,9 @@ function Publications(props) {
                                             <div>
                                                 <Social />
                                             </div>
-                                        </div>
                                     </div>
-                                </Col>
+                                </div>
+                            </Col>
 
                                 <Col style={styles.publicationContainer}>
                                     {publicationData.publications
@@ -253,13 +252,12 @@ function Publications(props) {
                                             </Card>
                                         ))}
                                 </Col>
-                            </Row>
-                        ) : (
-                            <FallbackSpinner />
-                        )}
-                    </Container>
-                </div>
-            </Fade>
+                        </Row>
+                    ) : (
+                        <FallbackSpinner />
+                    )}
+                </Container>
+            </div>
 
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton>

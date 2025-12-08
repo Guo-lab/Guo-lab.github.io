@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import { Container, Col, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Typewriter from 'typewriter-effect';
-import { Fade } from 'react-reveal';
+// import { Fade } from 'react-reveal'; // Removed to fix legacy context warning
 
 import Header from './Header';
 import endpoints from '../constants/endpoints';
@@ -74,44 +74,42 @@ function Home(props) {
 
     return (
         <>
-            <Header title={header} />
-            <Fade>
-                <div className="section-content-container">
-                    <Container>
-                        {data ? (
-                            <Row>
-                                <Col style={styles.introImageContainer}>
-                                    <div style={{ flexDirection: 'row' }}>
-                                        <img src={data?.imageSource} alt="profile" style={styles.image} />
-                                        <div style={styles.mainContainer}>
-                                            <h5 style={styles.nameStyle}>{data?.name}</h5>
-                                            <div style={styles.typewriterContainer}>
-                                                <Typewriter
-                                                    options={{
-                                                        loop: true,
-                                                        autoStart: true,
-                                                        strings: data?.roles,
-                                                        wrapperClassName: 'typewriter',
-                                                        delay: 80,
-                                                        pauseFor: 3000,
-                                                    }}
-                                                    style={{ fontSize: '3em' }}
-                                                />
-                                            </div>
-                                            <div>
-                                                <Social />
-                                            </div>
+            {/* <Header title={header} /> */}
+            <div className="section-content-container">
+                <Container>
+                    {data ? (
+                        <Row>
+                            <Col style={styles.introImageContainer}>
+                                <div style={{ flexDirection: 'row' }}>
+                                    <img src={data?.imageSource} alt="profile" style={styles.image} />
+                                    <div style={styles.mainContainer}>
+                                        <h5 style={styles.nameStyle}>{data?.name}</h5>
+                                        <div style={styles.typewriterContainer}>
+                                            <Typewriter
+                                                options={{
+                                                    loop: true,
+                                                    autoStart: true,
+                                                    strings: data?.roles,
+                                                    wrapperClassName: 'typewriter',
+                                                    delay: 80,
+                                                    pauseFor: 3000,
+                                                }}
+                                                style={{ fontSize: '3em' }}
+                                            />
+                                        </div>
+                                        <div>
+                                            <Social />
                                         </div>
                                     </div>
-                                </Col>
-                                <Col style={styles.introTextContainer}>{parseIntro(data.about)}</Col>
-                            </Row>
-                        ) : (
-                            <FallbackSpinner />
-                        )}
-                    </Container>
-                </div>
-            </Fade>
+                                </div>
+                            </Col>
+                            <Col style={styles.introTextContainer}>{parseIntro(data.about)}</Col>
+                        </Row>
+                    ) : (
+                        <FallbackSpinner />
+                    )}
+                </Container>
+            </div>
         </>
     );
 }

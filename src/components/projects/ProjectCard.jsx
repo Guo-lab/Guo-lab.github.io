@@ -187,7 +187,26 @@ const ProjectCard = (props) => {
                         {new Date(project.endDate).toLocaleDateString()}
                     </Card.Text>
 
-                    <Card.Text style={styles.cardTextStyle}>{parseBodyText(project.bodyText)}</Card.Text>
+                    {project.tags && project.tags.length > 0 && (
+                        <div style={{ marginTop: '10px', marginBottom: '10px' }}>
+                            {project.tags.map((tag, index) => (
+                                <Badge 
+                                    key={index} 
+                                    bg="primary" 
+                                    style={{ 
+                                        marginRight: '5px', 
+                                        marginBottom: '5px',
+                                        fontSize: '0.7em',
+                                        padding: '4px 8px'
+                                    }}
+                                >
+                                    #{tag}
+                                </Badge>
+                            ))}
+                        </div>
+                    )}
+
+                    <div style={styles.cardTextStyle}>{parseBodyText(project.bodyText)}</div>
                 </Card.Body>
             </Card>
         </Col>

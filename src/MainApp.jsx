@@ -26,7 +26,7 @@ function MainApp() {
             <main className="main">
                 <Switch>
                     <Suspense fallback={<FallbackSpinner />}>
-                        <Route exact path="/" component={Home} />
+                        <Route exact path="/" component={() => <Home header="Home" />} />
 
                         {data &&
                             data.sections.map((route) => {
