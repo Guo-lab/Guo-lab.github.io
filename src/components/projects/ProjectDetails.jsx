@@ -50,12 +50,26 @@ const ProjectDetails = (props) => {
             console.info('🔍 DEBUG: Fetching MARKDOWN from path:', markdownPath);
             console.info('🔍 DEBUG: Full URL will be:', `${window.location.origin}/${markdownPath}`);
             
-            const response = await fetch(markdownPath);
+            console.log('Window Location Origin:', window.location.origin);
+            console.log('Env Path:', process.env.PUBLIC_URL);
+
+            let response = await fetch(markdownPath);
             console.info('📄 MARKDOWN fetch response:', response);
             
             if (!response.ok) {
                 console.info('❌ Response not OK:', response.status, response.statusText);
-                return null;
+                console.info('🔄 Trying fallback with PUBLIC_URL...');
+                
+                const fallbackPath = `${process.env.PUBLIC_URL || ''}/content/projects/${filename}.md`;
+                console.info('🔍 Fallback path:', fallbackPath);
+                
+                response = await fetch(fallbackPath);
+                console.info('📄 Fallback fetch response:', response);
+                
+                if (!response.ok) {
+                    console.info('❌ Fallback also failed:', response.status, response.statusText);
+                    return null;
+                }
             }
             
             console.info('📖 Reading response text...');
