@@ -7,7 +7,7 @@ type: "course"
 
 <div class="container py-4">
 
-<h1 style="margin-top: 0.5rem; margin-bottom: 2rem;"> <strong>Blind Source Separation for Motor Unit Signal Analysis</strong> </h1>
+<h1 class="mb-4" style="font-family: 'Old Standard TT', serif; margin-top: 0.5rem; margin-bottom: 2rem;"><strong>Blind Source Separation for Motor Unit Signal Analysis</strong> </h1>
 
 <p class="lead">
 A machine learning signal processing project that applies blind source separation techniques to identify and separate different Motor Units (MUs) from electromyography signals. This project combines signal processing, machine learning, and biological signal analysis to achieve effective motor unit decomposition.

@@ -28,11 +28,11 @@ function MainApp() {
                     <Suspense fallback={<FallbackSpinner />}>
                         <Route exact path="/" component={Home} />
 
-                        <Route path="/:projectTitle" component={ProjectDetails} />
-
                         {data &&
                             data.sections.map((route) => {
                                 const SectionComponent = React.lazy(() => import('./components/' + route.component));
+                                console.info('Loading component for route:', route);
+
                                 return (
                                     <Route
                                         key={route.headerTitle}
@@ -41,6 +41,21 @@ function MainApp() {
                                     />
                                 );
                             })}
+
+                        <Route 
+                            path="/:projectTitle" 
+                            render={({ match }) => {
+                                const { projectTitle } = match.params;
+                                console.warn('Routing to project details for:', projectTitle);
+                                const reserved = ['about', 'projects', 'contact', 'publications', 'home'];
+                                if (reserved.includes(projectTitle.toLowerCase())) {
+                                    console.warn('Attempted to access reserved route:', projectTitle);
+                                    return <></>;
+                                }
+                                return (<ProjectDetails title={projectTitle} />);
+                              }}
+                        />
+                        
                     </Suspense>
                 </Switch>
             </main>

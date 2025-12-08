@@ -4,7 +4,9 @@ import { Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
 import { ThemeContext } from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import PropTypes from 'prop-types';
 import FallbackSpinner from '../utils/FallbackSpinner';
+
 
 import endpoints from '../../constants/endpoints';
 import loadProjectDetails from '../../utils/contentLoader';
@@ -27,8 +29,11 @@ function parseMarkdownText(text) {
     return <ReactMarkdown children={text} components={componentsRenders} rehypePlugins={[rehypeRaw]} />;
 }
 
-const ProjectDetails = () => {
+const ProjectDetails = (props) => {
     const theme = useContext(ThemeContext);
+
+    const { title } = props;
+
     const { projectTitle } = useParams();
     console.warn('projectTitle:', projectTitle);
 
@@ -98,7 +103,7 @@ const ProjectDetails = () => {
                                 fontFamily: 'Cambria',
                             }}
                         >
-                            {markdownContent.metadata.title}
+                            {/* {markdownContent.metadata.title} */}
                         </div>
                     </Row>
                     <Row>
@@ -116,7 +121,7 @@ const ProjectDetails = () => {
     }
 
     console.log('No Markdown content, using JSON details for:', projectTitle);
-    // Fallback to JSON details system
+    // Fallback to details system
     if (!details) {
         return (
             <div className="section-content-container">
@@ -126,190 +131,13 @@ const ProjectDetails = () => {
             </div>
         );
     }
-
-    const project = details?.details?.find((p) => p.title.replace(/\s+/g, '-') === projectTitle);
-    console.log('project:', project?.body);
-
-    const projectBodyItems = project?.body.map((item, index) => {
-        const isEven = index % 2 === 0;
-        if (!item.text && item.image) {
-            return item.ifVideo ? (
-                <video
-                    controls
-                    loop
-                    autoPlay
-                    muted
-                    style={{
-                        display: 'block', // Set display to block
-                        maxWidth: '80%',
-                        margin: '10px auto', // Center the image
-                        marginBottom: '50px',
-                    }}
-                >
-                    <source src={item.image} type="video/mp4" />
-                    <track kind="captions" srcLang="en" label="English" default />
-                </video>
-            ) : (
-                <img
-                    src={item.image}
-                    alt={`Project Body Item ${index}`}
-                    style={{
-                        display: 'block', // Set display to block
-                        maxWidth: '80%',
-                        margin: '10px auto', // Center the image
-                        marginBottom: '50px',
-                    }}
-                />
-            );
-        }
-
-        if (item.text && !item.image) {
-            return (
-                <div
-                    key={index}
-                    style={{
-                        display: 'flex',
-                        textAlign: 'left',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginBottom: '40px',
-                    }}
-                >
-                    <div style={{ flex: 1, width: '300px', maxWidth: '80%' }}>{parseMarkdownText(item.text)}</div>
-                </div>
-            );
-        }
-        return (
-            <div
-                key={index}
-                style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    textAlign: 'left',
-                    marginBottom: '20px',
-                    justifyContent: isEven ? 'flex-end' : 'flex-start',
-                }}
-            >
-                {isEven ? (
-                    <>
-                        {item.text && (
-                            <div style={{ flex: 1, marginLeft: '20px' }}>
-                                {item.ifVideo ? (
-                                    <video
-                                        controls
-                                        loop
-                                        autoPlay
-                                        muted
-                                        style={{
-                                            marginRight: '10px',
-                                            float: 'right',
-                                            marginLeft: '30px',
-                                            maxHeight: '350px',
-                                            maxWidth: '650px',
-                                        }}
-                                    >
-                                        <source src={item.image} type="video/mp4" />
-                                        <track kind="captions" srcLang="en" label="English" default />
-                                    </video>
-                                ) : (
-                                    <img
-                                        src={item.image}
-                                        alt={`Project Body Item ${index}`}
-                                        style={{
-                                            marginRight: '10px',
-                                            float: 'right',
-                                            marginLeft: '30px',
-                                            maxHeight: '400px',
-                                            maxWidth: '650px',
-                                        }} // Float img
-                                    />
-                                )}
-                                <div style={{ marginRight: '10%', overflow: 'hidden' }}>
-                                    {parseMarkdownText(item.text)}
-                                </div>
-                            </div>
-                        )}
-                    </>
-                ) : (
-                    <>
-                        {item.text && (
-                            <div style={{ flex: 1, marginRight: '20px', display: 'flex', gap: '5px' }}>
-                                {item.ifVideo ? (
-                                    <video
-                                        controls
-                                        loop
-                                        autoPlay
-                                        muted
-                                        style={{
-                                            marginLeft: '10px',
-                                            float: 'left',
-                                            marginRight: '30px',
-                                            maxHeight: '350px',
-                                            maxWidth: '650px',
-                                        }}
-                                    >
-                                        <source src={item.image} type="video/mp4" />
-                                        <track kind="captions" srcLang="en" label="English" default />
-                                    </video>
-                                ) : (
-                                    <img
-                                        src={item.image}
-                                        alt={`Project Body Item ${index}`}
-                                        style={{
-                                            marginLeft: '10px',
-                                            float: 'left',
-                                            marginRight: '30px',
-                                            maxHeight: '400px',
-                                            maxWidth: '650px',
-                                        }} // Float img
-                                    />
-                                )}
-                                <div style={{ marginLeft: '10px', overflow: 'hidden' }}>
-                                    {parseMarkdownText(item.text)}
-                                </div>
-                            </div>
-                        )}
-                    </>
-                )}
-            </div>
-        );
-    });
-
     return (
-        <>
-            {project ? (
-                <>
-                    <div className="section-content-container">
-                        <Container style={styles.containerStyle}>
-                            <Row>
-                                <div
-                                    style={{
-                                        fontSize: '3em',
-                                        fontWeight: 'bold',
-                                        marginBottom: '30px',
-                                        fontFamily: 'Cambria',
-                                    }}
-                                >
-                                    {project.title}{' '}
-                                </div>
-                            </Row>
-
-                            <Row>{projectBodyItems}</Row>
-                        </Container>
-                    </div>
-                </>
-            ) : (
-                <></>
-            )}
-        </>
+        <></>
     );
 };
 
-// ProjectDetails.propTypes = {
-//     detail: PropTypes.shape({
-//         title: PropTypes.string,
-//         body: PropTypes.string.isRequired,
-//     }).isRequired,
-// };
+ProjectDetails.propTypes = {
+    title: PropTypes.string.isRequired,
+};
 
 export default ProjectDetails;

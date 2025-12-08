@@ -7,7 +7,7 @@ type: "course"
 
 <div class="container py-4">
 
-<h1 style="margin-top: 0.5rem; margin-bottom: 2rem;"> <strong>Distributed Systems Course Projects</strong> </h1>
+<h1 class="mb-4" style="font-family: 'Old Standard TT', serif; margin-top: 0.5rem; margin-bottom: 2rem;"><strong>Distributed Systems Course Projects</strong> </h1>
 
 <p class="lead">
 A comprehensive exploration of distributed systems concepts through hands-on implementation of core distributed computing technologies. This project covered remote procedure calls, file caching proxies, scalable web services, and two-phase commit protocols.

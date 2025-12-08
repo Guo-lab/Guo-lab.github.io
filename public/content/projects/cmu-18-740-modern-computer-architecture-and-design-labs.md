@@ -7,7 +7,7 @@ type: "course"
 
 <div class="container py-4">
 
-<h1 style="margin-top: 0.5rem; margin-bottom: 2rem;"> <strong>Modern Computer Architecture and Design Labs</strong> </h1>
+<h1 class="mb-4" style="font-family: 'Old Standard TT', serif; margin-top: 0.5rem; margin-bottom: 2rem;"> <strong>Modern Computer Architecture and Design Labs</strong> </h1>
 
 <p class="lead">
 A comprehensive exploration of modern processor design through hands-on implementation and analysis. This course covered branch predictors, superscalar out-of-order cores, memory coherence protocols, and heterogeneous computing architectures including Snapdragon 8 Gen 2 analysis.

@@ -9,6 +9,9 @@
         "label": "$(play) Start",
         "task": "Start",
       }
-    ]
+    ],
+    "[json]": {
+      "editor.wordWrap": "on"
+    }
   }
   

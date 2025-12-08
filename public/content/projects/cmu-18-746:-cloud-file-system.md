@@ -7,7 +7,8 @@ type: "course"
 
 <div class="container py-4">
 
-<h1 style="margin-top: 0.5rem; margin-bottom: 2rem;"> <strong>CloudFS: Cloud-Backed File System</strong> </h1>
+<h1 class="mb-4" style="font-family: 'Old Standard TT', serif; margin-top: 0.5rem; margin-bottom: 2rem;">
+ <strong>CloudFS: Cloud-Backed File System</strong> </h1>
 
 <p class="lead">
 A hybrid cloud-backed local file system that bridges the gap between high-performance local storage and the virtually infinite capacity of cloud services. Built with FUSE framework, S3 API, and advanced caching strategies.

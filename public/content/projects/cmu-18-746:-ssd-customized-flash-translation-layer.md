@@ -7,7 +7,7 @@ type: "course"
 
 <div class="container py-4">
 
-<h1 style="margin-top: 0.5rem; margin-bottom: 2rem;"> <strong>SSD Customized Flash Translation Layer</strong> </h1>
+<h1 class="mb-4" style="font-family: 'Old Standard TT', serif; margin-top: 0.5rem; margin-bottom: 2rem;"> <strong>SSD Customized Flash Translation Layer</strong> </h1>
 
 <p class="lead">
 A dual-mode Flash Translation Layer (FTL) implementation for CMU's 18-746 Storage Systems course.  
