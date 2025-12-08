@@ -1,9 +1,9 @@
----
+<!-- ---
 title: "CMU 18-797 Course Project, Blind Source Separation"
 startDate: "2023-10-15"
 endDate: "2023-12-15"
 type: "course"
----
+--- -->
 
 <div class="container py-4">
 

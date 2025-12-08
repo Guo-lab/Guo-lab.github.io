@@ -26,10 +26,6 @@ const componentsRenders = {
     li: ({ children }) => <li style={{ paddingBottom: '0.3rem' }}>{children}</li>,
 };
 
-function parseMarkdownText(text) {
-    return <ReactMarkdown children={text} components={componentsRenders} rehypePlugins={[rehypeRaw]} />;
-}
-
 const ProjectDetails = (props) => {
     const theme = useContext(ThemeContext);
 

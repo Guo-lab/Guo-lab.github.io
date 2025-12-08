@@ -1,9 +1,9 @@
----
+<!-- ---
 title: "CMU 18-740 Modern Computer Architecture and Design Labs"
 startDate: "2024-09-20"
 endDate: "2024-12-06"
 type: "course"
----
+--- -->
 
 <div class="container py-4">
 

@@ -1,9 +1,9 @@
----
+<!-- ---
 title: "CMU 16-745-Optimal-Control Course Labs"
 startDate: "2024-07-23"
 endDate: "2024-08-16"
 type: "course"
----
+--- -->
 
 <div class="container py-4">
 

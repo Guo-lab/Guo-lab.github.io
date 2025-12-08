@@ -1,12 +1,7 @@
 module.exports = {
     webpack: {
       configure: (webpackConfig) => {
-        webpackConfig.module.rules.push({
-          test: /\.md$/,
-          type: "asset/resource",
-        });
-        return webpackConfig;
+        return webpackConfig; // 不处理 .md
       }
     }
-  };
-  
+};

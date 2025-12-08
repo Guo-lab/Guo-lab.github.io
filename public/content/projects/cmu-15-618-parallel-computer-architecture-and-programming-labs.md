@@ -1,9 +1,9 @@
----
+<!-- ---
 title: "CMU 15-618 Parallel Computer Architecture and Programming Labs"
 startDate: "2024-12-22"
 endDate: "2025-01-23"
 type: "course"
----
+--- -->
 
 <div class="container py-4">
 

@@ -1,9 +1,9 @@
----
+<!-- ---
 title: "CMU 18-746: SSD Customized Flash Translation Layer"
 startDate: "2024-09-03"
 endDate: "2024-10-26"
 type: "course"
----
+--- -->
 
 <div class="container py-4">
 

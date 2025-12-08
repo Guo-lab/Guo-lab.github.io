@@ -1,9 +1,9 @@
----
+<!-- ---
 title: "AV-F1TENTH-Labs"
 startDate: "2024-07-12"
 endDate: "2024-07-28"
 type: "course"
----
+--- -->
 
 <div class="container py-4">
 
