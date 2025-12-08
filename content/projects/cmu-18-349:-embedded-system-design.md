@@ -1,9 +1,9 @@
----
+<!-- ---
 title: "CMU 18-349: Embedded System Design"
 startDate: "2025-01-15"
 endDate: ""
 type: "course"
----
+--- -->
 
 <div class="container py-4">
 

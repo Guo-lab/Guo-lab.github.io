@@ -1,9 +1,9 @@
----
+<!-- ---
 title: "CMU 18-746: Cloud File System"
 startDate: "2024-10-26"
 endDate: "2024-12-08"
 type: "course"
----
+--- -->
 
 <div class="container py-4">
 

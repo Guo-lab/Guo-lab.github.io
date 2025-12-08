@@ -1,9 +1,9 @@
----
+<!-- ---
 title: "CMU 15-640 Distributed Systems Course Project"
 startDate: "2024-02-01"
 endDate: "2024-05-01"
 type: "course"
----
+--- -->
 
 <div class="container py-4">
 

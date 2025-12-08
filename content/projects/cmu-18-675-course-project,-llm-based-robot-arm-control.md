@@ -1,9 +1,9 @@
----
+<!-- ---
 title: "CMU 18-675 Course Project, LLM-based Robot Arm Control"
 startDate: "2024-01-15"
 endDate: "2024-04-15"
 type: "course"
----
+--- -->
 
 <div class="container py-4">
 

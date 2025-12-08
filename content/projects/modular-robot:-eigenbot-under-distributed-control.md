@@ -1,9 +1,9 @@
----
+<!-- ---
 title: "Modular Robot: EigenBot under Distributed Control"
 startDate: "2023-12-27"
 endDate: "2024-09-01"
 type: "research"
----
+--- -->
 
 <div class="container py-4">
   <div class="col-md-12 d-flex align-items-center">
