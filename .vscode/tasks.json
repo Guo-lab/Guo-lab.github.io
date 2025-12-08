@@ -13,6 +13,13 @@
         "command": "yarn start",
         "group": "none",
         "dependsOn": ["Build"]
+      },
+      {
+        "label": "Deploy",
+        "type": "shell",
+        "command": "npx gh-pages -d build",
+        "group": "none",
+        "dependsOn": ["Build"]
       }
     ]
   }

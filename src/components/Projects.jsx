@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Container, Row, Button } from 'react-bootstrap';
+import { Container, Row, Button, Alert, Form } from 'react-bootstrap';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import Fade from 'react-reveal/Fade';
@@ -21,6 +21,7 @@ const Projects = (props) => {
     const { header } = props;
 
     const [data, setData] = useState(null);
+    const [searchTag, setSearchTag] = useState('');
 
     useEffect(() => {
         console.log('🔍 DEBUG: Fetching JSON from path:', endpoints.projects);
@@ -40,12 +41,24 @@ const Projects = (props) => {
             .catch((err) => err);
     }, []);
 
+    const filterProjectsBySearch = (projects) => {
+        if (!searchTag.trim()) return projects;
+        return projects.filter((project) =>
+            project.title?.toLowerCase().includes(searchTag.toLowerCase()) ||
+            project.type?.toLowerCase().includes(searchTag.toLowerCase()) ||
+            project.tech?.some((tech) => tech.toLowerCase().includes(searchTag.toLowerCase())) ||
+            project.description?.toLowerCase().includes(searchTag.toLowerCase())
+        );
+    };
+
     const groupProjectsByType = (projects) => {
+        const filteredProjects = filterProjectsBySearch(projects);
         return {
-            'Work in Progress (Last updated: Jan 29, 2025)': projects.filter((project) => project.type === 'wip'),
-            'Research Projects': projects.filter((project) => project.type === 'research'),
-            'Course Projects & Labs': projects.filter((project) => project.type === 'course'),
-            'Other Projects & Labs': projects.filter((project) => project.type === 'others'),
+            'Work in Progress (Last updated: Jan 29, 2025)': 
+                filteredProjects.filter((project) => project.type === 'wip'),
+            'Research Projects': filteredProjects.filter((project) => project.type === 'research'),
+            'Course Projects & Labs': filteredProjects.filter((project) => project.type === 'course'),
+            'Other Projects & Labs': filteredProjects.filter((project) => project.type === 'others'),
         };
     };
 
@@ -69,6 +82,28 @@ const Projects = (props) => {
             {data ? (
                 <div className="section-content-container">
                     <Container style={styles.containerStyle}>
+                        
+                        {/* Instructions Callout */}
+                        <Alert variant="info" className="mb-4">
+                            <Alert.Heading>📌 How to Navigate Projects</Alert.Heading>
+                            <p className="mb-0">
+                                Click the project title in the card to see details, click GitHub icon to access 
+                                the repo if it is public.
+                            </p>
+                        </Alert>
+
+                        {/* Search Callout */}
+                        <Alert variant="primary" className="mb-4">
+                            <Alert.Heading>🔍 Search Projects</Alert.Heading>
+                            <Form.Group className="mb-0">
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Search by tag, title, or technology..."
+                                    value={searchTag}
+                                    onChange={(e) => setSearchTag(e.target.value)}
+                                />
+                            </Form.Group>
+                        </Alert>
                         {Object.keys(groupProjectsByType(data.projects)).map((type) => {
                             const projects = groupProjectsByType(data.projects)[type];
                             return (

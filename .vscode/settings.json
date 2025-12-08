@@ -8,6 +8,10 @@
       {
         "label": "$(play) Start",
         "task": "Start",
+      },
+      {
+        "label": "$(rocket) Deploy",
+        "task": "Deploy",
       }
     ],
     "[json]": {
