@@ -38,7 +38,7 @@
       "bodyText": "- Implemented the curve walking algorithm in CoppeliaSim, inspired by six-leg insects' behavior, based on a biologically inspired distributed control framework.\n - Developed Eigenbot EEPROM parameters auto-setting tools, accelerating Hexapod gaits tuning process.\n - Tested the firmware, debugged the modules' communication protocol & redesigned topology structure to ensure the robot's stability and reliability.\n - Built the terrain, setup motion capture system, & recorded motion data.",
       "startDate": "2023-12-27",
       "endDate": "2024-09-01",
-      "githubUrl": "",
+      "githubUrl": "https://eigenbot-dnlc.github.io/",
       "type": "research"
     },
     {
@@ -122,16 +122,6 @@
       "type": "course"
     },
     {
-      "image": "images/projects/cmu_course_project/embedded/PCB_v0.jpg",
-      "mediaType": "image",
-      "title": "CMU 18-349: Embedded System Design",
-      "bodyText": "- Designed the circuit semantics. Placed the components, routed the traces, and created pours on the PCB (Printed Circuit Boards).\n",
-      "startDate": "2025-01-15",
-      "endDate": "",
-      "githubUrl": "",
-      "type": "wip"
-    },
-    {
       "image": "/images/projects/cmu_course_project/618pc/VLSI_routing.jpg",
       "mediaType": "image",
       "title": "CMU 15-618 Parallel Computer Architecture and Programming Labs",
@@ -140,6 +130,16 @@
       "endDate": "2025-01-23",
       "githubUrl": "https://github.com/Guo-lab/15-618-Parallel-Computing-Reports/",
       "type": "others"
+    },
+    {
+      "image": "images/projects/cmu_course_project/embedded/PCB_v0.jpg",
+      "mediaType": "image",
+      "title": "CMU 18-349: Embedded System Design",
+      "bodyText": "- Designed the circuit semantics. Placed the components, routed the traces, and created pours on the PCB (Printed Circuit Boards).\n",
+      "startDate": "2025-01-15",
+      "endDate": "",
+      "githubUrl": "",
+      "type": "wip"
     }
   ]
 }
