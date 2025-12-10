@@ -148,12 +148,12 @@
       "image": "images/projects/cmu_course_project/embedded/PCB_v0.jpg",
       "mediaType": "image",
       "title": "CMU 18-349: Embedded System Design",
-      "bodyText": "- Designed the circuit semantics. Placed the components, routed the traces, and created pours on the PCB (Printed Circuit Boards).\n",
+      "bodyText": "- Designed circuit semantics, placed components, routed traces, and created pours on PCB (Printed Circuit Boards).\n- Implemented ARM bootloader with custom initialization routines and memory management.\n- Developed device drivers and memory-mapped I/O interfaces for hardware peripherals.\n- Built timer, interrupt handling, and system call mechanisms for real-time operations.\n- Implemented a real-time kernel with scheduling and task management, including multi-threading support, Round-Robin and RMS scheduling, and IPCP with mutexes.\n- Designed motor control system using RTOS for precise actuator coordination alongside concurrent tasks.",
       "startDate": "2025-01-15",
-      "endDate": "",
+      "endDate": "2025-04-27",
       "githubUrl": "",
-      "type": "wip",
-      "tags": ["embedded-systems", "PCB-design", "hardware", "electronics", "circuit-design"]
+      "type": "course",
+      "tags": ["embedded-systems", "PCB-design", "ARM", "RTOS", "device-drivers", "motor PID control", "multi-threading", "scheduling"]
     }
   ]
 }
