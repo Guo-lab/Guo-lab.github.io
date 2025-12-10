@@ -213,6 +213,15 @@ function Publications(props) {
                                                     <Card.Text style={styles.abstract}>
                                                         <button
                                                             type="button"
+                                                            style={{
+                                                                borderRadius: '8px',
+                                                                padding: '6px 12px',
+                                                                border: '1px solid #007bff',
+                                                                backgroundColor: 'transparent',
+                                                                color: '#007bff',
+                                                                cursor: 'pointer',
+                                                                fontSize: '0.9em'
+                                                            }}
                                                             onClick={() => {
                                                                 setShowAbstract((prev) => {
                                                                     const newShowAbstract = [...prev];

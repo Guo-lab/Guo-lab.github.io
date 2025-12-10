@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Container, Row, Button, Alert, Form } from 'react-bootstrap';
+import { Container, Row, Col, Button, Alert, Form } from 'react-bootstrap';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 // import Fade from 'react-reveal/Fade'; // Removed to fix legacy context warning
@@ -111,36 +111,50 @@ const Projects = (props) => {
                 <div className="section-content-container">
                     <Container style={styles.containerStyle}>
                         
-                        {/* Instructions Callout */}
-                        <Alert variant="info" className="mb-4">
-                            <Alert.Heading>📌 How to Navigate Projects</Alert.Heading>
-                            <p className="mb-0">
-                                Click the project title in the card to see details, click GitHub icon to access 
-                                the repo if it is public.
-                            </p>
-                        </Alert>
+                        <Row className="mb-3">
+                            {/* Instructions Callout */}
+                            <Col md={6}>
+                                <Alert variant="info" className="h-90 py-3 px-2">
+                                    <Alert.Heading className="mb-1" style={{ fontSize: '1rem' }}>
+                                        📌 How to Navigate Projects
+                                    </Alert.Heading>
+                                    <p className="mb-0" style={{ fontSize: '0.85rem' }}>
+                                        Click the project title in the card to see details. 
+                                    </p>
+                                    <p className="mb-0" style={{ fontSize: '0.85rem' }}>
+                                        Click GitHub icon to access the repo if it is public.
+                                    </p>
+                                </Alert>
+                            </Col>
 
-                        {/* Search Callout */}
-                        <Alert variant="primary" className="mb-4">
-                            <div className="d-flex justify-content-between align-items-center mb-2">
-                                <Alert.Heading className="mb-0">🔍 Search Projects</Alert.Heading>
-                                <Button
-                                    variant="outline-primary"
-                                    size="sm"
-                                    onClick={() => setGroupByYear(!groupByYear)}
-                                >
-                                    Group by {groupByYear ? 'Type' : 'Year'}
-                                </Button>
-                            </div>
-                            <Form.Group className="mb-0">
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Search by tags only (e.g., control, planning, robotics)..."
-                                    value={searchTag}
-                                    onChange={(e) => setSearchTag(e.target.value)}
-                                />
-                            </Form.Group>
-                        </Alert>
+                            {/* Search Callout */}
+                            <Col md={6}>
+                                <Alert variant="primary" className="h-90 py-3 px-2">
+                                    <div className="d-flex justify-content-between align-items-center mb-2">
+                                        <Alert.Heading className="mb-0" style={{ fontSize: '1rem' }}>
+                                            🔍 Search Projects
+                                        </Alert.Heading>
+                                        <Button
+                                            variant="outline-primary"
+                                            size="sm"
+                                            style={{ fontSize: '0.75rem', padding: '0.2rem 0.5rem' }}
+                                            onClick={() => setGroupByYear(!groupByYear)}
+                                        >
+                                            Group by {groupByYear ? 'Type' : 'Year'}
+                                        </Button>
+                                    </div>
+                                    <Form.Group className="mb-0">
+                                        <Form.Control
+                                            type="text"
+                                            placeholder="Search by tags only (e.g., control, planning, robotics)..."
+                                            value={searchTag}
+                                            onChange={(e) => setSearchTag(e.target.value)}
+                                            style={{ fontSize: '0.85rem' }}
+                                        />
+                                    </Form.Group>
+                                </Alert>
+                            </Col>
+                        </Row>
                         
                         {(() => {
                             const groupedProjects = groupByYear 

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Card, Badge, Col } from 'react-bootstrap';
+import { Button, Card, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import styled, { ThemeContext } from 'styled-components';
 import ReactMarkdown from 'react-markdown';
@@ -19,36 +19,52 @@ const styles = {
     // },
 
     cardStyle: {
-        borderRadius: 10,
+        borderRadius: 8,
         overflow: 'hidden', // Ensures content stays within card boundaries
-        height: '562px', // Ensures the card takes up the full height of its container
+        height: '680px', // Reduced card height for more compact appearance
         border: 'none', // Remove the border
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.05)', // Subtle shadow for depth
+        boxShadow: '0 2px 6px rgba(0, 0, 0, 0.05)', // Reduced shadow for more compact feel
     },
 
     cardTitleStyle: {
-        fontSize: '1.3em',
+        fontSize: '1.25em', // Enlarged title font size
         fontWeight: 500,
         alignItems: 'center',
+        marginBottom: '0.5rem', // Reduced margin
     },
 
     cardTextStyle: {
-        margin: '10px 0 5px',
+        margin: '5px 0 5px', // Reduced top margin
         textAlign: 'left',
-        fontSize: '0.7em',
+        fontSize: '0.85em', // Enlarged text font size
         width: '100%',
-        lineHeight: '1.4', // Adjust line height for better readability
+        lineHeight: '1.4', // Slightly more relaxed line height for readability
     },
 
     cardImageStyle: {
-        height: '230px', // Set a fixed height for images
-        objectFit: 'cover',
+        height: '260px !important', // Reduced image height for compactness
+        maxHeight: '260px',
+        minHeight: '260px',
+        objectFit: 'contain', // Show full image without clipping
         borderRadius: '5px 5px 5px 5px',
         objectPosition: 'center',
         width: '100%',
+        backgroundColor: '#f8f9fa', // Light background to fill empty space
+    },
+
+    cardVideoStyle: {
+        height: '260px !important', // Reduced video height to match images
+        maxHeight: '260px',
+        minHeight: '260px',
+        objectFit: 'contain', // Show full video without clipping
+        borderRadius: '5px 5px 5px 5px',
+        objectPosition: 'center',
+        width: '100%',
+        display: 'block', // Ensure video behaves like block element
+        backgroundColor: '#f8f9fa', // Light background to fill empty space
     },
     //   cardImageStyle: {
     //     height: '270px',
@@ -82,14 +98,11 @@ const styles = {
         transform: 'scale(1.2) rotate(30deg)',
     },
 
-    // buttonStyle: {
-    //   margin: 5,
-    // },
-
     dateStyle: {
-        fontSize: '1em',
+        fontSize: '0.85em', // Reduced font size
         color: '#888',
-        marginTop: '5px',
+        marginTop: '3px', // Reduced margin
+        marginBottom: '8px', // Added small bottom margin
         fontFamily: 'Times New Roman, serif',
     },
 };
@@ -100,14 +113,6 @@ const componentsRenders = {
     li: ({ children }) => <li style={{ paddingBottom: '0.3rem' }}>{children}</li>,
 };
 
-const ExternalNavLink = styled.a`
-    &:hover {
-        color: ${(props) => props.theme.navbarTheme.linkHoverColor};
-    }
-    &::after {
-        background-color: ${(props) => props.theme.accentColor};
-    }
-`;
 const StyledNavLink = styled(NavLink)`
     &:hover {
         color: ${(props) => props.theme.navbarTheme.linkHoverColor};
@@ -133,7 +138,7 @@ const ProjectCard = (props) => {
                 text={theme.bsSecondaryVariant}
             >
                 {project?.mediaType === 'video' ? (
-                    <Card.Img variant="top" as="video" controls autoPlay muted loop style={styles.cardImageStyle}>
+                    <Card.Img variant="top" as="video" controls autoPlay muted loop style={styles.cardVideoStyle}>
                         <source src={project?.image} type="video/mp4" />
                         Your browser does not support the video tag.
                     </Card.Img>
@@ -141,7 +146,7 @@ const ProjectCard = (props) => {
                     <Card.Img variant="top" src={project?.image} style={styles.cardImageStyle} />
                 )}
 
-                <Card.Body>
+                <Card.Body style={{ padding: '0.75rem' }}>
                     <hr style={{ border: '1px solid #ccc', margin: '3px 0' }} />
                     <Card.Title style={styles.cardTitleStyle}>
                         <StyledNavLink
@@ -188,20 +193,24 @@ const ProjectCard = (props) => {
                     </Card.Text>
 
                     {project.tags && project.tags.length > 0 && (
-                        <div style={{ marginTop: '10px', marginBottom: '10px' }}>
+                        <div style={{ marginTop: '6px', marginBottom: '6px' }}>
                             {project.tags.map((tag, index) => (
-                                <Badge 
+                                <span
                                     key={index} 
-                                    bg="primary" 
                                     style={{ 
-                                        marginRight: '5px', 
-                                        marginBottom: '5px',
-                                        fontSize: '0.7em',
-                                        padding: '4px 8px'
+                                        marginRight: '4px', 
+                                        marginBottom: '3px',
+                                        fontSize: '0.65em', // Smaller tag text
+                                        padding: '2px 6px', // Reduced padding
+                                        backgroundColor: 'rgba(13, 110, 253, 0.1)',
+                                        color: '#0d6efd',
+                                        border: 'none',
+                                        borderRadius: '0.2rem', // Slightly smaller border radius
+                                        display: 'inline-block'
                                     }}
                                 >
                                     #{tag}
-                                </Badge>
+                                </span>
                             ))}
                         </div>
                     )}

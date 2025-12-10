@@ -8,7 +8,8 @@
       "startDate": "2023-10-15",
       "endDate": "2023-12-15",
       "githubUrl": "https://github.com/Guo-lab/MLSP-G2",
-      "type": "course"
+      "type": "course",
+      "tags": ["signal-processing", "machine-learning", "PCA", "K-means clustering"]
     },
     {
       "image": "/videos/projects/cmu_course_project/f1tenth/lab9.mp4",
@@ -20,7 +21,7 @@
       "endDate": "2024-07-28",
       "githubUrl": "https://github.com/Guo-lab/AV-F1TENTH-Labs",
       "type": "others",
-      "tags": ["control", "planning", "autonomous-vehicles", "MPC", "RRT"]
+      "tags": ["control", "planning", "AV", "MPC", "RRT"]
     },
     {
       "image": "/images/projects/cmu_course_project/640ds/3tier.jpg",
@@ -30,7 +31,8 @@
       "startDate": "2024-02-01",
       "endDate": "2024-05-01",
       "githubUrl": "https://github.com/Guo-lab/15640-Distributed-Systems/tree/main",
-      "type": "course"
+      "type": "course",
+      "tags": ["distributed-systems", "RPC", "file-caching", "scalable web-services", "2PC"]
     },
     {
       "image": "videos/projects/eigenbot/6_legs_emergent.mp4",
@@ -41,18 +43,18 @@
       "endDate": "2024-09-01",
       "githubUrl": "https://eigenbot-dnlc.github.io/",
       "type": "research",
-      "tags": ["robotics", "distributed-control", "firmware", "gait-planning", "bio-inspired"]
+      "tags": ["hexapod robotics", "distributed-control", "neural control", "firmware", "gait analysis", "bio-inspired"]
     },
     {
-      "image": "videos/projects/mmpug/Aug_13_PASS_02.mp4",
-      "mediaType": "video",
+      "image": "/images/projects/mmpug/mmpug_groupshot-scaled.jpg",
+      "mediaType": "image",
       "title": "MMPUG, Multi-Modal Perception Uber Good",
       "bodyText": "- Implemented A* & Theta* global planner with 2.5D orientation optimization for MMPUG architecture.\n - Integrated features to make the planner adaptive to dynamic obstacles and ensure a safety distance for the robots.\nTested the global planner both in simulation and in the real environment.",
       "startDate": "2024-05-01",
       "endDate": "2024-09-01",
       "githubUrl": "https://github.com/guo-lab/Far-Planner",
       "type": "research",
-      "tags": ["planning", "multi-agent", "A*", "Theta*", "robotics"]
+      "tags": ["planning", "A*", "Theta*", "AV", "Sim2Real", "Global / Far Planner"]
     },
     {
       "image": "/videos/projects/cmu_course_project/15645db/bustub.mp4",
@@ -62,7 +64,8 @@
       "startDate": "2024-05-13",
       "endDate": "2024-07-08",
       "githubUrl": "https://github.com/Guo-lab/15645-Database",
-      "type": "others"
+      "type": "others",
+      "tags": ["databases", "storage-systems", "hash indexing", "query-optimization", "MVCC"]
     },
     {
       "image": "images/projects/undergraduate_backdoor_attack/flowchart.png",
@@ -72,17 +75,19 @@
       "startDate": "2023-02-10",
       "endDate": "2023-06-10",
       "githubUrl": "https://github.com/Guo-lab/GraphBackdoor-Supervised-Unsupervised",
-      "type": "research"
+      "type": "research",
+      "tags": ["machine-learning", "graph-neural-networks", "security", "backdoor-attacks", "unsupervised"]
     },
     {
       "image": "/videos/projects/cmu_course_project/675/LLM-ur5e.mp4",
       "mediaType": "video",
       "title": "CMU 18-675 Course Project, LLM-based Robot Arm Control",
-      "bodyText": "- Developed a robotic manipulation system for the UR5e robot arm, incorporating Large Language Model processing for real-time, natural language user commands\n - The final demo included RRT as the planner and LQR as the controller to control the robot arm to pick and place objects after interpreting the user command with the awareness of the simulation environment.\n - The future work contains integrating additional control techniques to enhance manipulation accuracy and adaptability and refining LLM-based interaction capabilities to ensure efficient command interpretation across a wide range of operational contexts.\n",
+      "bodyText": "- Developed a robotic manipulation system for the UR5e robot arm, incorporating Large Language Model processing for real-time, natural language user commands\n - The final demo included RRT as the planner and LQR as the controller to control the robot arm to pick and place objects after interpreting the user command with the awareness of the simulation environment.\n - The future work contains integrating other control techniques to enhance manipulation accuracy and refining LLM-based interaction capabilities to ensure efficient command interpretation across a wide range of operational contexts.\n",
       "startDate": "2024-04-10",
       "endDate": "2024-05-25",
       "githubUrl": "https://github.com/CMU-18475-18675/team3",
-      "type": "course"
+      "type": "course",
+      "tags": ["robotics", "LLM", "natural-language", "manipulation", "RRT", "LQR"]
     },
     {
       "image": "/images/projects/cmu_course_project/745ocrl/optimal_rendezvous_docking_mpc_convex_cropped.gif",
@@ -92,7 +97,8 @@
       "startDate": "2024-07-23",
       "endDate": "2024-08-16",
       "githubUrl": "https://github.com/Guo-lab/16745-Optimal-Control-and-RL",
-      "type": "others"
+      "type": "others",
+      "tags": ["control", "optimization", "MPC", "LQR", "iLQR", "trajectory-planning"]
     },
     {
       "image": "/videos/projects/cmu_course_project/ssd/ssd_after_debugging.mp4",
@@ -102,7 +108,8 @@
       "startDate": "2024-09-03",
       "endDate": "2024-10-26",
       "githubUrl": "",
-      "type": "course"
+      "type": "course",
+      "tags": ["storage-systems", "flash-memory", "file-systems", "optimization"]
     },
     {
       "image": "/images/projects/cmu_course_project/cloudfs/cloudfs.jpg",
@@ -112,7 +119,8 @@
       "startDate": "2024-10-26",
       "endDate": "2024-12-08",
       "githubUrl": "https://github.com/Guo-lab/CloudFS_Design",
-      "type": "course"
+      "type": "course",
+      "tags": ["cloud-computing", "file-systems", "caching", "deduplication", "storage-systems"]
     },
     {
       "image": "/images/projects/cmu_course_project/740/predictor.jpg",
@@ -122,7 +130,8 @@
       "startDate": "2024-09-20",
       "endDate": "2024-12-06",
       "githubUrl": "",
-      "type": "course"
+      "type": "course",
+      "tags": ["computer-architecture", "CPU", "GPU", "branch-prediction", "memory-coherence"]
     },
     {
       "image": "/images/projects/cmu_course_project/618pc/VLSI_routing.jpg",
@@ -132,7 +141,8 @@
       "startDate": "2024-12-22",
       "endDate": "2025-01-23",
       "githubUrl": "https://github.com/Guo-lab/15-618-Parallel-Computing-Reports/",
-      "type": "others"
+      "type": "others",
+      "tags": ["parallel-computing", "CUDA", "OpenMP", "MPI", "SIMD", "ISPC"]
     },
     {
       "image": "images/projects/cmu_course_project/embedded/PCB_v0.jpg",
@@ -142,7 +152,8 @@
       "startDate": "2025-01-15",
       "endDate": "",
       "githubUrl": "",
-      "type": "wip"
+      "type": "wip",
+      "tags": ["embedded-systems", "PCB-design", "hardware", "electronics", "circuit-design"]
     }
   ]
 }
