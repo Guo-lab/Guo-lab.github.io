@@ -148,12 +148,34 @@
       "image": "images/projects/cmu_course_project/embedded/PCB_v0.jpg",
       "mediaType": "image",
       "title": "CMU 18-349: Embedded System Design",
-      "bodyText": "- Designed the circuit semantics. Placed the components, routed the traces, and created pours on the PCB (Printed Circuit Boards).\n",
+      "bodyText": "- Designed circuit semantics, placed components, routed traces, and created pours on PCB (Printed Circuit Boards).\n- Implemented ARM bootloader with custom initialization routines and memory management.\n- Developed device drivers and memory-mapped I/O interfaces for hardware peripherals.\n- Built timer, interrupt handling, and system call mechanisms for real-time operations.\n- Implemented a real-time kernel with scheduling and task management, including multi-threading support, Round-Robin and RMS scheduling, and IPCP with mutexes.\n- Designed motor control system using RTOS for precise actuator coordination alongside concurrent tasks.",
       "startDate": "2025-01-15",
-      "endDate": "",
+      "endDate": "2025-04-27",
       "githubUrl": "",
-      "type": "wip",
-      "tags": ["embedded-systems", "PCB-design", "hardware", "electronics", "circuit-design"]
+      "type": "course",
+      "tags": ["embedded-systems", "PCB-design", "ARM", "RTOS", "device-drivers", "motor PID control", "multi-threading", "scheduling"]
+    },
+    {
+      "image": "/images/projects/cmu_course_project/891mapf/UR5eRobotPlanner4-ezgif.com-optimize_loop.gif",
+      "mediaType": "image",
+      "title": "CMU 16-891: Multi-Robot Planning and Coordination",
+      "bodyText": "- Implemented MAPF algorithms including Joint-State / Space-Time A*, Prioritized Planning, and Conflict-Based Search (CBS) with analysis of optimality and completeness.\n- Developed k-Robust CBS to handle execution delays, integrated Hungarian-based target assignment, and implemented TA-CBS for joint planning and assignment.\n- Created execution policies using Temporal Plan Graphs (TPG) for robust coordination under arbitrary delays and execution uncertainties.\n- Designed CBS-RRT*, a novel hybrid algorithm integrating CBS with RRT* for robot-coordination. Validated the approach on fleets of quadrotors and multiple robotic arms in 3D.",
+      "startDate": "2025-01-30",
+      "endDate": "2025-04-29",
+      "githubUrl": "https://github.com/Guo-lab/16-891-Multi-Robot-Planning",
+      "type": "course",
+      "tags": ["multi-robot-planning", "CBS", "RRT*", "path-planning", "robotics", "target-assignment", "k-robust", "TBG execution-policies"]
+    },
+    {
+      "image": "/videos/projects/cmu_course_project/18847/compressed_movie_4_x2.mp4",
+      "mediaType": "video",
+      "title": "CMU 18-847: Software Development for Computational Science and Engineering",
+      "bodyText": "- Built templated computational infrastructure with multidimensional arrays and finite difference operators, implementing sparse linear algebra with Jacobi solvers for finite element Poisson equations.\n- Developed recursive Cooley-Tukey FFT, bit-reverse indexing (BRI) FFT and multidimensional FFT, essential for efficient grid-based field computation in particle methods.\n- Created particle-in-cell (PIC) vortex dynamics simulator using 4th-order Runge-Kutta integration, combining grid-based computation with particle tracking for fluid phenomena. Utilized VisIt to perform sparse-field operations, and visualization within a vortex simulation workflow.",
+      "startDate": "2025-04-05",
+      "endDate": "2025-05-27",
+      "githubUrl": "https://github.com/Guo-lab/Vortex_Method",
+      "type": "course",
+      "tags": ["template-programming", "ODEs Integration", "sparse-linear-algebra", "finite-element-method", "FFT", "particle-in-cell", "RK4", "vortex-dynamics", "scientific-visualization", "VisIt"]
     }
   ]
 }
