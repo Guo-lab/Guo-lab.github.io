@@ -114,24 +114,53 @@ const Projects = (props) => {
                         <Row className="mb-3">
                             {/* Instructions Callout */}
                             <Col md={6}>
-                                <Alert variant="info" className="h-90 py-3 px-2">
-                                    <Alert.Heading className="mb-1" style={{ fontSize: '1rem' }}>
-                                        📌 How to Navigate Projects
-                                    </Alert.Heading>
-                                    <p className="mb-0" style={{ fontSize: '0.85rem' }}>
-                                        Click the project title in the card to see details. 
+                                <Alert variant="info" className="py-3 px-3">
+
+                                <Alert.Heading
+                                    className="mb-1 text-center"
+                                    style={{
+                                        fontSize: '1.1rem',
+                                        fontFamily: "'Old Standard TT', serif", // modern, clean font
+                                        fontWeight: 600, // semi-bold
+                                        color: '#0d6efd' // optional accent color
+                                    }}
+                                >
+                                    📌 How to Navigate Projects
+                                </Alert.Heading>
+
+                                    <div
+                                    style={{
+                                        borderLeft: '3px solid #0dcaf0',
+                                        paddingLeft: '1rem',
+                                        marginLeft: '0.3rem',
+                                        fontSize: '0.85rem'
+                                    }}
+                                    >
+                                    <p className="mb-0 text-start">
+                                        Click the project title in the card to see details.
                                     </p>
-                                    <p className="mb-0" style={{ fontSize: '0.85rem' }}>
-                                        Click GitHub icon to access the repo if it is public.
+                                    <p className="mb-0 text-start">
+                                        Click the GitHub icon to access the repo if it is public.
                                     </p>
+                                    </div>
+
                                 </Alert>
                             </Col>
+
 
                             {/* Search Callout */}
                             <Col md={6}>
                                 <Alert variant="primary" className="h-90 py-3 px-2">
                                     <div className="d-flex justify-content-between align-items-center mb-2">
-                                        <Alert.Heading className="mb-0" style={{ fontSize: '1rem' }}>
+                                        <Alert.Heading 
+                                            className="mb-0"                                     
+                                            style={{
+                                                fontSize: '1.1rem',
+                                                fontFamily: "'Old Standard TT', serif", // modern, clean font
+                                                fontWeight: 600, // semi-bold
+                                                color: '#0d6efd' // optional accent color
+                                            }}
+                                        >
                                             🔍 Search Projects
                                         </Alert.Heading>
                                         <Button

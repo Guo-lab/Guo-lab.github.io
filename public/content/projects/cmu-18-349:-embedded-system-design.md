@@ -262,4 +262,14 @@ The capstone achievement was implementing a full real-time operating system feat
   </div>
 </div>
 
+
+<br>
+<hr/>
+
+<h3 style="margin-top: 3.5rem; margin-bottom: 1rem;"> <strong>Acknowledgments</strong> </h3>
+
+<p>
+Thanks to TA's support and my teammate, Alden's effort.
+</p>
+
 </div>

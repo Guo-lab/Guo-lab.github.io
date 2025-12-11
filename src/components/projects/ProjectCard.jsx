@@ -21,7 +21,9 @@ const styles = {
     cardStyle: {
         borderRadius: 8,
         overflow: 'hidden', // Ensures content stays within card boundaries
-        height: '680px', // Reduced card height for more compact appearance
+        // height: '680px', // Reduced card height for more compact appearance
+        minHeight: '680px',
+        maxHeight: '1080px',
         border: 'none', // Remove the border
         display: 'flex',
         flexDirection: 'column',
