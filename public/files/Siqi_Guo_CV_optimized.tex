@@ -1,0 +1,217 @@
+%---------------------------------------------------------------------
+% Professional CV Template - Siqi Guo
+% Optimized and cleaned version - 2025
+%---------------------------------------------------------------------
+
+\documentclass[a4paper]{article}
+
+% ================ PACKAGES ================ %
+\usepackage{geometry}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+
+% ================ PAGE SETUP ================ %
+\geometry{left=1.27cm, top=1.27cm, right=1.27cm, bottom=1.27cm}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Additional margin adjustments
+\addtolength{\oddsidemargin}{-0.530in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.45in}
+\addtolength{\textheight}{1in}
+
+\urlstyle{rm}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% ================ CUSTOM FORMATTING ================ %
+% Section formatting
+\titleformat{\section}
+    {\vspace{-10pt} \scshape \raggedright \large}
+    {}
+    {0em}
+    {}
+    [\color{black} \titlerule \vspace{-6pt}]
+
+% Bullet styles
+\renewcommand{\labelitemii}{$\circ$}
+\setlist[itemize, 2]{label=$\bullet$}
+
+% ================ EDUCATION COMMANDS ================ %
+\newcommand{\resumeEducationSubHeadingListStart}{\begin{description}}
+\newcommand{\resumeEducationSubHeadingListEnd}{\end{description}}
+\newcommand{\resumeEducationSubheading}[4]{%
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.98\textwidth}{@{\hspace{-0.5em}}p{0.8\textwidth}@{\extracolsep{\fill}}r@{}}
+        \textbf{#1} & {#2} \\
+        {#3} & {#4} \\
+    \end{tabular*}%
+  \vspace{-5pt}%
+}
+\newcommand{\courseList}[1]{%
+  \vspace{0pt}
+  \begin{description}[leftmargin=-25pt, style=unboxed]
+    Relevant Courses: #1
+  \end{description}
+  \vspace{-5pt}
+}
+
+% ================ EXPERIENCE COMMANDS ================ %
+\newcommand{\resumeExperienceSubHeadingListStart}{\begin{itemize}[label={}, leftmargin=*]}
+\newcommand{\resumeExperienceSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeExperienceSubheading}[6]{
+  \vspace{5pt}\item
+    \begin{tabular*}{0.98\textwidth}{@{\hspace{-0.5em}}l@{\extracolsep{\fill}}r@{}}
+      \textbf{#1} & {#2} \\
+      {#3} & {#4} \\
+      {#5} & {#6}
+    \end{tabular*}
+  \vspace{-6pt}
+}
+
+\newcommand{\resumeExperienceItemListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeExperienceItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeExperienceItem}[1]{\item{{#1 \vspace{-1pt}}}}
+
+\newcommand{\resumeExperienceSubItemListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeExperienceSubItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeExperienceSubItem}[2]{
+  \item{
+    \textbf{#1}
+    {#2 \vspace{-2pt}}
+  }
+}
+
+% ================ PROJECTS COMMANDS ================ %
+\newcommand{\resumeProjectsSubHeadingListStart}{\begin{itemize}[leftmargin=*, label={}]}
+\newcommand{\resumeProjectsSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeProjectsSubHeading}[2]{
+  \vspace{-1pt}
+  \item{
+    \begin{tabular*}{0.98\textwidth}{@{\hspace{-0.5em}}l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {#2} \\
+    \end{tabular*}
+  \vspace{-8pt}
+  }
+}
+\newcommand{\resumeProjectsItemListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeProjectsItemListEnd}{\end{itemize}\vspace{0pt}}
+\newcommand{\resumeProjectsItem}[1]{\item{{#1} \vspace{-2pt}}}
+
+% ================ SKILLS COMMANDS ================ %
+\newcommand{\resumeSkillsSubHeadingListStart}{\begin{description}}
+\newcommand{\resumeSkillsSubHeadingListEnd}{\end{description}}
+\newcommand{\resumeSkillsSubItem}[2]{
+  \item\hspace{-0.8em}{
+    \textbf{#1}{: \small{#2} \vspace{-2pt}}
+  }
+  \vspace{-3pt}
+}
+
+% ================ DOCUMENT CONTENT ================ %
+\begin{document}
+
+%-----------------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\centerline{\LARGE Siqi Guo} \vspace{5pt}} \\
+  \centerline{\faEnvelope ~: \href{mailto:siqiguo@andrew.cmu.edu}{siqiguo@andrew.cmu.edu} | \faIcon{linkedin} \href{https://www.linkedin.com/in/siqiguo047/?locale=en_US}{: linkedin.com/in/siqiguo047} | \faPhone ~: (+1) 412-612-0495 | \faGlobe \href{https://guo-lab.github.io}{: https://guo-lab.github.io}} \\
+\end{tabular*}
+
+%----------------EDUCATION-----------------
+\section{Education}
+\resumeEducationSubHeadingListStart
+\resumeEducationSubheading
+{Carnegie Mellon University} {Pittsburgh, PA}
+{Master of Science in Electrical and Computer Engineering; \quad GPA: 3.89/4.0} {May 2025}
+\newline{}
+\courseList{Foundations of Computer Systems, Embedded System Software Engineering, Distributed Systems, Autonomous Control System, Storage Systems, Modern Computer Architecture and Design, Intro to Embedded Systems, Multi-Agent Planning and Coordination, Software Development for Computational Science}
+
+\resumeEducationSubheading
+{Tianjin University} {Tianjin, China}
+{Bachelor of Science in Computer Science and Technology; \quad GPA: 3.84/4.0} {June 2023}
+\newline{}
+\courseList{Data Structure, Operating System, Computer Networks, Principles of Database, Parallel Computing, Natural Language Processing, Pattern Recognition and Deep Learning}
+
+\resumeEducationSubHeadingListEnd
+
+%---------- EXPERIENCE -----------
+\section{Research \& Industry Experience}
+\resumeExperienceSubHeadingListStart
+
+\resumeExperienceSubheading
+{Eigenbot - Bio-inspired Distributed Control for Modular Robot} {Pittsburgh, PA}
+{Biorobotics Lab Research Assistant (Part-time)} {Dec 2023 - Oct 2024}
+{Advisor: Professor Howie Choset, Research Scientist Lu Li} {Carnegie Mellon University}
+\resumeExperienceSubItemListStart
+\resumeExperienceSubItem{Eigenbot Firmware Development and Testing}{
+  \resumeExperienceItemListStart
+  \resumeExperienceItem{Developed Eigenbot EEPROM parameters auto-setting tools, which accelerated Hexapod gaits tuning process.}
+  \resumeExperienceItem{Tested the firmware. Redesigned and debugged the module communication protocol to ensure the robot's stability and reliability. Conducted the experiments with Logan, analyzed the gaits and fine-tuned firmware parameters.}
+  \resumeExperienceItem{Integrated Foot Sensor Feedback into the robot's message protocol.}
+  \resumeExperienceItem{Collected EigenBot's data from the real-world using OptiTrack, developing a pipeline to assess metrics like Gait Phase Difference and Leg Stance Duration, benchmarking its performance with centralized predefined gait.}
+  \resumeExperienceItemListEnd
+}
+\resumeExperienceSubItemListEnd
+
+\resumeExperienceSubheading
+{Cepton, Inc.} {San Jose, CA}
+{Software Engineer Intern → Software Engineer (Full-time)} {May 2025 - Nov 2025}
+{LiDAR Technology Company} {}
+\resumeExperienceSubItemListStart
+\resumeExperienceSubItem{MST (Magnosteer Control) System Development}{
+  \resumeExperienceItemListStart
+  \resumeExperienceItem{Developed embedded \textbf{PD control algorithms with feedforward} for precision mirror movement control in LiDAR systems, implementing encoder auto-calibration and trajectory interpolation in \textbf{C/C++}.}
+  \resumeExperienceItem{Optimized embedded system architecture by redesigning \textbf{SPI transfers and event queues}, achieving \textbf{73\% CPU utilization reduction} (90\% → 24\%) on ARM-based controllers.}
+  \resumeExperienceItem{Built comprehensive \textbf{control simulation framework} in C and Python for algorithm validation, enabling systematic benchmarking of PD vs. PD-with-feedforward control strategies.}
+  \resumeExperienceItem{Engineered real-time \textbf{MST GUI and debug logging system} in \textbf{Rust}, providing field engineers with live system monitoring and parameter tuning capabilities.}
+  \resumeExperienceItem{Delivered \textbf{72\% power consumption reduction} (2.9W → 0.8W) on Ultra B3.3 120° LiDAR units through embedded firmware optimization and Python-based power analysis tools.}
+  \resumeExperienceItemListEnd
+}
+\resumeExperienceSubItemListEnd
+
+\resumeExperienceSubHeadingListEnd
+
+%---------------- PROJECTS -----------------
+\section{Projects}
+
+\resumeProjectsSubHeadingListStart
+\resumeProjectsSubHeading{{CloudFS, a Deduplicated Cloud File System} {| \href{https://github.com/Guo-lab/CloudFS_Design}{CMU 18-746 Course Project \faIcon{github}}}}{Oct 2024 - Dec 2024}
+\resumeProjectsItemListStart
+\resumeProjectsItem{Implemented CloudFS, leveraging the properties of local SSD and cloud storage to make data-placement decisions.}
+\resumeProjectsItem{Identified and eliminated duplicate data with Rabin fingerprinting. Minimized storage usage and optimized data transfer in the form of segments. Designed buffer file to manually handle the file data transfer.}
+\resumeProjectsItem{Implemented the IOCTL functions to support snapshot operations, such as create, restore, install, and uninstall.}
+\resumeProjectsItem{Added in-memory LRU caching to further improve performance and reduce cloud operation costs, reaching \textbf{NO.1} on the scoreboard among all students.}
+\resumeProjectsItemListEnd
+
+\resumeProjectsSubHeading{{Distributed File System Design} {| \href{https://github.com/Guo-lab/15640-Distributed-Systems}{CMU 15-640 Course Project \faIcon{github}}}}{Feb 2024 - Apr 2024}
+\resumeProjectsItemListStart
+\resumeProjectsItem{Implemented the serialization protocol for the low-level RPC stub, supporting several RPCs in project's NFS.}
+\resumeProjectsItem{Designed a File-Caching Proxy based on RMI. Implement open-close session semantics for proxy operations, and the LRU replacement policy for cache management. Used version control, check-on-use and last-close-win to make sure the proxy's cache and server freshness.}
+\resumeProjectsItem{Implemented and Tuned a 3-Tier Architecture Scalable Web Service to satisfy dynamic or unexpected workloads by auto-scaling. Then, evaluated the performance of the system by benchmarking and figuring out the bottleneck.}
+\resumeProjectsItem{Designed a Two-phase Commit Protocol to ensure the consistency of the distributed file system. Customized a mechanism to recovering from nodes failures and handling lost messages.}
+\resumeProjectsItemListEnd
+
+\resumeProjectsSubHeadingListEnd
+
+%---------------- SKILLS -----------------
+\section{Skills}
+\resumeSkillsSubHeadingListStart
+\resumeSkillsSubItem{Programming Languages}{C/C++, Python, Rust, C\#, LaTeX, SQL, Verilog, Bash}
+\resumeSkillsSubItem{Frameworks}{TensorFlow, PyTorch, ROS, NodeJS, .NET, React}
+\resumeSkillsSubItem{Software and Tools}{GIT, Docker, MySQL, Visual Studio Code, Gem5, PSoC, Vitis}
+\resumeSkillsSubItem{Platforms}{MacOS, Linux, Arduino, GCP}
+\resumeSkillsSubHeadingListEnd
+
+\end{document}

@@ -1,0 +1,415 @@
+%---------------------------------------------------------------------
+% Resume Template Author: Anubhav Singh | License: MIT
+% Resume Author: Siqi Guo — Professor Outreach Version, Feb 2026
+%---------------------------------------------------------------------
+
+% ================ Document Configuration ==============
+\documentclass[a4paper,20pt]{article}
+
+\usepackage{geometry}
+\geometry{left=1.27cm, top=1.27cm, right=1.27cm, bottom=1.27cm}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{subfig, graphicx}
+\usepackage{fontawesome5}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{multicol}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.530in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.45in}
+\addtolength{\textheight}{1in}
+
+\urlstyle{rm}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%================ Customized commands =================
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\titleformat{\section}
+    {\vspace{-10pt} \scshape \raggedright \large}
+    {}
+    {0em}
+    {}
+    [\color{black} \titlerule \vspace{-6pt}]
+
+% region------------ Education SubHeading ----------
+\newcommand{\resumeEducationSubHeadingListStart}{
+  \begin{description}
+}
+\newcommand{\resumeEducationSubHeadingListEnd}{
+  \end{description}
+}
+\newcommand{\resumeEducationSubheading}[4]{%
+  \vspace{-1pt}\item
+    \begin{tabular*} {0.98\textwidth} {@{\hspace{-0.5em}}p{0.8\textwidth}@{\extracolsep{\fill}}r@{}}
+        \textbf{#1} & {#2} \\
+               {#3} & {#4} \\
+    \end{tabular*}%
+  \vspace{-5pt}%
+}
+\newcommand{\courseList}[1]{%
+  \vspace{0pt}
+  \begin{description}[leftmargin=-25pt, style=unboxed]
+    Relevant Courses: #1
+  \end{description}
+  \vspace{-5pt}
+}
+% endregion
+
+% region----------- Publications SubHeading ----------
+\newcommand{\resumePublicationsSubHeadingListStart}{
+  \begin{itemize} [label={}, leftmargin=*, topsep=0pt, itemsep=2pt, parsep=0pt]
+}
+\newcommand{\resumePublicationsSubHeadingListEnd}{
+  \end{itemize}
+}
+\newcommand{\resumePublicationSubItem}[2]{%
+  \resumePublicationItem{#1}{#2}
+}
+\newcommand{\resumePublicationItem}[2]{
+  \item\hspace{-0.8em}{
+    {#1}{\quad {#2}}
+  }
+}
+% endregion
+
+% -------------- Skills SubHeading ------------
+\newcommand{\resumeSkillsSubHeadingListStart}{
+  \begin{description}
+}
+\newcommand{\resumeSkillsSubHeadingListEnd}{
+  \end{description}
+}
+\newcommand{\resumeSkillsSubItem}[2]{%
+  \resumeSkillsItem{#1}{#2}
+  \vspace{-3pt}%
+}
+\newcommand{\resumeSkillsItem}[2]{
+  \item\hspace{-0.8em}{
+    \textbf{#1}{: \small{#2} \vspace{-2pt}}
+  }
+}
+
+% ------------ Research SubHeading ------------
+\newcommand{\resumeResearchSubHeadingListStart}{
+  \begin{itemize} [label={}, leftmargin=*]
+}
+\newcommand{\resumeResearchSubHeadingListEnd}{
+  \end{itemize}
+}
+\newcommand{\resumeResearchSubheading}[6]{
+  \vspace{5pt}\item
+    \begin{tabular*} {0.98\textwidth} {@{\hspace{-0.5em}}l@{\extracolsep{\fill}}r@{}}
+      \textbf{#1} & {#2}\null \\
+      {#3} & {#4} \\
+      {#5} & {#6}
+    \end{tabular*}
+  \vspace{0pt}
+}
+% 4-arg variant: no advisor/institution row
+\newcommand{\resumeResearchSubheadingShort}[4]{
+  \vspace{5pt}\item
+    \begin{tabular*} {0.98\textwidth} {@{\hspace{-0.5em}}l@{\extracolsep{\fill}}r@{}}
+      \textbf{#1} & {#2}\null \\
+      {#3} & {#4}
+    \end{tabular*}
+  \vspace{-6pt}
+}
+\newcommand{\resumeResearchItemListStart}{
+  \begin{itemize} [leftmargin=*]
+}
+\newcommand{\resumeResearchItemListEnd}{
+  \end{itemize}
+  \vspace{-5pt}
+}
+\newcommand{\resumeResearchItem}[1]{
+  \item{
+    {#1 \vspace{-1pt}}
+  }
+}
+\newcommand{\resumeResearchMidItemListStart}{
+  \begin{itemize} [leftmargin=*]
+}
+\newcommand{\resumeResearchMidItemListEnd}{
+  \end{itemize}
+  \vspace{-5pt}
+}
+\newcommand{\resumeResearchMidItem}[2]{
+  \item{
+    \textbf{#1}
+    {#2 \vspace{-2pt}}
+  }
+}
+
+\setlist[itemize, 2]{label=$\bullet$}
+% ------------ Projects SubHeading List -------------
+\newcommand{\resumeProjectsSubHeadingListStart}{
+  \begin{itemize} [leftmargin=*, label={}]
+}
+\newcommand{\resumeProjectsSubHeadingListEnd}{
+  \end{itemize}
+}
+\newcommand{\resumeProjectsSubHeading}[2]{
+  \resumeProjectsSubHeadingItem{#1}{#2}
+  \vspace{-10pt}
+}
+\newcommand{\resumeProjectsSubHeadingItem}[2]{
+  \vspace{-1pt}
+  \item{
+    \begin{tabular*} {0.98\textwidth} {@{\hspace{-0.5em}}l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {#2} \\
+    \end{tabular*}
+  \vspace{-8pt}
+  }
+}
+\newcommand{\resumeProjectsItemListStart}{
+  \begin{itemize} [leftmargin=*]
+}
+\newcommand{\resumeProjectsItemListEnd}{
+  \end{itemize}
+  \vspace{0pt}
+}
+\newcommand{\resumeProjectsItem}[1]{
+  \item{
+    {#1} \vspace{-2pt}
+  }
+}
+
+%=================================================
+%%%%%%%%%%%  CV (Resume) STARTS HERE  %%%%%%%%%%%%
+\begin{document}
+
+%-----------------HEADING-----------------
+\begin{tabular*} {\textwidth} {l@{\extracolsep{\fill}}r}
+  \textbf{ \centerline {\LARGE Siqi  Guo} \vspace {5pt} } \\
+  \centerline {\faEnvelope ~: \href{mailto:siqiguo@andrew.cmu.edu}{siqiguo@andrew.cmu.edu} | \faIcon{linkedin} \href{https://www.linkedin.com/in/siqiguo047/?locale=en_US}{: linkedin.com/in/siqiguo047} | \faPhone ~: (+1) 412-612-0495 \quad | \faGlobe \href{https://guo-lab.github.io}{: https://guo-lab.github.io} } \\
+\end{tabular*}
+
+\vspace{0.2em}
+\begin{center}
+  \parbox{0.96\textwidth}{
+    \textbf{Summary:}
+    CMU M.S. ECE graduate with expertise in embedded control, bio-inspired locomotion, and autonomous planning. Currently developing parallelized \textbf{C++ IK and motion planning pipelines} for wheeled humanoid warehouse robots at Yondu AI. Previously embedded software engineer at Cepton (LiDAR systems) and research assistant in the CMU Biorobotics Lab (\textbf{EigenBot}, \textbf{MMPUG}). Published in ICRA 2025, AAAI 2023, and IEEE Neural Networks. Seeking research collaboration in Embodied AI systems, world models for robotics, real-time robot learning, and scalable deployment of foundation models on physical platforms.
+  }
+\end{center}
+\vspace{-1.5em}
+
+\vspace{1em}
+
+%----------------EDUCATION-----------------
+\section{Education}
+\resumeEducationSubHeadingListStart
+\resumeEducationSubheading
+{Carnegie Mellon University} {Pittsburgh, PA}
+{Master of Science in Electrical and Computer Engineering; \quad GPA: 3.91/4.0} {May 2025}
+\newline{}
+\courseList{Foundations of Computer Systems, Embedded System Software Engineering, Machine Learning Signal Processing, Distributed Systems, Autonomous Control System, Storage Systems, Modern Computer Architecture and Design, Large-scale Distributed Machine Learning and Optimization}
+
+\resumeEducationSubheading
+{Tianjin University} {Tianjin, China}
+{Bachelor of Science in Computer Science and Technology; \quad GPA: 3.84/4.0} {June 2023}
+\newline{}
+\courseList{Data Structure, Operating System, Computer Networks, Principles of Database, Parallel Computing, Natural Language Processing, Pattern Recognition and Deep Learning}
+
+\resumeEducationSubHeadingListEnd
+
+\vspace{-9pt}
+
+\section*{Publications}
+\resumePublicationsSubHeadingListStart
+\resumePublicationSubItem{Zhang, Z., \textbf{Guo, S.}, et al.}{``Bio-inspired Distributed Neural Locomotion Controller (D-NLC) for Robust Locomotion and Emergent Behaviors'' (May '25). \textit{2025 IEEE International Conference on Robotics and Automation} (ICRA 2025).}
+\vspace{-10pt}
+\resumePublicationSubItem{Bingdao, F., Di, J., et al.}{``Backdoor attacks on unsupervised graph representation learning'' (August '24). \textit{Journal of Neural Networks} (Vol. 180, p.106668).}
+\resumePublicationSubItem{Jin, D., Feng, B., \textbf{Guo, S.}, et al.}{``Local-Global Defense Against Unsupervised Adversarial Attacks on Graphs'' (June '23). In the \textit{Thirty-Seventh AAAI Conference on Artificial Intelligence} (Vol. 37, No. 7).}
+\resumePublicationSubItem{Ding, Y., \& \textbf{Guo, S.}}{``Conditional generative adversarial networks: Introduction and application'' (November '22). In the 2nd \textit{International Conference on Artificial Intelligence, Automation, and High-Performance Computing} (AIAHPC 2022) (Vol. 12348, pp. 258-266). SPIE.}
+\resumePublicationsSubHeadingListEnd
+
+\vspace{4pt}
+
+%---------- RESEARCH & WORK EXPERIENCE -----------
+\section{Research \& Work Experience}
+\resumeResearchSubHeadingListStart
+
+% ---- Yondu AI (current) ----
+\resumeResearchSubheadingShort
+{Yondu AI \textnormal{\small{$|$ Y Combinator, Early-stage Humanoid Robotics Startup}}} {Los Angeles, CA}
+{Robot Intern (Full-time)} {Feb 2026 - Present}
+\resumeResearchMidItemListStart
+\resumeResearchMidItem{}
+{Parallelized Motion Planning for Wheeled Humanoid Warehouse Robots}
+{
+  \resumeResearchItemListStart
+  \resumeResearchItem{}
+  {Developing parallelized \textbf{C++ inverse kinematics (IK) and motion planning pipelines} for wheeled humanoid warehouse robots, targeting real-time performance for autonomous manipulation tasks.}
+  \resumeResearchItem{}
+  {Architecting \textbf{ROS-based} system infrastructure integrating multi-threaded IK solvers with task-and-motion planning modules for warehouse operation.}
+  \resumeResearchItemListEnd
+}
+\resumeResearchMidItemListEnd
+
+% ---- Cepton ----
+\resumeResearchSubheadingShort
+{Cepton, Inc. \textnormal{\small{$|$ LiDAR Technology Company}}} {San Jose, CA}
+{Embedded Software Engineer (promoted from Software Engineer Intern, Full-time)} {May 2025 - Jan 2026}
+\resumeResearchMidItemListStart
+\resumeResearchMidItem{}
+{MST (Magnosteer Control) System Development}
+{
+  \resumeResearchItemListStart
+  \resumeResearchItem{}
+  {Developed embedded \textbf{PD control algorithms with feedforward} for precision mirror movement control in LiDAR systems, implementing encoder auto-calibration and trajectory interpolation in \textbf{C/C++}.}
+  \resumeResearchItem{}
+  {Optimized embedded system architecture by redesigning \textbf{SPI transfers and event queues}, achieving \textbf{73\% CPU utilization reduction} (90\% $\rightarrow$ 24\%) on ARM-based controllers.}
+  \resumeResearchItem{}
+  {Built comprehensive \textbf{control simulation framework} in C and Python for algorithm validation, enabling systematic benchmarking of PD vs. PD-with-feedforward control strategies.}
+  \resumeResearchItem{}
+  {Engineered real-time \textbf{MST GUI and debug logging system} in \textbf{Rust}, providing field engineers with live system monitoring and parameter tuning capabilities.}
+  \resumeResearchItem{}
+  {Delivered \textbf{72\% power consumption reduction} (2.9W $\rightarrow$ 0.8W) on Ultra B3.3 120$^\circ$ LiDAR units through embedded firmware optimization and Python-based power analysis tools.}
+  \resumeResearchItemListEnd
+}
+\resumeResearchMidItemListEnd
+
+% ---- EigenBot ----
+\resumeResearchSubheading
+{Eigenbot - Bio-inspired Distributed Control for Modular Robot} {Pittsburgh, PA}
+{Biorobotics Lab Research Assistant (Part-time)} {Dec 2023 - Oct 2024}
+{Advisor: Professor Howie Choset, Research Scientist Lu Li} {Carnegie Mellon University}
+\resumeResearchMidItemListStart
+\resumeResearchMidItem{}
+{Modular Robot Bio-inspired Curve Walking Implementation}
+{
+  \resumeResearchItemListStart
+  \resumeResearchItem{}
+  {Implemented the curve walking algorithm on the Eigenbot (a hexapod robot) in CoppeliaSim, inspired by six-leg insects' behavior. }
+  \resumeResearchItem{}
+  {Fine-tuned the weights of my algorithm to achieve a smooth curve walking gait, and integrated curve walking / steering into Eigenbot's behavior tree.}
+  \resumeResearchItemListEnd
+}
+\resumeResearchMidItem{}
+{Eigenbot Firmware Development and Testing}
+{
+  \resumeResearchItemListStart
+  \resumeResearchItem{}
+  {Developed Eigenbot EEPROM parameters auto-setting tools, which accelerated Hexapod gaits tuning process.}
+  \resumeResearchItem{}
+  {Tested the firmware. Redesigned and debugged the module communication protocol to ensure the robot's stability and reliability. Conducted the experiments with Logan, analyzed the gaits and fine-tuned firmware parameters.}
+  \resumeResearchItem{}
+  {Integrated Foot Sensor Feedback into the robot's message protocol.}
+  \resumeResearchItem{}
+  {Collected EigenBot's data from the real-world using OptiTrack, developing a pipeline to assess metrics like Gait Phase Difference and Leg Stance Duration, benchmarking its performance with centralized predefined gait.}
+  \resumeResearchItemListEnd
+}
+\resumeResearchMidItemListEnd
+
+% ---- MMPUG ----
+\resumeResearchSubheading
+{MMPUG - Multi-Model Perception Uber Good} {Pittsburgh, PA}
+{Biorobotics Lab Research Assistant (Part-time)} {May 2024 - Sep 2024}
+{Advisor: Dr. Matthew J. Travers} {Carnegie Mellon University}
+\resumeResearchMidItemListStart
+\vspace{-5pt}
+\resumeResearchMidItem{}
+{FAR-Planner Implementation in a Heterogeneous Agent System with RC cars and legged robots}
+{
+  \resumeResearchItemListStart
+  \resumeResearchItem{}
+  {Implemented A* \& Theta* global planner with 2.5D orientation optimization for MMPUG architecture.}
+  \resumeResearchItem{}
+  {Integrated features to make the planner adaptive to dynamic obstacles and ensure a safety distance for the robots.}
+  \resumeResearchItem{}
+  {Deployed this Global Planner on the RC cars, and tested the planner both in simulation and in the real world.}
+  \resumeResearchItemListEnd
+}
+\resumeResearchMidItemListEnd
+
+% ---- GNN / TJU ----
+\resumeResearchSubheading
+{Theory and Applications of Graph Convolutional Network} {Tianjin, China}
+{Research Assistant (Part-time)} {Nov 2021 - May 2023}
+{Advisor: Associate Professor Jin, Di} {Tianjin University}
+\resumeResearchItemListStart
+\vspace{-5pt}
+\resumeResearchItem{}
+{Investigated the theoretical relationship between GAT and GCN within Deep Graph Infomax (DGI); integrated mutual information maximization and unsupervised learning to improve graph representation quality.}
+\resumeResearchItem{}
+{Benchmarked adversarial robustness of GNNs using Metattack and Nettack attack matrices; reproduced and compared defense methods including RoSA, Pro-GNN, PA-GNN, GraphCL, and GraphSS.}
+\resumeResearchItem{}
+{Designed a novel \textbf{unsupervised backdoor attack} on GNNs based on GIN and Momentum Contrast, formulated the threat model, derived the loss function, and implemented trigger injection; achieved higher Attack Success Rate and lower Clean Accuracy Drop than prior unsupervised graph attacks. Published in \textit{Journal of Neural Networks} (2024) and \textit{AAAI 2023}.}
+\resumeResearchItemListEnd
+
+\resumeResearchSubHeadingListEnd
+
+\vspace{-6pt}
+
+%---------------- PROJECTS -----------------
+\section{Projects}
+
+\resumeProjectsSubHeadingListStart
+\resumeProjectsSubHeading{{CloudFS, a Deduplicated Cloud File System} {| \href{https://github.com/Guo-lab/CloudFS_Design}{CMU 18-746 Course Project \faIcon{github}}}}{Oct 2024 - Dec 2024}
+\resumeProjectsItemListStart
+\resumeProjectsItem{Implemented CloudFS, leveraging the properties of local SSD and cloud storage to make data-placement decisions.}
+\resumeProjectsItem{Identified and eliminated duplicate data with Rabin fingerprinting. Minimized storage usage and optimized data transfer in the form of segments. Designed buffer file to manually handle the file data transfer.}
+\resumeProjectsItem{Implemented the IOCTL functions to support snapshot operations, such as create, restore, install, and uninstall.}
+\resumeProjectsItem{Added in-memory LRU caching to further improve performance and reduce cloud operation costs, reaching \textbf{NO.1} on the scoreboard among all students.}
+\resumeProjectsItemListEnd
+
+\resumeProjectsSubHeading{{BusTub, a Relational DBMS} {| \href{https://github.com/Guo-lab/15645-Database}{Personal Project based on CMU 15-645 \faIcon{github}}}}{May 2024 - July 2024}
+\resumeProjectsItemListStart
+\resumeProjectsItem{Implemented LRU-K policy, a disk scheduler and a buffer pool in the storage manager.}
+\resumeProjectsItem{Implemented disk-backed hash index in the DB system, using a variant of extendible hashing as the hashing scheme.}
+\resumeProjectsItem{Created the operator executors that execute SQL queries and implemented optimizer rules to transform query plans.}
+\vspace{-10pt}
+\resumeProjectsItem{Added transaction support by implementing optimistic multi-version concurrency control.}
+\resumeProjectsItemListEnd
+
+\resumeProjectsSubHeading{{Distributed File System Design} {| \href{https://github.com/Guo-lab/15640-Distributed-Systems}{CMU 15-640 Course Project \faIcon{github}}}}{Feb 2024 - Apr 2024}
+\resumeProjectsItemListStart
+\resumeProjectsItem{Built a File-Caching Proxy over RMI with open-close session semantics, LRU cache replacement, and version-based freshness control; implemented low-level RPC serialization for NFS operations.}
+\resumeProjectsItem{Designed a Two-phase Commit Protocol with failure recovery and lost-message handling; tuned a 3-tier auto-scaling web service and benchmarked system bottlenecks under dynamic load.}
+\resumeProjectsItemListEnd
+
+\resumeProjectsSubHeading{Blind Source Signal Decomposition \& Analysis | \href{https://github.com/Guo-lab/MLSP-G2}{CMU 18797 Research Project \faIcon{github}}}{Oct 2023 - Dec 2023}
+\resumeProjectsItemListStart
+\resumeProjectsItem{Filtered the mixed HDEMG signals and detected peaks to slice the peak-wave windows. Used the PCA algorithm to reduce the dimensions of the data and K-Means to cluster the potentially same Motor Units' signals.}
+\resumeProjectsItem{Based on the clustered results, applied DTW, Covariance, Cosine in a multi-threshold way to compare the wave similarity. Verified the firing instances for each Motor Unit based on the comparison results.}
+\resumeProjectsItemListEnd
+
+\resumeProjectsSubHeadingListEnd
+
+\vspace{-6pt}
+
+%---------------- SKILLS -----------------
+\section{Skills}
+\vspace{-16pt}
+\begin{multicols}{2}
+  \begin{description}[itemsep=0pt]
+    \resumeSkillsItem{Programming}{C/C++, Python, Rust, LaTeX, Verilog}
+    \resumeSkillsItem{Frameworks}{ROS, TensorFlow/PyTorch, Isaac Sim, Drake}
+    % \columnbreak
+    \resumeSkillsItem{Tools}{GIT, Docker, MySQL, VSCode, Gem5, PSoC, Vitis}
+    \resumeSkillsItem{Platforms}{MacOS, Linux, Arduino, GCP}
+  \end{description}
+\end{multicols}
+
+\end{document}
