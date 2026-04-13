@@ -16,6 +16,27 @@
     ],
     "[json]": {
       "editor.wordWrap": "on"
-    }
+    },
+    "latex-workshop.latex.env": {
+        "PATH": "/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Library/TeX/texbin:/opt/homebrew/bin"
+    },
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "/Library/TeX/texbin/xelatex",
+            "args": [
+                "-synctex=1",
+                "-shell-escape",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "latexindent",
+            "command": "/opt/homebrew/bin/latexindent",
+            "args": []
+        }
+    ]
   }
   
