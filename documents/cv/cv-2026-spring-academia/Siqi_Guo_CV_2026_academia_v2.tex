@@ -119,7 +119,7 @@
   \end{itemize}
 }
 \newcommand{\resumeResearchSubheading}[6]{
-  \vspace{4pt}\item
+  \vspace{5pt}\item
     \begin{tabular*} {0.98\textwidth} {@{\hspace{-0.5em}}l@{\extracolsep{\fill}}r@{}}
       \textbf{#1} & {#2}\null \\
       {#3} & {#4} \\
@@ -129,7 +129,7 @@
 }
 % 4-arg variant: no advisor/institution row
 \newcommand{\resumeResearchSubheadingShort}[4]{
-  \vspace{4pt}\item
+  \vspace{5pt}\item
     \begin{tabular*} {0.98\textwidth} {@{\hspace{-0.5em}}l@{\extracolsep{\fill}}r@{}}
       \textbf{#1} & {#2}\null \\
       {#3} & {#4}
@@ -153,7 +153,7 @@
 }
 \newcommand{\resumeResearchMidItemListEnd}{
   \end{itemize}
-  \vspace{-8pt}
+  \vspace{-5pt}
 }
 \newcommand{\resumeResearchMidItem}[2]{
   \item{
@@ -165,7 +165,7 @@
 \setlist[itemize, 2]{label=$\bullet$}
 % ------------ Projects SubHeading List -------------
 \newcommand{\resumeProjectsSubHeadingListStart}{
-  \begin{itemize} [leftmargin=*, label={}, itemsep=1pt]
+  \begin{itemize} [leftmargin=*, label={}]
 }
 \newcommand{\resumeProjectsSubHeadingListEnd}{
   \end{itemize}
@@ -210,7 +210,7 @@
 \begin{center}
   \parbox{0.96\textwidth}{
     \textbf{Summary:}
-    CMU M.S. ECE graduate with expertise in robot perception/localization, embedded control, bio-inspired locomotion, and autonomous planning. Currently developing \textbf{LiDAR-inertial SLAM/localization} and parallelized \textbf{C++ IK and motion planning pipelines} for wheeled humanoid warehouse robots at Yondu AI. Previously embedded software engineer at Cepton (LiDAR systems) and research assistant in the CMU Biorobotics Lab (\textbf{EigenBot}, \textbf{MMPUG}). Published in ICRA 2025, AAAI 2023, and IEEE Neural Networks. Seeking research collaboration in Embodied AI systems, world models for robotics, real-time robot learning, and scalable deployment of foundation models on physical platforms.
+    CMU M.S. ECE graduate with expertise in embedded control, bio-inspired locomotion, and autonomous planning. Currently developing parallelized \textbf{C++ IK and motion planning pipelines} for wheeled humanoid warehouse robots at Yondu AI. Previously embedded software engineer at Cepton (LiDAR systems) and research assistant in the CMU Biorobotics Lab (\textbf{EigenBot}, \textbf{MMPUG}). Published in ICRA 2025, AAAI 2023, and IEEE Neural Networks. Seeking research collaboration in Embodied AI systems, world models for robotics, real-time robot learning, and scalable deployment of foundation models on physical platforms.
   }
 \end{center}
 \vspace{-1.5em}
@@ -265,7 +265,6 @@
   % \resumeResearchItem{}
   % {Architecting \textbf{ROS-based} system infrastructure integrating multi-threaded IK solvers with task-and-motion planning modules for warehouse operation.}
   % \resumeResearchItem{}
-  \resumeResearchItem{}
   {Designed \textbf{experience-based roadmap cache} system with persistence to accelerate similar pose/trajectory queries, reducing IK solving time for repeated warehouse tasks.}
   \resumeResearchItem{}
   {Developed a warehouse cart scanning simulation pipeline with QR code         
@@ -273,13 +272,11 @@
   \resumeResearchItemListEnd
 }
 \resumeResearchMidItem{}
-{Ouster Integration, Dynamic IMU Estimation, and LiDAR-Inertial SLAM}
+{Ouster LiDAR Integration \& Dynamic IMU Estimation and Calibration System}
 {
   \resumeResearchItemListStart
   \resumeResearchItem{}
-  {Resolved persistent \textbf{asymmetric yaw drift and odometry snapping} for Ouster odometry through \textbf{extrinsic calibration} (KISS-ICP), EKF fusion tuning, \textbf{dynamic IMU bias correction}, and \textbf{point cloud deskewing}.}
-  \resumeResearchItem{}
-  {Reproduced \textbf{Fast-LIO2} and \textbf{LIO-SAM} across Livox, Ouster, Velodyne, and internal Ouster datasets, generating clean PCD maps and implementing \textbf{Fast-LIO2 localization} for Ouster-based robot operation beyond prior 2D SLAM Toolbox workflows.}
+  {Resolved persistent \textbf{asymmetric yaw drift and odometry snaping} in LiDAR-inertial SLAM through: \textbf{extrinsic calibration} (KISS-ICP), \textbf{EKF sensor fusion audit}, \textbf{dynamic IMU bias modeling and correction}, and \textbf{LiDAR point cloud deskewing}.}
   \resumeResearchItemListEnd
 }
 \resumeResearchMidItem{}
@@ -287,15 +284,10 @@
 {
   \resumeResearchItemListStart
   \resumeResearchItem{} % optimized NVENC encoding, and Numba parallel reduction,
-  {Redesigned cloud-to-dataset post-processing pipeline, achieving \textbf{5-7x speedup} and improving throughput from \textbf{28 to 145 FPS}; reduced cloud transfer by \textbf{92\%} via parallel segment download and coverage-aware data selection.}
-  \resumeResearchItemListEnd
-}
-\resumeResearchMidItem{}
-{Warehouse Robot Field Deployment and Patrol System}
-{
-  \resumeResearchItemListStart
+  {Redesigned cloud-to-dataset post-processing pipeline achieving \textbf{5-7x speedup} through CPU/GPU parallelism, breaking through computational bottlenecks and improving throughput from an average of \textbf{28 to 145 FPS}.}
   \resumeResearchItem{}
-  {Deployed robots at \textbf{GPA Logistics} and \textbf{Cainiao} warehouses, handling site network configuration, production bring-up, field debugging, and GPA patrol replay/coverage benchmarking.}
+  {Implemented \textbf{parallel segment download} saturating ISP downlink and minimum-coverage data selection for robot training
+  datasets, reducing cloud storage transfer by 92\%.}
   \resumeResearchItemListEnd
 }
 \resumeResearchMidItemListEnd
@@ -390,7 +382,9 @@
 \resumeResearchItemListStart
 \vspace{-5pt}
 \resumeResearchItem{}
-{Studied unsupervised graph representation learning and robustness by analyzing GAT/GCN behavior within Deep Graph Infomax (DGI), integrating mutual information maximization, and benchmarking adversarial defenses against Metattack and Nettack, including RoSA, Pro-GNN, PA-GNN, GraphCL, and GraphSS.}
+{Investigated the theoretical relationship between GAT and GCN within Deep Graph Infomax (DGI); integrated mutual information maximization and unsupervised learning to improve graph representation quality.}
+\resumeResearchItem{}
+{Benchmarked adversarial robustness of GNNs using Metattack and Nettack attack matrices; reproduced and compared defense methods including RoSA, Pro-GNN, PA-GNN, GraphCL, and GraphSS.}
 \resumeResearchItem{}
 {Designed a novel \textbf{unsupervised backdoor attack} on GNNs based on GIN and Momentum Contrast, formulated the threat model, derived the loss function, and implemented trigger injection; achieved higher Attack Success Rate and lower Clean Accuracy Drop than prior unsupervised graph attacks. % Published in \textit{Journal of Neural Networks} (2024) and \textit{AAAI 2023}.
 }
@@ -419,7 +413,7 @@
 % \resumeProjectsItem{Created the operator executors that execute SQL queries and implemented optimizer rules to transform query plans.}
 % \vspace{-10pt}
 % \resumeProjectsItem{Added transaction support by implementing optimistic multi-version concurrency control.}
-\resumeProjectsItem{Implemented DBMS storage layer (LRU-K, disk scheduler, buffer   
+\resumeProjectsItem{Implemented BusTub DBMS storage layer (LRU-K, disk scheduler, buffer   
     pool, extendible hash index), query execution (operator executors,     
     optimizer rules), and transaction support with optimistic multi-version
      concurrency control. }
