@@ -1,0 +1,463 @@
+%---------------------------------------------------------------------
+% ------------------------ Resume Template ---------------------------
+% Template Author : Anubhav Singh
+% Github Raw link : https://github.com/xprilion
+% License : MIT
+%
+% Resume Author : Siqi Guo
+% Also Ref: https://zhuanlan.zhihu.com/p/521256466
+%---------------------------------------------------------------------
+
+
+
+% ================ Document Configuration ==============
+%
+\documentclass[a4paper,20pt]{article}
+
+% Configure page margins with geometry
+\usepackage{geometry}
+\geometry{left=1.27cm, top=1.27cm, right=1.27cm, bottom=1.27cm}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\usepackage{subfig, graphicx}
+\usepackage{fontawesome5}
+\usepackage{setspace}
+
+\usepackage{amsmath} % for \textsuperscript command
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.530in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.45in}
+\addtolength{\textheight}{1in}
+
+\urlstyle{rm}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+
+
+
+
+
+%================ Customized commands =================
+% 
+% for the bullets
+\renewcommand{\labelitemii}{$\circ$}
+
+% Sections formatting
+% `\vspace{-10pt}`: This command adds a negative vertical space of 10 points (pt) before the section title. This effectively moves the title up by 10 points.
+% `\scshape`: This command changes the font style to small caps for the section title.
+% `\raggedright`: This command sets the text alignment of the section title to be ragged right, which means the text is aligned to the left but not justified.
+% `{}`: This empty pair of braces represents the title label.
+% `{0em}`: This is the horizontal spacing between the title label and the section title itself. 0em means there is no extra space.
+% `{}`: This second empty pair of braces represents the title before code.
+% `\vspace` at the end is for control the space between the line and the following text.
+\titleformat{\section}
+    {\vspace{-10pt} \scshape \raggedright \large}
+    {}
+    {0em}
+    {}
+    [\color{black} \titlerule \vspace{-6pt}]
+
+
+
+% ------------ Education SubHeading ----------
+\newcommand{\resumeEducationSubHeadingListStart}{
+  \begin{description}
+}
+\newcommand{\resumeEducationSubHeadingListEnd}{
+  \end{description}
+}
+\newcommand{\resumeEducationSubheading}[4]{%
+  \vspace{-1pt}\item
+    \begin{tabular*} {0.98\textwidth} {@{\hspace{-0.5em}}p{0.8\textwidth}@{\extracolsep{\fill}}r@{}}
+        \textbf{#1} & {#2} \\
+               {#3} & {#4} \\
+    \end{tabular*}%
+  \vspace{-5pt}%
+}
+\newcommand{\courseList}[1]{%
+  \vspace{0pt} % Adjust this value for spacing
+  \begin{description}[leftmargin=-25pt, style=unboxed]
+    Relevant Courses: #1
+  \end{description}
+  \vspace{-5pt}
+}
+\newcommand{\ongoingCourseList}[1]{%
+  \vspace{0pt} % Adjust this value for spacing
+  \begin{description}[leftmargin=-25pt, style=unboxed]
+    Relevant Courses (Ongoing): #1
+  \end{description}
+  \vspace{-5pt}
+}
+
+
+% -------------- Skills SubHeading ------------
+\newcommand{\resumeSkillsSubHeadingListStart}{
+  \begin{description}
+}
+\newcommand{\resumeSkillsSubHeadingListEnd}{
+  \end{description}
+}
+\newcommand{\resumeSkillsSubItem}[2]{%
+  \resumeSkillsItem{#1}{#2}
+  \vspace{-3pt}%
+}
+\newcommand{\resumeSkillsItem}[2]{
+  \item\hspace{-0.8em}{
+    \textbf{#1}{: \small{#2} \vspace{-2pt}}
+  }
+}
+
+
+% ------------ Intern SubHeading ------------
+\newcommand{\resumeInternSubHeadingListStart}{
+  \begin{itemize} [label={}, leftmargin=*]
+}
+\newcommand{\resumeInternSubHeadingListEnd}{
+  \end{itemize}
+}
+\newcommand{\resumeInternSubheading}[4]{
+  \vspace{0pt}\item
+    \begin{tabular*} {0.98\textwidth} {@{\hspace{-0.5em}}l@{\extracolsep{\fill}}r@{}}
+      \textbf{#1} & {#2}\null \\
+      % \hspace{0.5em} {#3} & {#4}%
+      {#3} & {#4}%
+    \end{tabular*}
+  \vspace{-7pt}
+}
+\newcommand{\resumeInternItemListStart}{
+  \begin{itemize} [leftmargin=*]
+}
+\newcommand{\resumeInternItemListEnd}{
+  \end{itemize}
+  \vspace{-5pt}
+}
+\newcommand{\resumeInternItem}[1]{
+  \item{
+    % \textbf{#1}{: #2 \vspace{-2pt}}
+    {#1 \vspace{-2pt}}
+  }
+}
+
+
+\setlist[itemize, 2]{label=$\bullet$}
+% ------------ Projects SubHeading List -------------
+\newcommand{\resumeProjectsSubHeadingListStart}{
+  \begin{itemize} [leftmargin=*, label={}]
+}
+\newcommand{\resumeProjectsSubHeadingListEnd}{
+  \end{itemize}
+}
+\newcommand{\resumeProjectsSubHeading}[2]{
+  \resumeProjectsSubHeadingItem{#1}{#2}
+  \vspace{-10pt}
+}
+% \newcommand{\resumeProjectsSubHeadingItem}[2]{
+%   \vspace{-1pt}
+%   \item{
+%     \begin{tabular*} {0.98\textwidth} {@{\hspace{-0.5em}}l@{\extracolsep{\fill}}r}
+%       $\bullet$ \textbf{#1} & {#2} \\
+%     \end{tabular*}
+%   \vspace{-8pt}
+%   }
+% }
+\newcommand{\resumeProjectsSubHeadingItem}[2]{
+  \vspace{-1pt}
+  \item{
+    \begin{tabular*} {0.98\textwidth} {@{\hspace{-0.5em}}l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {#2} \\
+    \end{tabular*}
+  \vspace{-8pt}
+  }
+}
+\newcommand{\resumeProjectsItemListStart}{
+  \begin{itemize} [leftmargin=*]
+}
+\newcommand{\resumeProjectsItemListEnd}{
+  \end{itemize}
+  \vspace{0pt}
+}
+\newcommand{\resumeProjectsItem}[1]{
+  \item{
+    {#1} \vspace{-2pt}
+  }
+}
+
+
+%region
+% % .................. Original SubHeading List Template ..................
+% \newcommand{\resumeSubHeadingListStart}{
+%   \begin{itemize} [leftmargin=*]
+% }
+% \newcommand{\resumeSubHeadingListEnd}{
+%   \end{itemize}
+% }
+% % .................. Original SubHeading Template ..................
+% \newcommand{\resumeSubheading}[4]{
+%   \vspace{-1pt}\item
+%     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+%       \textbf{#1} & \textbf{#2} \\
+%       \textit{#3} & \textit{#4} \\
+%     \end{tabular*}\vspace{-5pt}
+% }
+% \newcommand{\resumeSubheadingWithoutLocation}[2]{
+%   \vspace{-1pt}\item
+%     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+%       \textbf{#1} & \textit{#2} \\
+%     \end{tabular*}\vspace{-5pt}
+% }
+% % .................. Original Item List Template ..................
+% \newcommand{\resumeItemListStart}{
+%   \begin{itemize}
+% }
+% \newcommand{\resumeItemListEnd}{
+%   \end{itemize}
+%   \vspace{-5pt}
+% }
+% % .................. Original Item Template ..................
+% \newcommand{\resumeItem}[2]{
+%   \item\small{
+%     \textbf{#1}{: #2 \vspace{-2pt}}
+%   }
+% }
+% \newcommand{\resumeItemWithoutSemicolon}[2]{
+%   \vspace{-1pt}\item\small{
+%   \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+%     \textbf{#1} & \textit{#2} \\
+%   \end{tabular*}\vspace{-13pt}
+%   }
+% }
+
+% \newcommand{\resumeSubItem}[2]{
+%   \resumeItem{#1}{#2}
+%   \vspace{-3pt}
+% }
+% \newcommand{\resumeSubItemTopLevel}[2]{
+%   \resumeItemWithoutSemicolon{#1}{#2}
+%   \vspace{-5pt}
+% }
+%endregion
+
+
+
+
+
+
+
+
+%=================================================
+%-------------------------------------------------
+%%%%%%%%%%%  CV (Resume) STARTS HERE  %%%%%%%%%%%%
+\begin{document}
+
+%-----------------HEADING-----------------
+\begin{tabular*} {\textwidth} {l@{\extracolsep{\fill}}r}
+  \textbf{ \centerline {\LARGE Siqi  Guo} \vspace {5pt} } \\
+  \centerline {\faEnvelope ~: \href{mailto:}{siqiguo@andrew.cmu.edu} \quad | \quad \faIcon{linkedin} \href{https://www.linkedin.com/in/siqiguo047/?locale=en_US}{: linkedin.com/in/siqiguo047} \quad | \quad \faPhone ~: (+1) 412-612-0495 }
+\end{tabular*}
+
+
+%----------------EDUCATION-----------------
+\section{Education}
+  \resumeEducationSubHeadingListStart
+    \resumeEducationSubheading
+      {Carnegie Mellon University} {Pittsburgh, PA}
+      {Master of Science in Electrical and Computer Engineering} {Expected May 2025}
+      \newline{}
+      \courseList {Foundations of Computer Systems, Embedded System Software Engineering, Ongoing: Parallel Computer Architecture and Programming, Distributed Systems}
+
+      \resumeEducationSubheading
+      {Tianjin University} {Tianjin, China}
+      {Bachelor of Science in Computer Science and Technology; \quad GPA: 3.84/4.0} {June 2023}
+      \newline{} 
+      % \courseList {Introduction to Computer Systems, Operating System Principle, Data Structure, Algorithms Design and Analysis, Computer Networks, Software Engineering, Principles of Database}
+      \courseList {Operating System Principle, Data Structure, Computer Networks, Principles of Database}
+  \resumeEducationSubHeadingListEnd
+	    
+
+\vspace{-9pt}
+
+%---------------- SKILLS -----------------
+\section{Skills}
+	\resumeSkillsSubHeadingListStart
+	  % \resumeSkillsSubItem{Languages}{~~~~~~C/C++, Python, C\#, JavaScript, Markdown, Dart, Golang, SQL, Bash, JAVA({\footnotesize Beginner}), Rust({\footnotesize Beginner})}
+    \resumeSkillsSubItem{Programming Languages}{~C/C++, Python, C\#, JavaScript, Markdown, Dart, SQL, Bash}
+	  \resumeSkillsSubItem{Frameworks}{~~~~~~~~~~~~~~~~~~~~~~NodeJS, Flask, .NET, React, Flutter, Django({\footnotesize Beginner}), TensorFlow, PyTorch}
+	  \resumeSkillsSubItem{Software and Tools}{~~~~~~~~~~~~GIT, Docker, MySQL, SQLServer, Qt Creator, Visual Studio Code, Xcode, Blender({\footnotesize Beginner})}
+	  \resumeSkillsSubItem{Platforms}{~~~~~~~~~~~~~~~~~~~~~~~~~~MacOS, Windows, Arduino, GCP, Kaggle}
+	  % \resumeSkillsSubItem{Soft Skills}{~~~~~~~Leadership, Event Management, Writing, Public Speaking, Time Management}
+  \resumeSkillsSubHeadingListEnd
+
+
+\vspace{-6pt}
+
+%---------- INTERN EXPERIENCE -----------
+\section{Intern Experience}
+  \resumeInternSubHeadingListStart
+      \resumeInternSubheading
+        {E2Biz SoftTech (Tianjin) Co. Ltd} {Tianjin, China}
+        {Web Developer Intern (Full-time)} {March 2023 - June 2023}
+
+      % \resumeInternItemListStart
+      %   \resumeInternItem{Product Line Supermarket System}
+      %     {Utilized ASP.NET \textbf{MVC} to build the Warehousing Order Processing Unit and the Work Order Management module, designed front-end pages with Razor and \textbf{KendoUI}, and implemented controllers to do database filtering and searching. Then, designed an image compressor with an overall \textbf{85\%} compression rate and reduced image upload time by \textbf{70\%}. Finally, cooperated with QA testers in eight function unit tests.}
+      %     \resumeInternItem{Project ESC5Scaffold}
+      %     {Launched this new project. Implemented Department Planning and User and Role Management. Customized the logic of privilege setting and department transferring with the controller.}
+      %     \resumeInternItem{OurCabin System Upgrading}
+      %     {Enhanced the Bug Tracking module and the FAQ section, and especially added the Excel exporting function for all forms with \textbf{Aspose}. Then, proposed and built an Improving Item Management and Item Stage Planning subsystem with SQLServer and ASP.NET in OurCabin. Finally, added the Auto-completion of historical records with \textbf{HTTP cookies and sessions} in the searching system which decreased the searching cache memory burden by \textbf{approximately 90\%}.}
+      % \resumeInternItemListEnd
+
+      \resumeInternItemListStart
+      \resumeInternItem{}
+        {Utilized ASP.NET \textbf{MVC} to build the Warehousing Order Processing Unit and the Work Order Management module, designed front-end pages with Razor and \textbf{KendoUI}, and implemented controllers to do database filtering and searching.}
+      \resumeInternItem{}
+        {Designed an image compressor with an overall \textbf{85\%} compression rate and reduced image upload time by \textbf{70\%} in the project, Product Line Supermarket System.}
+      \resumeInternItem{}
+        {Cooperated with QA testers in eight function unit tests, providing test cases which increased test coverage by 21\%.}
+      \resumeInternItem{}
+        {Launched this new project, ESC5Scaffold, and implemented Department Planning and User and Role Management.}
+      \resumeInternItem{}
+        {Customized the logic of privilege setting and department transferring with the controller.}
+      \resumeInternItem{}
+        {Upgraded OurCabin System by enhancing the Bug Tracking module and the FAQ section, and especially adding the Excel exporting function for all forms with \textbf{Aspose}.} 
+      \resumeInternItem{}
+        {Proposed and built an Improving Item Management and Item Stage Planning subsystem with SQLServer and ASP.NET in OurCabin.}
+      \resumeInternItem{}
+        {Added the Auto-completion of historical records with \textbf{HTTP cookies and sessions} in the searching system which decreased the searching cache memory burden by \textbf{approximately 90\%}.}
+    \resumeInternItemListEnd
+
+    % Example from the first author
+    %     \vspace{-5pt}
+    %     \resumeSubheading
+    % 		{DataCamp Inc.}{Remote}
+    % 		{Instructor (Part-time, Contractual)}{Dec 2018 -  Present}
+    % 		\resumeItemListStart
+    %         \resumeItem{Project Course - Find Movie Similarity from Plot Summaries}
+    %           {Created project based course using Unsupervised learning and natural language processing.}
+    %         \resumeItem{Tutorial - Introduction to Reinforcement Learning}
+    %           {Created tutorial for Q-learning RL algorithm and  concepts.}
+    %         \resumeItem{Impact}{Course has been taken by 250+ students so far with 4.65 average rating.}
+    % 		\resumeItemListEnd
+  \resumeInternSubHeadingListEnd
+
+
+
+\vspace{-6pt}
+
+%---------------- PROJECTS -----------------
+\section{Projects}
+  \resumeProjectsSubHeadingListStart
+    % \resumeProjectsSubHeading{{Travel App - MeiliXiu} | \href{https://github.com/Guo-lab/MeiliXiu}{React, NodeJS, Express, NoSQL \faIcon{github}}}{Jun 2023 - Aug 2023}
+    % \resumeProjectsItemListStart
+    %     \resumeProjectsItem{Utilized Middleware and engine(Handlebars) to organize Web and templates. Introduced three-party services such as Twitter and Google Maps into the App with APIs;}
+    %     \vspace{-1pt}
+    %     \resumeProjectsItem{Completed specific unit tests and integration tests with Jest.}
+    % \resumeProjectsItemListEnd
+
+    \resumeProjectsSubHeading{{Flutter ToDo App} | \href{https://github.com/Guo-lab/Flutter_exploration/tree/main/tutorials/flutter_app_todo}{Personal Project \faIcon{github}}}{Jan 2023 - Mar 2023}
+    \resumeProjectsItemListStart
+        \resumeProjectsItem{Designed UI to facilitate user interactions. Executed the integration of the Firebase Authorization module, enabling secure user authentication. Developed CURD modules for ToDo task control and utilized GCP for data storage.}
+        \vspace{-1pt}
+        \resumeProjectsItem{Performed integration testing and mocking with Flutter Driver after deploying this simple app.}
+    \resumeProjectsItemListEnd
+
+    % \resumeSubItemTopLevel{\small{Backend Comments Module - Twitter Clone} | \href{https://github.com/Guo-lab/twitter_backend_explore_proj_one}{Python, Django, RESTful API \faIcon{github}}}{Jan 2023 - Mar 2023}
+    % \resumeItemListStart
+    %     \resumeProjectsItem{;}
+    %     \vspace{-2pt}
+    %     \resumeProjectsItem{.}
+    % \resumeItemListEnd
+
+    \resumeProjectsSubHeading{Cache Simulator with L1 and L2 level | \href{https://github.com/Guo-lab/cache-simulator}{Tianjin University Course Project \faIcon{github}}}{Oct 2022 - Dec 2022}
+    \resumeProjectsItemListStart
+        \resumeProjectsItem{Implemented a simple Cache Simulator with L1 level Cache, applied various cache eviction strategies such as LRU, LFU, WBWA, and WTNA, and visualized the outcomes.}
+        \vspace{-1pt}
+        \resumeProjectsItem{Developed an advanced L2 Cache with an algorithm to effectively choose a victim cache entry.}
+    \resumeProjectsItemListEnd
+
+    \resumeProjectsSubHeading{{Full-Stack Portfolio - Personal Websites} | \href{https://github.com/Guo-lab/Full-Stack-Portfolio}{Personal Project \faIcon{github}} }{Mar 2022 - May 2022}
+    \resumeProjectsItemListStart
+        \resumeProjectsItem{Customized the schemas in the backend. Leveraged Sanity, a React-based CMS to define content models and transform contents to the front end through API integrations.}
+        \vspace{-1pt}
+        \resumeProjectsItem{Developed the Web architecture with React components and Animations with Framer Motion. Styled and refined adaptive UI with SCSS. Used GraphQL and GROQ to fetch dynamic data from the CMS. Finally, deployed this website on Netlify for optimal accessibility.}
+    \resumeProjectsItemListEnd
+
+    \resumeProjectsSubHeading{{Bilibili Database Analyst Web App} {| \href{https://github.com/Guo-lab/BilibiliDatabase}{Tianjin University Course Project \faIcon{github}}}}{Sep 2021 - Nov 2021}
+    \resumeProjectsItemListStart
+        \resumeProjectsItem{Executed web crawling on the data of the Bilibili website using Beautifulsoup and managed advanced data persistence utilizing a self-designed relational MySQL database.}
+        \vspace{-1pt}
+        \resumeProjectsItem{Built a web-based database application using Flask, employing a client-server architecture. In addition to rendering the retrieved data, integrated CRUD functionality as well to ensure seamless data management.}
+    \resumeProjectsItemListEnd
+
+    \resumeProjectsSubHeading{{Simulation of TCP Protocol} {| Tianjin University Course Project}}{Aug 2021 - Oct 2021}
+    \resumeProjectsItemListStart
+        \resumeProjectsItem{Analyzed and simulated the three-way handshake protocol used by TCP with C++, conducted program refactoring and achieved a 60\% reduction in code while optimizing structure, and
+        synthesized simulation results into a report.}
+        \vspace{-1pt}
+        \resumeProjectsItem{Verified the results of my TCP implementation by testing the packet loss rate, simulation transmission, etc.}
+    \resumeProjectsItemListEnd
+  \resumeProjectsSubHeadingListEnd
+
+
+\vspace{-6pt}
+
+
+% \section{Publications}
+% \resumeSubHeadingListStart
+%     \resumeSubItem{Conference Paper - Conditional generative adversarial networks: Introduction and application}{Ding, Y., \& \textbf{Guo, S.} (November '22). In the 2nd \textit{International Conference on Artificial Intelligence, Automation, and High-Performance Computing} (AIAHPC
+%     2022) (Vol. 12348, pp. 258-266). SPIE.}
+%     \vspace{2pt}
+%     \resumeSubItem{Conference Paper - Local-Global Defense Against Unsupervised Adversarial
+%     Attacks on Graphs}{Jin, D., Feng, B., \textbf{Guo, S.}, et al. \textit{Thirty-Seventh AAAI Conference on Artificial Intelligence}. In press.}
+% \resumeSubHeadingListEnd
+% \vspace{-6pt}
+
+
+%-----------Awards-----------------
+% \section{Honors and Awards}
+% \begin{description}[font=$\bullet$]
+% \item {\small Second Prize in Asia and Pacific Mathematical Contest in Modeling (acted as a programmer)} \hfill {\small{November 2021}}
+% \vspace{-5pt}
+% \item {\small Bronze Award in National College Algorithm Design and Programming Winter Competition} \hfill {\small{March 2021}}
+% \vspace{-5pt}
+% % \item {Third Prize in National College Mathematics Competition, National Level - November, 2020}
+% \end{description}
+
+
+% \vspace{-5pt}
+% \section{Volunteer Experience}
+%   \resumeSubHeadingListStart
+% 	\resumeSubheading
+%     {Community Lead at Developer Student Clubs NSEC}{Kolkata, India}
+%     {Conducted online and offline technical \& soft-skills training impacting over 3000 students.}{Jan 2019 - Present}
+% \vspace{5pt}
+%     % \vspace{10pt}\textbf{\large{Community Experience}}
+%     \resumeSubheading
+%     {Event Organizer at Google Developers Group Kolkata}{Kolkata, India}
+%     {Organized events, conducted workshops and delivered workshops reaching over 7000 developers.}{Jan 2018 - Present}
+% \resumeSubHeadingListEnd
+
+
+
+\end{document}
